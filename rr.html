@@ -51,6 +51,34 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   torus1.scale.set(0.6,0.6,1.4);
     torus1.castShadow = true;
     racer.add(torus1);
+  const cylinderGeometry11 = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+  const texture111 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDHDJjzXbjTNra_I0eIrnXN6SipvmtZ-U7GA&usqp=CAU');
+  const material111 = new THREE.MeshStandardMaterial({ map:texture111,metalnessMap:metalnessMap2,emissive:0x000000});
+   
+  const t1 = new THREE.Mesh(cylinderGeometry11, material111);
+    t1.position.set(-5, 0, -3);
+  t1.scale.set(2,0.6,2);
+  t1.rotation.set(Math.PI/2,Math.PI,Math.PI);
+    t1.castShadow = true;
+    racer.add(t1);
+  const t2 = new THREE.Mesh(cylinderGeometry11, material111);
+    t2.position.set(5, 0, -3);
+  t2.scale.set(2,0.6,2);
+  t2.rotation.set(Math.PI/2,Math.PI,Math.PI);
+    t2.castShadow = true;
+    racer.add(t2);
+  const t3 = new THREE.Mesh(cylinderGeometry11, material111);
+    t3.position.set(-5, 0, 3);
+  t3.scale.set(2,0.6,2);
+  t3.rotation.set(Math.PI/2,Math.PI,Math.PI);
+    t3.castShadow = true;
+    racer.add(t3);
+  const t4 = new THREE.Mesh(cylinderGeometry11, material111);
+    t4.position.set(5, 0, 3);
+  t4.scale.set(2,0.6,2);
+  t4.rotation.set(Math.PI/2,Math.PI,Math.PI);
+    t4.castShadow = true;
+    racer.add(t4);
   const texture334 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHhu-Qy0ISXTgUAYS2Lx_EOgNZjwUk859MKSQts1xBicQlV-JsaTTTIUU&s=10');
   const material112 = new THREE.MeshStandardMaterial( { map:texture334,  metalnessMap:metalnessMap2,roughnessMap:roughnessMap2} );
 
@@ -59,8 +87,6 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   torus3.scale.set(0.6,0.6,1.4);
     torus3.castShadow = true;
     racer.add(torus3);
-  const cylinderGeometry11 = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
-  
   
 
     // Second torus
@@ -165,7 +191,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   racer.add(c9);
   
   // Lighting
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(1, 2, 10);
     directionalLight.castShadow = true;
     scene.add(directionalLight);

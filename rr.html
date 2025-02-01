@@ -172,14 +172,14 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   const cylinderMaterial = new THREE.MeshStandardMaterial({ map: texture11 });
     
   const c7 = new THREE.Mesh(cylinderGeometry, seatMaterial);
-  c7.position.set(0,2,3);
-  c7.scale.set(1,6.4,1);
+  c7.position.set(0,1.5,3);
+  c7.scale.set(2,6.6,1);
   c7.rotation.set(Math.PI,Math.PI,Math.PI/2);
   c7.castShadow = true;
   racer.add(c7);
   const c8 = new THREE.Mesh(cylinderGeometry, seatMaterial);
-  c8.position.set(0,2,-3);
-  c8.scale.set(1,6.4,1);
+  c8.position.set(0,1.5,-3);
+  c8.scale.set(2,6.6,1);
   c8.rotation.set(Math.PI,Math.PI,Math.PI/2);
   c8.castShadow = true;
   racer.add(c8);

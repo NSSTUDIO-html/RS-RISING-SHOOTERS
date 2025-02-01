@@ -38,7 +38,7 @@ const textureLoader53 = new THREE.TextureLoader();
     const metalnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdN_0FmrQiJUD33tP1M5HBiiSeGCdHT5yApWgtr8idiDTPWaWXLy6TN_CV&s=10');
 const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdN_0FmrQiJUD33tP1M5HBiiSeGCdHT5yApWgtr8idiDTPWaWXLy6TN_CV&s=10');
   const texture33 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ZoxrS4GI9Wib3BYcUs-aO9RgthnGdSW1D2inUGMhk5Hn0sRbECeIsLFm&s=10');
-  const racer = new THREE.Group();
+  const rr = new THREE.Group();
     // First torus
   const geometry1 = new THREE.TorusGeometry(2, 0.5, 8, 20);
   const geometry33 = new THREE.TorusGeometry(2, 0.7, 5, 20);
@@ -50,7 +50,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     torus1.position.set(-5, 0, -3);
   torus1.scale.set(0.6,0.6,1.4);
     torus1.castShadow = true;
-    racer.add(torus1);
+    rr.add(torus1);
   const cylinderGeometry11 = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
   const texture111 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDHDJjzXbjTNra_I0eIrnXN6SipvmtZ-U7GA&usqp=CAU');
   const material111 = new THREE.MeshStandardMaterial({ map:texture111,metalnessMap:metalnessMap2,emissive:0x000000});
@@ -60,25 +60,25 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   t1.scale.set(2,0.6,2);
   t1.rotation.set(Math.PI/2,Math.PI,Math.PI);
     t1.castShadow = true;
-    racer.add(t1);
+    rr.add(t1);
   const t2 = new THREE.Mesh(cylinderGeometry11, material111);
     t2.position.set(5, 0, -3);
   t2.scale.set(2,0.6,2);
   t2.rotation.set(Math.PI/2,Math.PI,Math.PI);
     t2.castShadow = true;
-    racer.add(t2);
+    rr.add(t2);
   const t3 = new THREE.Mesh(cylinderGeometry11, material111);
     t3.position.set(-5, 0, 3);
   t3.scale.set(2,0.6,2);
   t3.rotation.set(Math.PI/2,Math.PI,Math.PI);
     t3.castShadow = true;
-    racer.add(t3);
+    rr.add(t3);
   const t4 = new THREE.Mesh(cylinderGeometry11, material111);
     t4.position.set(5, 0, 3);
   t4.scale.set(2,0.6,2);
   t4.rotation.set(Math.PI/2,Math.PI,Math.PI);
     t4.castShadow = true;
-    racer.add(t4);
+    rr.add(t4);
   const texture334 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHhu-Qy0ISXTgUAYS2Lx_EOgNZjwUk859MKSQts1xBicQlV-JsaTTTIUU&s=10');
   const material112 = new THREE.MeshStandardMaterial( { map:texture334,  metalnessMap:metalnessMap2,roughnessMap:roughnessMap2} );
 
@@ -86,7 +86,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     torus3.position.set(5, 0, -3);
   torus3.scale.set(0.6,0.6,1.4);
     torus3.castShadow = true;
-    racer.add(torus3);
+    rr.add(torus3);
   
 
     // Second torus
@@ -96,13 +96,13 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     torus2.position.set(-5, 0, 3);
   torus2.scale.set(0.6,0.6,1.4);
     torus2.castShadow = true;
-    racer.add(torus2);
+    rr.add(torus2);
   const torus5 = new THREE.Mesh(geometry2, material2);
     torus5.position.set(5, 0, 3);
   torus5.scale.set(0.6,0.6,1.4);
   torus5.rotation.set(Math.PI,Math.PI,Math.PI/2);
     torus5.castShadow = true;
-    racer.add(torus5);
+    rr.add(torus5);
   const seatGeometry = new THREE.BoxGeometry(2.5, 1, 1);
   const texture123 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR5zHtTz4Js2fBww03sKZNwflM5PG-Jq9Psx_sOJ3nf1WI4hUWJQS_Foc&s=10');
    const texture12 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKLCtE4LvxFHn9GtgjXAtfWWFcH13NsTJLC9Bq0qjl0_mclYwqhSWj9J5V&s=10');
@@ -115,57 +115,57 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   carbase.scale.set(1,13,6.6);
   carbase.rotation.set(0,0,Math.PI/2);
     carbase.castShadow = true;
-    racer.add(carbase);
+    rr.add(carbase);
   
   const carbase1 = new THREE.Mesh(seatGeometry, seatMaterial);
     carbase1.position.set(2, 3, 0);
   carbase1.scale.set(1,4,6);
   carbase1.rotation.set(0,0,Math.PI/2);
     carbase1.castShadow = true;
-    racer.add(carbase1);
+    rr.add(carbase1);
   const c1 = new THREE.Mesh(seatGeometry, seatMaterial1);
     c1.position.set(2, 3, 0);
   c1.scale.set(0.8,4,6.2);
   c1.rotation.set(0,0,Math.PI/2);
     c1.castShadow = true;
-    racer.add(c1);
+    rr.add(c1);
   const carbase2 = new THREE.Mesh(seatGeometry, seatMaterial1);
     carbase2.position.set(-1, 2.2, 0);
   carbase2.scale.set(0.6,4.4,5.9);
   carbase2.rotation.set(0,0,-Math.PI/4);
     carbase2.castShadow = true;
-    racer.add(carbase2);
+    rr.add(carbase2);
   const carbase3 = new THREE.Mesh(seatGeometry, seatMaterial1);
     carbase3.position.set(4.5,2, 0);
   carbase3.scale.set(0.6,4.4,5.9);
   carbase3.rotation.set(0,0,Math.PI/6);
     carbase3.castShadow = true;
-    racer.add(carbase3);
+    rr.add(carbase3);
   //car front face
   const c3 = new THREE.Mesh(seatGeometry, seatMaterial2);
     c3.position.set(-6.5,1, 0);
   c3.scale.set(0.3,3,3.5);
   c3.rotation.set(0,0,Math.PI);
     c3.castShadow = true;
-    racer.add(c3);
+    rr.add(c3);
   const hc3 = new THREE.Mesh(seatGeometry, seatMaterial2);
     hc3.position.set(-6.5,1.5, 2.5);
   hc3.scale.set(0.2,0.8,1.2);
   hc3.rotation.set(0,0,Math.PI);
     hc3.castShadow = true;
-    racer.add(hc3);
+    rr.add(hc3);
   const hc4 = new THREE.Mesh(seatGeometry, seatMaterial2);
     hc4.position.set(-6.5,1.5, -2.5);
   hc4.scale.set(0.2,0.8,1.2);
   hc4.rotation.set(0,0,Math.PI);
     hc4.castShadow = true;
-    racer.add(hc4);
+    rr.add(hc4);
   const c4 = new THREE.Mesh(seatGeometry, seatMaterial);
     c4.position.set(-4,1, 0);
   c4.scale.set(1.7,3,3.5);
   c4.rotation.set(0,0,Math.PI);
     c4.castShadow = true;
-    racer.add(c4);
+    rr.add(c4);
   const cylinderGeometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
   const textureLoader = new THREE.TextureLoader();
     const texture11 = textureLoader.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2ZoxrS4GI9Wib3BYcUs-aO9RgthnGdSW1D2inUGMhk5Hn0sRbECeIsLFm&s=10');
@@ -176,19 +176,19 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   c7.scale.set(2,6.6,1);
   c7.rotation.set(Math.PI,Math.PI,Math.PI/2);
   c7.castShadow = true;
-  racer.add(c7);
+  rr.add(c7);
   const c8 = new THREE.Mesh(cylinderGeometry, seatMaterial);
   c8.position.set(0,1.5,-3);
   c8.scale.set(2,6.6,1);
   c8.rotation.set(Math.PI,Math.PI,Math.PI/2);
   c8.castShadow = true;
-  racer.add(c8);
+  rr.add(c8);
   const c9 = new THREE.Mesh(cylinderGeometry, seatMaterial);
   c9.position.set(6.5,1,0);
   c9.scale.set(1,3.2,3);
   c9.rotation.set(Math.PI/2,Math.PI,Math.PI);
   c9.castShadow = true;
-  racer.add(c9);
+  rr.add(c9);
   
   // Lighting
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -197,9 +197,9 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     scene.add(directionalLight);
 
     const ambientLight = new THREE.AmbientLight(0x404040, 2);
-    racer.add(ambientLight);
-  racer.position.y += -0.5;
-  scene.add(racer);
+    rr.add(ambientLight);
+  rr.position.y += -0.5;
+  scene.add(rr);
 
     // Camera setup
     camera.position.set(0, 0, 17);

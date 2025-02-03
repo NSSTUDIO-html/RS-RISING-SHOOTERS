@@ -43,7 +43,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   const geometry1 = new THREE.TorusGeometry(1, 0.5, 10, 20);
   
   const textureLoader3 = new THREE.TextureLoader();
-  const texture = textureLoader3.load('TYRE.jpg');
+  const texture = textureLoader3.load('/storage/emulated/0/Pictures/100PINT/Pins/IMG_20250202_112543.jpg');
   const material1 = new THREE.MeshStandardMaterial({ map:texture,metalnessMap:metalnessMap2,emissive:0x000000});
     const torus1 = new THREE.Mesh(geometry1, material1);
     torus1.position.set(-5, 0.5, -4);
@@ -109,10 +109,10 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   
   //carbase and cargeometry
   const seatGeometry = new THREE.BoxGeometry(2.5, 1, 1);
-  const texture123 = textureLoader3.load('Silvermetal.jpg');
+  const texture123 = textureLoader3.load('/storage/emulated/0/Pictures/100PINT/Pins/9949cb87c0fdd69813a42dfab757846d.jpg');
    const texture12 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKLCtE4LvxFHn9GtgjXAtfWWFcH13NsTJLC9Bq0qjl0_mclYwqhSWj9J5V&s=10');
-   const seatMaterial = new THREE.MeshStandardMaterial({ map:texture123,metalnessMap:texture123,roughnessMap:texture123});
-   const seatMaterial1 = new THREE.MeshStandardMaterial({ color:0x000000,metalnessMap:metalnessMap2,roughnessMap:metalnessMap2});
+   const seatMaterial = new THREE.MeshStandardMaterial({ map:texture123,metalnessMap:texture123,roughness:0,envMap:scene.environment});
+   const seatMaterial1 = new THREE.MeshStandardMaterial({ color:0x000000,metalnessMap:metalnessMap2,roughnessMap:metalnessMap2,envMap:scene.environment});
    const seatMaterial11 = new THREE.MeshStandardMaterial({ emissive:0xffffff,metalnessMap:metalnessMap2,roughnessMap:metalnessMap2});
   
   const seatMaterial2 = new THREE.MeshStandardMaterial({ map:texture12,metalnessMap:texture123,roughnessMap:texture123});
@@ -138,7 +138,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   // mirror base
   const mcarbase3 = new THREE.Mesh(seatGeometry, seatMaterial1);
     mcarbase3.position.set(-2.4, 5.6, 0);
-  mcarbase3.scale.set(0.6,4.2,4);
+  mcarbase3.scale.set(0.6,4,4);
   mcarbase3.rotation.set(Math.PI,0,Math.PI/3);
     mcarbase3.castShadow = true;
     TESLA.add(mcarbase3);
@@ -182,7 +182,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   const hcarbase6 = new THREE.Mesh(seatGeometry, seatMaterial11);
     hcarbase6.position.set(-5, 4.5, 0);
   hcarbase6.scale.set(0.5,0.2,3.5);
-  hcarbase6.rotation.set(-Math.PI,-Math.PI,-Math.PI/3);
+  hcarbase6.rotation.set(Math.PI,Math.PI,-Math.PI/3);
     hcarbase6.castShadow = true;
     TESLA.add(hcarbase6);
   
@@ -195,7 +195,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
     TESLA.add(ambientLight);
   TESLA.position.y += 0.5;
-    TESLA.scale.set(1,1,1.2);
+  TESLA.scale.set(1,1,1.2);
   scene.add(TESLA);
 
     // Camera setup
@@ -203,7 +203,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     camera.lookAt(0, 0, 0);
 
     // Animation Variables
-    const radius = 25; // Distance from the center
+    const radius = 20; // Distance from the center
     let angleX = 0; // Starting X-axis angle
     let angleY = 0; // Starting Y-axis angle
     let swipeDirectionX = 0; // Controls rotation direction on X-axis based on swipe

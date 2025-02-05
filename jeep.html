@@ -80,8 +80,8 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   const seatGeometry = new THREE.BoxGeometry(2.5, 1, 1);
   const texture123 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYqTNhcDXKeN8lr4Gdg09244pPaXXXCZuKRbSxurwSOQGekgtRq-AvuE4I&s=10');
   const texture12 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKLCtE4LvxFHn9GtgjXAtfWWFcH13NsTJLC9Bq0qjl0_mclYwqhSWj9J5V&s=10');
-   const seatMaterial = new THREE.MeshStandardMaterial({ map:texture123,metalnessMap:texture123,roughnessMap:texture123});
-   const seatMaterial1 = new THREE.MeshStandardMaterial({ color:0x000000,metalnessMap:metalnessMap2,roughnessMap:metalnessMap2});
+   const seatMaterial = new THREE.MeshStandardMaterial({ map:texture123,metalnessMap:texture123,roughness:0.0,envMap:scene.environment});
+   const seatMaterial1 = new THREE.MeshPhongMaterial({ color:0x000000,metalnessMap:metalnessMap2,roughness:0.0});
    const seatMaterial11 = new THREE.MeshStandardMaterial({ emissive:0xffffff,metalnessMap:metalnessMap2,roughnessMap:metalnessMap2});
   
   const seatMaterial2 = new THREE.MeshStandardMaterial({ map:texture12,metalnessMap:texture123,roughnessMap:texture123});

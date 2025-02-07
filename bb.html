@@ -145,15 +145,15 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
     const textureLoader2 = new THREE.TextureLoader();
   const texture2 = textureLoader2.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT3J2iNOxVCyue-xxJPTYT1uY_kiLKg6Xgo6crf7gcajIGWBEau4-Sk__4&s=10');
-  const sphereMaterial = new THREE.MeshStandardMaterial({ map : texture2,transparent: true, opacity:0.5,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2});
+  const sphereMaterial = new THREE.MeshStandardMaterial({ map : texture2,transparent: true, opacity:0.7,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});
     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphere.position.set(0, 2, 0);
-  sphere.scale.set(1.2,1,1.5);
+    sphere.position.set(0,2.5, 0);
+  sphere.scale.set(1.2,1.2,1.2);
     bikebilla.add(sphere);
 
     
     const material1 = new THREE.MeshStandardMaterial({ map : texture3,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2 }); // Red
-    const material2 = new THREE.MeshStandardMaterial({ map : texture3,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2 }); // Blue
+    const material2 = new THREE.MeshStandardMaterial({ emissive:0x0000ff,map : texture3,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2 }); // Blue
 
     // Cuboid 1
     const geometry1 = new THREE.BoxGeometry(1, 1, 1); // Width, height, depth
@@ -165,66 +165,76 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
 
     // Cuboid 2
     const geometry2 = new THREE.BoxGeometry(1, 1, 1); // Width, height, depth
-    const cuboid2 = new THREE.Mesh(geometry2, material2);
+    const cuboid2 = new THREE.Mesh(geometry2, material1);
     cuboid2.position.set(0,1.8,0); // Position it to the right
     cuboid2.scale.set(1,0.1,1);
   bikebilla.add(cuboid2);
   
+  const geometry3 = new THREE.BoxGeometry(1, 1, 1); // Width, height, depth
+    const cuboid3 = new THREE.Mesh(geometry2, material2);
+    cuboid3.position.set(0,2.3,0.8); // Position it to the right
+    cuboid3.scale.set(1,0.1,0.8);
+  cuboid3.rotation.set(-Math.PI/3,0,0);
+  
+  bikebilla.add(cuboid3);
   scene.add(bikebilla);
 
       
   
 
-    const radius = 10;
-    let theta = Math.PI / 2; // Initial angle on the XY plane
-    let phi = Math.PI / 4; // Initial angle from the Z-axis
+     // Camera setup
+    camera.position.set(0, 0, 10);
+    camera.lookAt(0, 0, 10);
 
-    // Update camera position based on spherical coordinates
-    function updateCameraPosition() {
-      const x = radius * Math.sin(phi) * Math.cos(theta);
-      const y = radius * Math.sin(phi) * Math.sin(theta);
-      const z = radius * Math.cos(phi);
-      camera.position.set(x, y, z);
-      camera.lookAt(scene.position);
-    }
+    // Animation Variables
+    const radius = 10; // Distance from the center
+    let angleX = 0; // Starting X-axis angle
+    let angleY = 0; // Starting Y-axis angle
+    let swipeDirectionX = 0; // Controls rotation direction on X-axis based on swipe
+    let swipeDirectionY = 0; // Controls rotation direction on Y-axis based on swipe
 
-    updateCameraPosition();
+    // Touch Event Handlers
+    let startX = 0, startY = 0;
 
-    // Swipe rotation for camera
-    let lastX, lastY;
+    document.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
 
-    function onTouchStart(event) {
-      event.preventDefault();
-      lastX = event.touches[0].clientX;
-      lastY = event.touches[0].clientY;
-    }
+    document.addEventListener("touchmove", (e) => {
+      const endX = e.touches[0].clientX;
+      const endY = e.touches[0].clientY;
+      swipeDirectionX = endX - startX; // Calculate horizontal swipe for X-axis
+      swipeDirectionY = endY - startY; // Calculate vertical swipe for Y-axis
+    });
 
-    function onTouchMove(event) {
-      event.preventDefault();
-      const currentX = event.touches[0].clientX;
-      const currentY = event.touches[0].clientY;
+    document.addEventListener("touchend", (e) => {
+      swipeDirectionX = 0; // Reset X-axis swipe direction
+      swipeDirectionY = 0; // Reset Y-axis swipe direction
+    });
 
-      const deltaX = currentX - lastX;
-      const deltaY = currentY - lastY;
-
-      // Update spherical coordinates based on swipe
-      theta += deltaX * 0.01;
-      phi += deltaY * 0.01;
-
-      // Limit phi to prevent flipping
-      phi = Math.max(0.01, Math.min(Math.PI - 0.01, phi));
-
-      updateCameraPosition();
-
-      lastX = currentX;
-      lastY = currentY;
-    }
-
-    renderer.domElement.addEventListener('touchstart', onTouchStart);
-    renderer.domElement.addEventListener('touchmove', onTouchMove);
-
+    // Animation loop
     function animate() {
       requestAnimationFrame(animate);
+      //bikebilla.rotation.y -= 0.01;
+     // bikebilla.position.x += 0.1;
+      //bikebilla.scale.z += 0.1;
+
+      // Update the camera position based on swipe
+      if (swipeDirectionX !== 0 || swipeDirectionY !== 0) {
+        // Adjust the angles based on swipe direction
+        angleX += swipeDirectionX * 0.001; // X-axis rotation
+        angleY += swipeDirectionY * 0.001; // Y-axis rotation
+
+        // Update camera position based on X and Y rotation
+        camera.position.x = radius * Math.cos(angleY) * Math.cos(angleX); // X position
+        camera.position.y = radius * Math.sin(angleY); // Y position (up/down)
+        camera.position.z = radius * Math.cos(angleY) * Math.sin(angleX); // Z position (depth)
+
+        // Make the camera look at the center
+        camera.lookAt(0, 0, 0);
+      }
+
       renderer.render(scene, camera);
     }
 

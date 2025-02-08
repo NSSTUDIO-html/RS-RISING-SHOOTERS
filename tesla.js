@@ -10,7 +10,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   const geometry1 = new THREE.TorusGeometry(1, 0.5, 10, 20);
   
   const textureLoader3 = new THREE.TextureLoader();
-  const texture = textureLoader3.load('/storage/emulated/0/Pictures/100PINT/Pins/IMG_20250202_112543.jpg');
+  const texture = textureLoader3.load('TYRE.jpg');
   const material1 = new THREE.MeshStandardMaterial({ map:texture,metalnessMap:metalnessMap2,emissive:0x000000});
    export const torus1s = new THREE.Mesh(geometry1, material1);
     torus1s.position.set(-5, 0.5, -4);
@@ -74,7 +74,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
   TESLA.add(c91);
 //carbase and cargeometry
   const seatGeometry = new THREE.BoxGeometry(2.5, 1, 1);
-  const texture123 = textureLoader3.load('/storage/emulated/0/Pictures/100PINT/Pins/9949cb87c0fdd69813a42dfab757846d.jpg');
+  const texture123 = textureLoader3.load('Silvermetal.jpg');
    const texture12 = textureLoader3.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKLCtE4LvxFHn9GtgjXAtfWWFcH13NsTJLC9Bq0qjl0_mclYwqhSWj9J5V&s=10');
    const seatMaterial = new THREE.MeshStandardMaterial({ map:texture123,metalnessMap:texture123,roughness:0.0,envMap:scene.environment});
    const seatMaterial1 = new THREE.MeshStandardMaterial({ color:0x000000,metalnessMap:metalnessMap2,roughnessMap:metalnessMap2,envMap:scene.environment});

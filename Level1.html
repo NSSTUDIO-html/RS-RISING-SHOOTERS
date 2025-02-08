@@ -81,46 +81,46 @@
             renderer.setPixelRatio(window.devicePixelRatio);
             document.body.appendChild(renderer.domElement);
 
-            scene.background = new THREE.Color( 0x404040 );
+            scene.background = new THREE.Color( 0x0000ff );
             //const ocontrols = new THREE.OrbitControls(camera);
             //ocontrols.enableDamping = true;
             //ocontrols.dampingFactor = 0.05;
 
              // Skybox Texture Loading (using CubeTextureLoader)
     
-            import { bikebilla } from '/storage/emulated/0/bb.js';
-import { c1 } from '/storage/emulated/0/bb.js';
-import { c2 } from '/storage/emulated/0/bb.js';
-import { c3 } from '/storage/emulated/0/bb.js';
-  import { avenger } from '/storage/emulated/0/avenger.js';
-import { torus1 } from '/storage/emulated/0/avenger.js';
-import { torus2 } from '/storage/emulated/0/avenger.js';
-import { torus3 } from '/storage/emulated/0/avenger.js';
-import { ultrarider } from '/storage/emulated/0/ultrarider.js';
-import { torus11 } from '/storage/emulated/0/ultrarider.js';
-import { torus22 } from '/storage/emulated/0/ultrarider.js';
-import { torus33 } from '/storage/emulated/0/ultrarider.js';
-import { torus44 } from '/storage/emulated/0/ultrarider.js';
-import { racer } from '/storage/emulated/0/racer.js';
-import { torus12 } from '/storage/emulated/0/racer.js';
-import { torus23 } from '/storage/emulated/0/racer.js';
-import { torus34 } from '/storage/emulated/0/racer.js';
-import { torus45 } from '/storage/emulated/0/racer.js';
-import { rr } from '/storage/emulated/0/rr.js';
-import { torus111 } from '/storage/emulated/0/rr.js';
-import { torus222 } from '/storage/emulated/0/rr.js';
-import { torus333 } from '/storage/emulated/0/rr.js';
-import { torus555 } from '/storage/emulated/0/rr.js';
-import { jeep } from '/storage/emulated/0/jeep.js';
-import { torus1t } from '/storage/emulated/0/jeep.js';
-import { torus2t } from '/storage/emulated/0/jeep.js';
-import { torus3t } from '/storage/emulated/0/jeep.js';
-import { torus5t } from '/storage/emulated/0/jeep.js';
-import { TESLA } from '/storage/emulated/0/tesla.js';
-import { torus1s } from '/storage/emulated/0/tesla.js';
-import { torus2s } from '/storage/emulated/0/tesla.js';
-import { torus3s } from '/storage/emulated/0/tesla.js';
-import { torus5s } from '/storage/emulated/0/tesla.js';
+            import { bikebilla } from 'bb.js';
+import { c1 } from 'bb.js';
+import { c2 } from 'bb.js';
+import { c3 } from 'bb.js';
+  import { avenger } from 'avenger.js';
+import { torus1 } from 'avenger.js';
+import { torus2 } from 'avenger.js';
+import { torus3 } from 'avenger.js';
+import { ultrarider } from 'ultrarider.js';
+import { torus11 } from 'ultrarider.js';
+import { torus22 } from 'ultrarider.js';
+import { torus33 } from 'ultrarider.js';
+import { torus44 } from 'ultrarider.js';
+import { racer } from 'racer.js';
+import { torus12 } from 'racer.js';
+import { torus23 } from 'racer.js';
+import { torus34 } from 'racer.js';
+import { torus45 } from 'racer.js';
+import { rr } from 'rr.js';
+import { torus111 } from 'rr.js';
+import { torus222 } from 'rr.js';
+import { torus333 } from 'rr.js';
+import { torus555 } from 'rr.js';
+import { jeep } from 'jeep.js';
+import { torus1t } from 'jeep.js';
+import { torus2t } from 'jeep.js';
+import { torus3t } from 'jeep.js';
+import { torus5t } from 'jeep.js';
+import { TESLA } from 'tesla.js';
+import { torus1s } from 'tesla.js';
+import { torus2s } from 'tesla.js';
+import { torus3s } from 'tesla.js';
+import { torus5s } from 'tesla.js';
 
   
   scene.add(bikebilla);
@@ -193,8 +193,8 @@ scene.add(racer);
     
 
     const textureLoader53 = new THREE.TextureLoader();
-    const grass = textureLoader53.load('/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images/IMG-20250207-WA0035.jpg');
-  const road11 = textureLoader53.load('/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images/IMG-20250207-WA0036.jpg');
+    const grass = textureLoader53.load('IMG-20250207-WA0035.jpg');
+  const road11 = textureLoader53.load('IMG-20250207-WA0036.jpg');
   
             // CORRECTED: Case-sensitive and module path corrected
             const geometry = new THREE.BoxGeometry(180, 5, 180); 

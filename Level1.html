@@ -512,7 +512,8 @@ function animate() {
         }
     }
   const currentStep5 = animationSequence[currentAnimationStep5];
-if (currentStep5) {
+
+    if (currentStep5) {
         switch (currentStep5.type) {
             case 'moveX':
                 const xDifference5 = currentStep5.target - TESLA.position.x;

@@ -1,0 +1,312 @@
+const scene = new THREE.Scene();
+  scene.background = new THREE.Color( 0xAAAAAA ); // Hexadecimal color (gray in this case)
+
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const textureLoader53 = new THREE.TextureLoader();
+    
+const metalnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdN_0FmrQiJUD33tP1M5HBiiSeGCdHT5yApWgtr8idiDTPWaWXLy6TN_CV&s=10');
+const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9RFNpYMVcpl0rWLwaPcBPERf-P5E-miwCES4MV43EqmbRdTmqSz6dRnM&s=10');
+ export const avenger = new THREE.Group();
+    // First torus (Front Wheel)
+    const geometry1 = new THREE.TorusGeometry(2, 0.5, 10, 200);
+    const textureLoader3 = new THREE.TextureLoader();
+    const texture = textureLoader3.load('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAKgBKwMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAAAgEDB//EACYQAQEBAAAFBAICAwAAAAAAAAABEQIhMfDxEkFhcTLhsdEicqH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/APEgGkAAAAAAAAAAAaDGjcBg1qokUYCRTMBjFMRWDWAAAAAAAAAAAAAAAAAAAAAAANABuDYqBjW4ozGtxuAnDFYYCDFYYCLGYuxmIJrFVgMY1iKAAAAAAAAAAAAAAAAAAA0BsI2KjY2QkbIoSNkbIqQGYYrFekEYYvD0g54zHSxNgqLE46WJsERYyxVjKCBrEGAIoAAAAAAAAAAAAAAAA0aDY2MVFRsVGRUUbIuQkXIDM536Vjc536biKmQxedPpl6oIsTY62JsUcbE2Otn8IsVHOxNi6mgisqqmpRjK1iKAAAAAAAAAAAAAAAQGtjGxRUbGRUVFRfCmL4RVcLpE8K4yGc/C5OXgk539qk75gmTp+PQs5+Fz2+vllnfMEWcv7xF638XW9PKOL3/YOfEiutjlxLBzqaupqoipqqmgkbWMqwAAAAAAAAAAAAAAgQGtjGxUUqJioouL4URfCDpO+i530RFzp5ZVX+O36+Fzp4TLzv7VL3zBs9PLp/xl9O+Gz2+vllvfMGX05fv4Rev9Yu3l5Ret/YJvfRz4u+jpxOdWDnU1VTVRFTVVIMY2pZUAAAAAAAAAAAAAAIANbGNUVFREVFRcXwucVwg68NdI5SrlRV+/hcvfJz3nVagrf9Ten38J3p9M0G28vCeL3/FtqbQZXPiVaiqJqa2pqjE1tTRGAxlQAAAAAAAAAAAAAAABrGg1UTGyqi4qIlbKo6SrlcpWyg7arXHVTiRXSU1z9R6jBdqbU6m3qCrUaWptVCpLWWgyspWIDARQAAAAAAAAAAAAAAABrAGtjARcbKiNlUXK2VGt1R001Gt0F6ajTQVrNTpoNtTaVloFrLSsQYDEUAAAAAAAAAAAAAAAAAAAAawBrZWAKhrBUVrUa3QVokUaaxmpo3WWsAbawYit1gAAAAAAAAAAAAAAAAAAAAAAAAANAAAAAQAFGAAAAAAAAAAAAAAAD//Z');
+  const material1 = new THREE.MeshStandardMaterial({ map:texture,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2,emissive:0x000000});
+    export const torus1 = new THREE.Mesh(geometry1, material1);
+    torus1.position.set(-7, 0, 0);
+    torus1.scale.set(1,1,1.5);
+    torus1.castShadow = true;
+    avenger.add(torus1);
+
+    // Second torus (Rear Wheel)
+    const geometry2 = new THREE.TorusGeometry(2, 0.5,10, 200);
+    const material2 = new THREE.MeshStandardMaterial({ map:texture});
+   export const torus2 = new THREE.Mesh(geometry2, material1);
+    torus2.position.set(7, 0, 0);
+    torus2.scale.set(1,1,1.5);
+    torus2.castShadow = true;
+    avenger.add(torus2);
+  
+
+    // Motorcycle body parts
+    const cylinderGeometry = new THREE.CylinderGeometry(0.5, 0.5, 2, 32);
+    const textureLoader = new THREE.TextureLoader();
+    const texture11 = textureLoader.load('data:image/jpeg;base64,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');
+  const cylinderMaterial = new THREE.MeshStandardMaterial({ map: texture11,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2,emissive:0x000000 });
+    
+    // Frame parts
+    const frame1 = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    frame1.position.set(-4,1,-1);
+    frame1.scale.set(0.3,4,0.3);
+    frame1.rotation.set(0,0,-Math.PI/3);
+    frame1.castShadow = true;
+    avenger.add(frame1);
+  const frame3 = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    frame3.position.set(-4,1,-1);
+    frame3.scale.set(0.6,2.5,0.6);
+    frame3.rotation.set(0,0,-Math.PI/3);
+    frame3.castShadow = true;
+    avenger.add(frame3);
+    
+    const frame2 = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    frame2.position.set(-4,1,1);
+    frame2.scale.set(0.3,4,0.3);
+    frame2.rotation.set(0,0,-Math.PI/3);
+    frame2.castShadow = true;
+    avenger.add(frame2);
+  const frame4 = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    frame4.position.set(-4,1,1);
+    frame4.scale.set(0.6,2.5,0.6);
+    frame4.rotation.set(0,0,-Math.PI/3);
+    frame4.castShadow = true;
+    avenger.add(frame4);
+  
+  //inner tire
+  const geometry3 = new THREE.TorusGeometry(1.5, 0.1, 18, 200);  
+ export const torus3 = new THREE.Mesh(geometry3, cylinderMaterial);
+    torus3.position.set(7, 0, 0);
+    torus3.scale.set(1,1,5);
+    torus3.castShadow = true;
+    avenger.add(torus3);
+  
+ export const torus4 = new THREE.Mesh(geometry3, cylinderMaterial);
+    torus4.position.set(-7, 0, 0);
+    torus4.scale.set(1,1,5);
+    torus4.castShadow = true;
+    avenger.add(torus4);
+
+ // Handlebar
+    const handlebarGeometry = new THREE.CylinderGeometry(0.2, 0.2, 4, 32);
+    const handlebarMaterial = new THREE.MeshStandardMaterial({ map:texture11,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2,emissive:0x000000});
+    const handlebar = new THREE.Mesh(handlebarGeometry, handlebarMaterial);
+    handlebar.position.set(-0.5, 3.2, 0);
+  handlebar.scale.set(1,0.5,3);
+    handlebar.rotation.set(Math.PI / 2,Math.PI/3,Math.PI);
+    handlebar.castShadow = true;
+    avenger.add(handlebar);
+  
+   const handlebar5 = new THREE.Mesh(handlebarGeometry, handlebarMaterial);
+    handlebar5.position.set(0, 3.5, 1);
+  handlebar5.scale.set(1,0.5,1);
+    handlebar5.rotation.set(Math.PI,Math.PI,-Math.PI/2.5);
+    handlebar5.castShadow = true;
+    avenger.add(handlebar5);
+  
+  const handlebar6 = new THREE.Mesh(handlebarGeometry, handlebarMaterial);
+    handlebar6.position.set(0, 3.5, -1);
+  handlebar6.scale.set(1,0.5,1);
+    handlebar6.rotation.set(Math.PI,Math.PI,-Math.PI/2.5);
+    handlebar6.castShadow = true;
+    avenger.add(handlebar6);
+  
+  const handlebar7 = new THREE.Mesh(handlebarGeometry, material2);
+    handlebar7.position.set(1.2, 3.8, -1);
+  handlebar7.scale.set(1,0.3,1);
+    handlebar7.rotation.set(Math.PI,Math.PI,-Math.PI/2);
+    handlebar7.castShadow = true;
+    avenger.add(handlebar7);
+  
+  const handlebar8 = new THREE.Mesh(handlebarGeometry, material2);
+    handlebar8.position.set(1.2, 3.8, 1);
+  handlebar8.scale.set(1,0.3,1);
+    handlebar8.rotation.set(Math.PI,Math.PI,-Math.PI/2);
+    handlebar8.castShadow = true;
+    avenger.add(handlebar8);
+  
+  
+  
+  const handlebar2 = new THREE.Mesh(handlebarGeometry, handlebarMaterial);
+    handlebar2.position.set(-1.5, 2.5, 0);
+  handlebar2.scale.set(1,0.6,1);
+    handlebar2.rotation.set(Math.PI / 2,Math.PI/3,Math.PI);
+    handlebar2.castShadow = true;
+    avenger.add(handlebar2);
+  
+  const handlebar3 = new THREE.Mesh(handlebarGeometry, handlebarMaterial);
+    handlebar3.position.set(-7.5, -1, 0);
+  handlebar3.scale.set(1,0.6,2);
+    handlebar3.rotation.set(Math.PI / 2,Math.PI/3,Math.PI);
+    handlebar3.castShadow = true;
+    avenger.add(handlebar3);
+
+ // Seat
+    const seatGeometry = new THREE.BoxGeometry(2.5, 1, 1);
+    const seatMaterial = new THREE.MeshStandardMaterial({ map:texture,metalnessMap:metalnessMap2,roughnessMap:roughnessMap2,emissive:0x000000});
+    const seat = new THREE.Mesh(seatGeometry, seatMaterial);
+    seat.position.set(3,2, 0);
+    seat.castShadow = true;
+    avenger.add(seat);
+  
+  const textureLoader34 = new THREE.TextureLoader();
+    const redtexture = textureLoader34.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2QT0Z5BW8SzFg8uI_AJXjgbcWy1CjqPmD0xpjUX-KAPXFIKbdovQn30U&s=10');
+  const metalnessMap1 = textureLoader34.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdN_0FmrQiJUD33tP1M5HBiiSeGCdHT5yApWgtr8idiDTPWaWXLy6TN_CV&s=10');
+const roughnessMap1 = textureLoader34.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9RFNpYMVcpl0rWLwaPcBPERf-P5E-miwCES4MV43EqmbRdTmqSz6dRnM&s=10');
+  
+  // Create a geometry for the hemisphere
+const geometry45 = new THREE.SphereGeometry( 0.5, 32, 32 );
+
+// Create a material for the hemisphere
+const material45 = new THREE.MeshPhongMaterial( { map: texture11,emissive:0xffff00 } ); 
+const lights = new THREE.Group();
+// Create a mesh with the geometry and material
+const headlight1 = new THREE.Mesh( geometry45, material45 );
+lights.add( headlight1 );
+  headlight1.position.set(-1.5,2.7,0);
+  headlight1.scale.set(2,1,1);
+  headlight1.rotation.set(Math.PI,Math.PI,Math.PI);
+  avenger.add(lights);
+  
+  const spotLight = new THREE.SpotLight( 0xffffff ,1,100);
+spotLight.position.set( 1, -1, 0 ); 
+
+// Rotate the spotlight 45 degrees on the y-axis
+
+
+avenger.add( spotLight );
+
+const redbase = new THREE.Group();
+
+
+  //seatbase
+  // Create a red sphere geometry
+const geometry = new THREE.SphereGeometry( 1, 32, 16 );
+// Create a red material
+const material = new THREE.MeshStandardMaterial( { map : redtexture , metalnessMap:metalnessMap1,roughnessMap:roughnessMap1,emissive:0x000000} );
+// Create a mesh with the red sphere geometry and material
+const sphere = new THREE.Mesh( geometry, material);
+// Add the red sphere to the scene
+redbase.add( sphere );
+  sphere.position.set(0,2,0);
+  sphere.scale.set(2,1,0.8);
+  sphere.castShadow = true;
+  
+  const seatb = new THREE.Mesh(seatGeometry, material);
+    seatb.position.set(2, -1, 0);
+  seatb.scale.set(2,0.6,1.5);
+  seatb.rotation.set(0,0,Math.PI);
+    seatb.castShadow = true;
+    redbase.add(seatb);
+  //engine
+  const eng = new THREE.Mesh(seatGeometry, cylinderMaterial);
+    eng.position.set(2, -0.5, 0);
+  eng.scale.set(1,1,1);
+  eng.rotation.set(0,0,Math.PI);
+    eng.castShadow = true;
+    avenger.add(eng);
+  
+  const eng1 = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    eng1.position.set(2, 0, 0);
+  eng1.scale.set(1,0.8,1);
+  eng1.rotation.set(0,0,Math.PI);
+    eng1.castShadow = true;
+    avenger.add(eng1);
+  
+  const eng12 = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    eng12.position.set(1, 0, 0);
+  eng12.scale.set(1,0.8,1);
+  eng12.rotation.set(0,0,Math.PI/6);
+    eng12.castShadow = true;
+    avenger.add(eng12);
+  
+  const eng123 = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+    eng123.position.set(3, 0, 0);
+  eng123.scale.set(1,0.8,1);
+  eng123.rotation.set(0,0,-Math.PI/6);
+    eng123.castShadow = true;
+    avenger.add(eng123);
+  const seatb1 = new THREE.Mesh(seatGeometry, material);
+    seatb1.position.set(-1, 0.5, 0);
+  seatb1.scale.set(1.5,0.6,1.5);
+  seatb1.rotation.set(0,0,-Math.PI/3);
+    seatb.castShadow = true;
+    redbase.add(seatb1);
+  const spherel = new THREE.Mesh( geometry, material );
+// Add the red sphere to the scene
+avenger.add( spherel );
+  spherel.position.set(2,1.5,0);
+  spherel.scale.set(2,0.8,0.8);
+  spherel.rotation.set(0,0,-Math.PI/6);
+  spherel.castShadow = true;
+  const spher = new THREE.Mesh( geometry, material );
+// Add the red sphere to the scene
+redbase.add( spher );
+  spher.position.set(4,1.2,0);
+  spher.scale.set(1.5,0.9,0.8);
+  spher.rotation.set(0,0,Math.PI/6);
+  spher.castShadow = true;
+// Create a cube geometry
+const geometry33 = new THREE.BoxGeometry( 1, 1, 1 ); 
+const material33 = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube1 = new THREE.Mesh( geometry33, material33 );
+redbase.add( cube1 );
+  cube1.position.set(4.3,0.5,0);
+  cube1.scale.set(0.5,3,1);
+  
+  const cube2 = new THREE.Mesh( geometry33, material33 );
+avenger.add( cube2);
+  cube2.position.set(5,2,0);
+  cube2.scale.set(0.5,3,1);
+  cube2.rotation.set(Math.PI,Math.PI,-Math.PI/3);
+
+const sphert = new THREE.Mesh( geometry, material );
+// Add the red sphere to the scene
+redbase.add( sphert );
+  sphert.position.set(4.3,0.3,0);
+  sphert.scale.set(1,1.8,0.8);
+  sphert.rotation.set(0,0,Math.PI);
+  const sphertt = new THREE.Mesh( geometry, material );
+// Add the red sphere to the scene
+redbase.add( sphertt );
+  sphertt.position.set(5,2,0);
+  sphertt.scale.set(2,0.8,1);
+  sphertt.rotation.set(0,0,Math.PI/6);
+const sphert1 = new THREE.Mesh( geometry, material );
+
+redbase.add( sphert1 );
+  sphert1.position.set(-4,0.3,0);
+  sphert1.scale.set(0.5,1.7,0.5);
+  sphert1.rotation.set(0,0,Math.PI);
+  const sphertt1 = new THREE.Mesh( geometry, material );
+redbase.add( sphertt1 );
+  sphertt1.position.set(-5,2,0);
+  sphertt1.scale.set(1.7,0.6,1);
+  sphertt1.rotation.set(0,0,-Math.PI/6);
+  const sphertt2 = new THREE.Mesh( geometry, material );
+redbase.add( sphertt2 );
+  sphertt2.position.set(6,-0.5,1);
+  sphertt2.scale.set(2,0.6,0.4);
+  sphertt2.rotation.set(0,0,-Math.PI/6);
+const sphertt3 = new THREE.Mesh( geometry, material );
+redbase.add( sphertt3 );
+  sphertt3.position.set(6,-0.5,-1);
+  sphertt3.scale.set(2,0.6,0.4);
+  sphertt3.rotation.set(0,0,-Math.PI/6);
+const sphertt4 = new THREE.Mesh( geometry, material );
+redbase.add( sphertt4 );
+  sphertt4.position.set(5.5,1,1);
+  sphertt4.scale.set(1.5,0.6,0.5);
+  sphertt4.rotation.set(0,0,Math.PI/6);
+const sphertt5 = new THREE.Mesh( geometry, material );
+redbase.add( sphertt5);
+  sphertt5.position.set(5.5,1,-1);
+  sphertt5.scale.set(1.5,0.6,0.5);
+  sphertt5.rotation.set(0,0,Math.PI/6);
+
+// Lights
+    const headlightGeometry = new THREE.SphereGeometry(0.7, 32, 32);
+    const headlightMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+    const headlight = new THREE.Mesh(headlightGeometry, headlightMaterial);
+    headlight.position.set(7, -1, 0);
+    headlight.castShadow = true;
+    redbase.add(headlight);
+
+    const taillightGeometry = new THREE.SphereGeometry(0.7, 32, 32);
+    const taillightMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+    const taillight = new THREE.Mesh(taillightGeometry, taillightMaterial);
+    taillight.position.set(6.3, 0.6, 0);
+    taillight.castShadow = true;
+    redbase.add(taillight);
+  
+  avenger.add(redbase);
+  scene.add(avenger);
+export default avenger ;

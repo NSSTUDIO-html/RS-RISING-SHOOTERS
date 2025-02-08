@@ -511,4 +511,101 @@ function animate() {
                 break;
         }
     }
-  const currentStep5 = animationSequence[currentAnimationStep5]
+  const currentStep5 = animationSequence[currentAnimationStep5];
+if (currentStep5) {
+        switch (currentStep5.type) {
+            case 'moveX':
+                const xDifference5 = currentStep5.target - TESLA.position.x;
+                
+          if (Math.abs(xDifference5) < jeepSpeedm) {
+                    TESLA.position.x = currentStep5.target;
+                    currentAnimationStep5++;
+                } else {
+                    TESLA.position.x += Math.sign(xDifference5) * jeepSpeedm; // Move in the correct direction
+                }
+                break;
+
+            case 'moveZ':
+                const zDifference5 = currentStep5.target - TESLA.position.z;
+                if (Math.abs(zDifference5) < jeepSpeedrr) {
+                    TESLA.position.z = currentStep5.target;
+                    currentAnimationStep5++;
+                } else {
+                    TESLA.position.z += Math.sign(zDifference5) * jeepSpeedm; // Move in the correct direction
+                }
+                break;
+
+            case 'rotate':
+                const rotationDifference5 = currentStep5.target - TESLA.rotation.y;
+                if (Math.abs(rotationDifference5) < jeepRotationSpeed) {
+                    TESLA.rotation.y = currentStep4.target;
+                    currentAnimationStep5++;
+                } else {
+                    TESLA.rotation.y += Math.sign(rotationDifference5) * jeepRotationSpeed; // Rotate in the correct direction
+                }
+                break;
+        }
+    }
+      
+    
+
+    // ... (rest of your code: bikebilla controls, rendering, etc.)
+
+    requestAnimationFrame(animate);
+
+
+ // Start the animation loop
+
+  
+
+
+
+      // Move car based on keys
+      if (keys.down) {
+        bikebilla.position.x -= Math.sin(bikebilla.rotation.y) * carSpeed;
+        bikebilla.position.z -= Math.cos(bikebilla.rotation.y) * carSpeed;
+        c1.rotation.x -= Math.PI/2;
+        c2.rotation.x -= Math.PI/2;
+        c3.rotation.x -= Math.PI/2;
+      }
+      if (keys.up) {
+        bikebilla.position.x += Math.sin(bikebilla.rotation.y) * carSpeed;
+        bikebilla.position.z += Math.cos(bikebilla.rotation.y) * carSpeed;
+        c1.rotation.x += Math.PI/2;
+        c2.rotation.x += Math.PI/2;
+        c3.rotation.x += Math.PI/2;
+      }
+      if (keys.left) {
+        bikebilla.rotation.y += rotationSpeed;
+        
+        
+      }
+      if (keys.right) {
+        bikebilla.rotation.y -= rotationSpeed;
+        
+        
+      } // Update the camera position based on swipe
+      if (swipeDirectionX !== 0 || swipeDirectionY !== 0) {
+        // Adjust the angles based on swipe direction
+        angleX += swipeDirectionX * 0.001; // X-axis rotation
+        angleY += swipeDirectionY * 0.001; // Y-axis rotation
+
+        // Update camera position based on X and Y rotation
+        camera.position.x = radius * Math.cos(angleY) * Math.cos(angleX); // X position
+        camera.position.y = radius * Math.sin(angleY); // Y position (up/down)
+        camera.position.z = radius * Math.cos(angleY) * Math.sin(angleX); // Z position (depth)
+
+        // Make the camera look at the center
+        camera.lookAt(bikebilla.position);
+      }
+updateCarPosition();
+      // Render the scene
+      renderer.render(scene, camera);
+  
+    }
+
+    animate();
+  </script>
+</body>
+</html>
+    

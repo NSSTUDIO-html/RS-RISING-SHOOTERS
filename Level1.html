@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LEVEL 1 RACE WITH BB</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+    <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+    #controls {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      margin: 5px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      touch-action: none;
+      align:left;
+    }
+  #up {
+    justify-self:end;
+    position:relative;
+    left:100px;
+    background:url('https://cdn-icons-png.flaticon.com/512/3602/3602590.png');
+    background-position:center;
+    background-size:100%;
+    padding:30px;
+    background-color:white;
+  }
+  #down {
+    justify-self:end;
+    position:relative;
+    left:100px;
+    background:url('https://cdn-icons-png.flaticon.com/512/3602/3602590.png');
+    background-position:center;
+    background-size:100%;
+    transform: rotate(180deg);
+    padding:30px;background-color:white;
+  }
+  #left,#right {
+    justify-self:end;
+    position:relative;
+    right:100px;}
+  #left{
+    background:url('https://cdn-icons-png.flaticon.com/512/3602/3602590.png');
+    background-position:center;
+    background-size:100%;
+    transform: rotate(-90deg);
+    padding:30px;background-color:white;
+  }
+  #right{
+    background:url('https://cdn-icons-png.flaticon.com/512/3602/3602590.png');
+    background-position:center;
+    background-size:100%;
+    transform: rotate(90deg);
+    padding:30px;background-color:white;
+  }
+  </style>
+</head>
+<body>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script type="module">
+    
+    
+        
+            
+            const scene = new THREE.Scene();
+             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            document.body.appendChild(renderer.domElement);
+
+            scene.background = new THREE.Color( 0x404040 );
+            //const ocontrols = new THREE.OrbitControls(camera);
+            //ocontrols.enableDamping = true;
+            //ocontrols.dampingFactor = 0.05;
+
+             // Skybox Texture Loading (using CubeTextureLoader)
+    
+            import { bikebilla } from '/storage/emulated/0/bb.js';
+import { c1 } from '/storage/emulated/0/bb.js';
+import { c2 } from '/storage/emulated/0/bb.js';
+import { c3 } from '/storage/emulated/0/bb.js';
+  import { avenger } from '/storage/emulated/0/avenger.js';
+import { torus1 } from '/storage/emulated/0/avenger.js';
+import { torus2 } from '/storage/emulated/0/avenger.js';
+import { torus3 } from '/storage/emulated/0/avenger.js';
+import { ultrarider } from '/storage/emulated/0/ultrarider.js';
+import { torus11 } from '/storage/emulated/0/ultrarider.js';
+import { torus22 } from '/storage/emulated/0/ultrarider.js';
+import { torus33 } from '/storage/emulated/0/ultrarider.js';
+import { torus44 } from '/storage/emulated/0/ultrarider.js';
+import { racer } from '/storage/emulated/0/racer.js';
+import { torus12 } from '/storage/emulated/0/racer.js';
+import { torus23 } from '/storage/emulated/0/racer.js';
+import { torus34 } from '/storage/emulated/0/racer.js';
+import { torus45 } from '/storage/emulated/0/racer.js';
+import { rr } from '/storage/emulated/0/rr.js';
+import { torus111 } from '/storage/emulated/0/rr.js';
+import { torus222 } from '/storage/emulated/0/rr.js';
+import { torus333 } from '/storage/emulated/0/rr.js';
+import { torus555 } from '/storage/emulated/0/rr.js';
+import { jeep } from '/storage/emulated/0/jeep.js';
+import { torus1t } from '/storage/emulated/0/jeep.js';
+import { torus2t } from '/storage/emulated/0/jeep.js';
+import { torus3t } from '/storage/emulated/0/jeep.js';
+import { torus5t } from '/storage/emulated/0/jeep.js';
+import { TESLA } from '/storage/emulated/0/tesla.js';
+import { torus1s } from '/storage/emulated/0/tesla.js';
+import { torus2s } from '/storage/emulated/0/tesla.js';
+import { torus3s } from '/storage/emulated/0/tesla.js';
+import { torus5s } from '/storage/emulated/0/tesla.js';
+
+  
+  scene.add(bikebilla);
+    bikebilla.position.set(20,2.5,50);
+    bikebilla.rotation.set(0,-Math.PI/2,0);
+  scene.add(avenger);
+    avenger.position.set(20,5,55);
+    avenger.rotation.set(0,0,0);
+  avenger.scale.set(0.4,0.4,0.4);
+  scene.add(ultrarider);
+    ultrarider.position.set(20,5,45);
+    ultrarider.rotation.set(0,0,0);
+  ultrarider.scale.set(0.4,0.4,0.4);
+scene.add(racer);
+    racer.position.set(28,4.5,50);
+    racer.rotation.set(0,Math.PI/1.001,0);
+  racer.scale.set(0.4,0.4,0.4);
+  scene.add(rr);
+    rr.position.set(28,4.5,45);
+    rr.rotation.set(0,0,0);
+  rr.scale.set(0.4,0.4,0.4);
+  scene.add(jeep);
+    jeep.position.set(28,4.5,55);
+    jeep.rotation.set(0,0,0);
+  jeep.scale.set(0.4,0.4,0.4);
+  scene.add(TESLA);
+    TESLA.position.set(35,5,50);
+    TESLA.rotation.set(0,0,0);
+  TESLA.scale.set(0.5,0.5,0.5);
+
+    // Position the camera
+    camera.position.set(bikebilla.position);
+  camera.rotation.set(0,Math.PI/2,0);
+    camera.lookAt(bikebilla.position);
+      // Car movement variables
+    const carSpeed = 0.5;
+ 
+    const rotationSpeed = 0.02;
+
+    // Touch controls
+    const controls = document.createElement('div');
+    controls.id = 'controls';
+    controls.innerHTML = `
+  
+      <button class="button"style="justify-self:start;" id="up"></button><br>
+      <button class="button" id="left"></button>
+      <button class="button" id="right"></button><br>
+      <button class="button" id="down"></button>
+    
+  `;
+    document.body.appendChild(controls);
+
+    const keys = {
+      up: false,
+      down: false,
+      left: false,
+      right: false
+    };
+
+    // Add event listeners for touch controls
+    document.getElementById('up').addEventListener('touchstart', () => keys.up = true);
+    document.getElementById('up').addEventListener('touchend', () => keys.up = false);
+    document.getElementById('down').addEventListener('touchstart', () => keys.down = true);
+    document.getElementById('down').addEventListener('touchend', () => keys.down = false);
+    document.getElementById('left').addEventListener('touchstart', () => keys.left = true);
+    document.getElementById('left').addEventListener('touchend', () => keys.left = false);
+    document.getElementById('right').addEventListener('touchstart', () => keys.right = true);
+    document.getElementById('right').addEventListener('touchend', () => keys.right = false);
+
+    
+
+    const textureLoader53 = new THREE.TextureLoader();
+    const grass = textureLoader53.load('/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images/IMG-20250207-WA0035.jpg');
+  const road11 = textureLoader53.load('/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images/IMG-20250207-WA0036.jpg');
+  
+            // CORRECTED: Case-sensitive and module path corrected
+            const geometry = new THREE.BoxGeometry(180, 5, 180); 
+            const material = new THREE.MeshStandardMaterial({ map:grass, roughness: 0.5, metalness: 0.2,envMap:scene.environment });
+            const rmaterial = new THREE.MeshStandardMaterial({ map:road11, roughness: 0.5, metalness: 0.2,envMap:scene.environment });
+            const fmaterial = new THREE.MeshStandardMaterial({ color : 0xffffff, roughness: 0.5, metalness: 0.2,envMap:scene.environment });
+            
+            const land = new THREE.Mesh(geometry, material);
+            scene.add(land);
+            
+            const road = new THREE.Mesh(geometry, rmaterial);
+            road.scale.set(0.7,1.5,0.1);
+            road.position.set(-3,0,-30);
+            
+            scene.add(road);
+            const road1 = new THREE.Mesh(geometry, rmaterial);
+            road1.scale.set(0.1,1.54,0.7);
+            road1.position.set(-25,0,-22);
+            
+            scene.add(road1);
+            const road2 = new THREE.Mesh(geometry, rmaterial);
+            road2.scale.set(0.1,1.53,0.4);
+            road2.position.set(-60,0,-50);
+            
+            scene.add(road2);
+            const road3 = new THREE.Mesh(geometry, rmaterial);
+            road3.scale.set(0.2,1.51,0.11);
+            road3.position.set(-35,0,-76);
+            
+            scene.add(road3);
+            const road4 = new THREE.Mesh(geometry, rmaterial);
+            road4.scale.set(0.1,1.52,0.52);
+            road4.position.set(52,0,13);
+            
+            scene.add(road4);
+            const road5 = new THREE.Mesh(geometry, rmaterial);
+            road5.scale.set(0.48,1.51,0.1);
+            road5.position.set(8,0,50);
+            
+            scene.add(road5);
+            
+            const finishp = new THREE.Mesh(geometry, fmaterial);
+            finishp.scale.set(0.01,1.6,0.2);
+            finishp.position.set(8,0,50);
+            
+            scene.add(finishp);
+            
+            
+
+            //const ambientLight = new THREE.AmbientLight(0x404040);
+           // scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.2);
+            directionalLight.position.set(5, 5, 5).normalize();
+            scene.add(directionalLight);
+
+            const pointLight = new THREE.PointLight(0xffffff, 0.1);
+            pointLight.position.set(-5, 5, -5);
+            scene.add(pointLight);
+
+            
+    // 1. Get the bounding box of the land
+const landBoundingBox = new THREE.Box3().setFromObject(land);
+
+// ... (Remove the road segment bounding boxes if you're not using them anymore)
+
+// 2. Update the car's position with clamping to the land's bounding box
+function updateCarPosition() {
+
+    bikebilla.position.clamp(landBoundingBox.min, landBoundingBox.max);}
+
+     bikebilla.add(camera);
+camera.position.set(1, 15, 30);
+    camera.lookAt(bikebilla.position);
+    // Animation Variables
+    const radius = 30; // Distance from the center
+    let angleX = 0; // Starting X-axis angle
+    let angleY = 0; // Starting Y-axis angle
+    let swipeDirectionX = 0; // Controls rotation direction on X-axis based on swipe
+    let swipeDirectionY = 0; // Controls rotation direction on Y-axis based on swipe
+
+    // Touch Event Handlers
+    let startX = 0, startY = 0;
+
+    document.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      const endX = e.touches[0].clientX;
+      const endY = e.touches[0].clientY;
+      swipeDirectionX = endX - startX; // Calculate horizontal swipe for X-axis
+      swipeDirectionY = endY - startY; // Calculate vertical swipe for Y-axis
+    });
+
+    document.addEventListener("touchend", () => {
+      swipeDirectionX = 0; // Reset X-axis swipe direction
+      swipeDirectionY = 0; // Reset Y-axis swipe direction
+    });
+  
+
+const jeepSpeed = 0.3;
+  const jeepSpeeda = 0.6;
+  const jeepSpeedu = 0.4;
+  const jeepSpeedr = 0.3;
+  const jeepSpeedrr = 0.15;
+  const jeepSpeedm = 0.35;
+const jeepRotationSpeed = 0.05;
+ // const jeepRotationSpeeda = 0.05;
+
+const animationSequence = [
+    { type: 'moveX', target: -30 },
+    { type: 'rotate', target: -Math.PI / 2 }, // Rotate left 90 degrees
+    { type: 'moveZ', target: -70 },
+    { type: 'rotate', target: 0 },         // Rotate right 90 degrees (back to original)
+    { type: 'moveX', target: -55 },
+    { type: 'rotate', target: Math.PI / 2 }, // Rotate left 90 degrees
+    { type: 'moveZ', target: -25 },      // Move further in Z
+ { type: 'rotate', target: Math.PI },
+  { type: 'moveX', target: 50 },
+  { type: 'rotate', target: Math.PI/2 },
+  { type: 'moveZ', target: 43 },
+  { type: 'rotate', target: 0 },
+  { type: 'moveX', target: -10 }
+  ];
+
+let currentAnimationStep = 0;
+  let currentAnimationStep1 = 0;
+let currentAnimationStep2 = 0;
+  let currentAnimationStep3 = 0;
+  let currentAnimationStep4 = 0;
+  let currentAnimationStep5 = 0;
+function animate() {
+    // ... (rest of your code: scene setup, bikebilla controls, etc.)
+
+    const currentStep = animationSequence[currentAnimationStep];
+
+    if (currentStep) {
+        switch (currentStep.type) {
+            case 'moveX':
+                const xDifference = currentStep.target - jeep.position.x;
+                
+          if (Math.abs(xDifference) < jeepSpeed) {
+                    jeep.position.x = currentStep.target;
+                    currentAnimationStep++;
+                } else {
+                    jeep.position.x += Math.sign(xDifference) * jeepSpeed; // Move in the correct direction
+                }
+                break;
+
+            case 'moveZ':
+                const zDifference = currentStep.target - jeep.position.z;
+                if (Math.abs(zDifference) < jeepSpeed) {
+                    jeep.position.z = currentStep.target;
+                    currentAnimationStep++;
+                } else {
+                    jeep.position.z += Math.sign(zDifference) * jeepSpeed; // Move in the correct direction
+                }
+                break;
+
+            case 'rotate':
+                const rotationDifference = currentStep.target - jeep.rotation.y;
+                if (Math.abs(rotationDifference) < jeepRotationSpeed) {
+                    jeep.rotation.y = currentStep.target;
+                    currentAnimationStep++;
+                } else {
+                    jeep.rotation.y += Math.sign(rotationDifference) * jeepRotationSpeed; // Rotate in the correct direction
+                }
+                break;
+        }
+    }
+  const currentStep1 = animationSequence[currentAnimationStep1];
+
+    if (currentStep1) {
+        switch (currentStep1.type) {
+            case 'moveX':
+                const xDifference1 = currentStep1.target - avenger.position.x;
+                
+          if (Math.abs(xDifference1) < jeepSpeeda) {
+                    avenger.position.x = currentStep1.target;
+                    currentAnimationStep1++;
+                } else {
+                    avenger.position.x += Math.sign(xDifference1) * jeepSpeeda; // Move in the correct direction
+                }
+                break;
+
+            case 'moveZ':
+                const zDifference1 = currentStep1.target - avenger.position.z;
+                if (Math.abs(zDifference1) < jeepSpeeda) {
+                    avenger.position.z = currentStep1.target;
+                    currentAnimationStep1++;
+                } else {
+                    avenger.position.z += Math.sign(zDifference1) * jeepSpeeda; // Move in the correct direction
+                }
+                break;
+
+            case 'rotate':
+                const rotationDifference1 = currentStep1.target - avenger.rotation.y;
+                if (Math.abs(rotationDifference1) < jeepRotationSpeed) {
+                    avenger.rotation.y = currentStep1.target;
+                    currentAnimationStep1++;
+                } else {
+                    avenger.rotation.y += Math.sign(rotationDifference1) * jeepRotationSpeed; // Rotate in the correct direction
+                }
+                break;
+        }
+    }
+      const currentStep2 = animationSequence[currentAnimationStep2];
+
+    if (currentStep2) {
+        switch (currentStep2.type) {
+            case 'moveX':
+                const xDifference2 = currentStep2.target - avenger.position.x;
+                
+          if (Math.abs(xDifference2) < jeepSpeedu) {
+                    ultrarider.position.x = currentStep2.target;
+                    currentAnimationStep2++;
+                } else {
+                    ultrarider.position.x += Math.sign(xDifference2) * jeepSpeedu; // Move in the correct direction
+                }
+                break;
+
+            case 'moveZ':
+                const zDifference2 = currentStep1.target - avenger.position.z;
+                if (Math.abs(zDifference2) < jeepSpeedu) {
+                    ultrarider.position.z = currentStep2.target;
+                    currentAnimationStep2++;
+                } else {
+                    ultrarider.position.z += Math.sign(zDifference2) * jeepSpeedu; // Move in the correct direction
+                }
+                break;
+
+            case 'rotate':
+                const rotationDifference2 = currentStep2.target - ultrarider.rotation.y;
+                if (Math.abs(rotationDifference2) < jeepRotationSpeed) {
+                    ultrarider.rotation.y = currentStep2.target;
+                    currentAnimationStep2++;
+                } else {
+                    ultrarider.rotation.y += Math.sign(rotationDifference2) * jeepRotationSpeed; // Rotate in the correct direction
+                }
+                break;
+        }
+    }
+  const currentStep3 = animationSequence[currentAnimationStep3];
+
+    if (currentStep3) {
+        switch (currentStep3.type) {
+            case 'moveX':
+                const xDifference3= currentStep3.target - racer.position.x;
+                
+          if (Math.abs(xDifference3) < jeepSpeedr) {
+                    racer.position.x = currentStep3.target;
+                    currentAnimationStep3++;
+                } else {
+                    racer.position.x += Math.sign(xDifference3) * jeepSpeedr; // Move in the correct direction
+                }
+                break;
+
+            case 'moveZ':
+                const zDifference3 = currentStep3.target - racer.position.z;
+                if (Math.abs(zDifference3) < jeepSpeedr) {
+                    racer.position.z = currentStep3.target;
+                    currentAnimationStep3++;
+                } else {
+                    racer.position.z += Math.sign(zDifference3) * jeepSpeedr; // Move in the correct direction
+                }
+                break;
+
+            case 'rotate':
+                const rotationDifference3 = currentStep3.target - racer.rotation.y;
+                if (Math.abs(rotationDifference3) < jeepRotationSpeed) {
+                    racer.rotation.y = currentStep3.target;
+                    currentAnimationStep3++;
+                } else {
+                    racer.rotation.y += Math.sign(rotationDifference3) * jeepRotationSpeed; // Rotate in the correct direction
+                }
+                break;
+        }
+    }
+  const currentStep4 = animationSequence[currentAnimationStep4];
+
+    if (currentStep4) {
+        switch (currentStep4.type) {
+            case 'moveX':
+                const xDifference4 = currentStep3.target - rr.position.x;
+                
+          if (Math.abs(xDifference4) < jeepSpeedrr) {
+                    rr.position.x = currentStep4.target;
+                    currentAnimationStep4++;
+                } else {
+                    rr.position.x += Math.sign(xDifference4) * jeepSpeedrr; // Move in the correct direction
+                }
+                break;
+
+            case 'moveZ':
+                const zDifference4 = currentStep4.target - rr.position.z;
+                if (Math.abs(zDifference4) < jeepSpeedrr) {
+                    rr.position.z = currentStep4.target;
+                    currentAnimationStep4++;
+                } else {
+                    rr.position.z += Math.sign(zDifference4) * jeepSpeedrr; // Move in the correct direction
+                }
+                break;
+
+            case 'rotate':
+                const rotationDifference4 = currentStep4.target - rr.rotation.y;
+                if (Math.abs(rotationDifference4) < jeepRotationSpeed) {
+                    rr.rotation.y = currentStep4.target;
+                    currentAnimationStep4++;
+                } else {
+                    rr.rotation.y += Math.sign(rotationDifference4) * jeepRotationSpeed; // Rotate in the correct direction
+                }
+                break;
+        }
+    }
+  const currentStep5 = animationSequence[currentAnimationStep5]

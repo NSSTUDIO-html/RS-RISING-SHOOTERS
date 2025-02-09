@@ -328,6 +328,8 @@ let currentAnimationStep2 = 0;
   let currentAnimationStep3 = 0;
   let currentAnimationStep4 = 0;
   let currentAnimationStep5 = 0;
+      let winAlerted = false;
+  let animationId;
 function animate() {
     // ... (rest of your code: scene setup, bikebilla controls, etc.)
 
@@ -548,7 +550,14 @@ function animate() {
         }
     }
       
-    
+    const carBox = new THREE.Box3().setFromObject(bikebilla);
+    const finishBox = new THREE.Box3().setFromObject(finishp);
+
+    if (carBox.intersectsBox(finishBox) && !winAlerted) {
+      alert("Car Win!");
+      winAlerted = true;
+      cancelAnimationFrame(animationId); // Correctly stop animation
+    }
 
     // ... (rest of your code: bikebilla controls, rendering, etc.)
 

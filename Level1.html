@@ -155,11 +155,8 @@ scene.add(racer);
     camera.position.set(bikebilla.position);
   camera.rotation.set(0,Math.PI/2,0);
     camera.lookAt(bikebilla.position);
-      // Car movement variables
-    const carSpeed = 0.5;
- 
-    const rotationSpeed = 0.05;
-
+      
+    
     // Touch controls
     const controls = document.createElement('div');
     controls.id = 'controls';
@@ -174,23 +171,78 @@ scene.add(racer);
     document.body.appendChild(controls);
 
     const keys = {
-      up: false,
-      down: false,
-      left: false,
-      right: false
-    };
+    // Car movement variables
+    const carSpeed = 0.5;
+const rotationSpeed = 0.05;
+const moveDirection = new THREE.Vector3();
 
-    // Add event listeners for touch controls
-    document.getElementById('up').addEventListener('touchstart', () => keys.up = true);
-    document.getElementById('up').addEventListener('touchend', () => keys.up = false);
-    document.getElementById('down').addEventListener('touchstart', () => keys.down = true);
-    document.getElementById('down').addEventListener('touchend', () => keys.down = false);
-    document.getElementById('left').addEventListener('touchstart', () => keys.left = true);
-    document.getElementById('left').addEventListener('touchend', () => keys.left = false);
-    document.getElementById('right').addEventListener('touchstart', () => keys.right = true);
-    document.getElementById('right').addEventListener('touchend', () => keys.right = false);
+const keys = {
+  up: false,
+  down: false,
+  left: false,
+  right: false
+};
 
-    
+const audio = new Audio('mixkit-futuristic-vehicle-flying-1552.wav');
+let longPressTimer;
+let isLongPress = false;
+
+// Separate functions for touch start and end
+function handleUpTouchStart(event) {
+  event.preventDefault(); // Prevent default touch behavior
+  keys.up = true;
+  startLongPress(event); // Pass the event to startLongPress
+}
+
+function handleUpTouchEnd() {
+  keys.up = false;
+  endLongPress();
+}
+
+function handleDownTouchStart(event) {
+  event.preventDefault();
+  keys.down = true;
+  startLongPress(event); // Pass the event to startLongPress
+}
+
+function handleDownTouchEnd() {
+  keys.down = false;
+  endLongPress();
+}
+
+function startLongPress(event) {
+  clearTimeout(longPressTimer); // Clear any existing timer
+  longPressTimer = setTimeout(() => {
+    isLongPress = true;
+    audio.loop = true;
+    audio.play();
+
+    // Specific long-press actions if needed (e.g., different sound)
+    if (event.target.id === 'up') {
+      // ...
+    } else if (event.target.id === 'down') {
+      // ...
+    }
+  }, 500); // Adjust delay as needed
+}
+
+function endLongPress() {
+  clearTimeout(longPressTimer);
+  isLongPress = false;
+  audio.pause();
+  audio.currentTime = 0;
+}
+
+// Add event listeners CORRECTLY
+document.getElementById('up').addEventListener('touchstart', handleUpTouchStart);
+document.getElementById('up').addEventListener('touchend', handleUpTouchEnd);
+document.getElementById('down').addEventListener('touchstart', handleDownTouchStart);
+document.getElementById('down').addEventListener('touchend', handleDownTouchEnd);
+document.getElementById('left').addEventListener('touchstart', () => keys.left = true);
+document.getElementById('left').addEventListener('touchend', () => keys.left = false);
+document.getElementById('right').addEventListener('touchstart', () => keys.right = true);
+document.getElementById('right').addEventListener('touchend', () => keys.right = false);
+
 
     const textureLoader53 = new THREE.TextureLoader();
     const grass = textureLoader53.load('IMG-20250207-WA0035.jpg');
@@ -572,29 +624,29 @@ function animate() {
 
       // Move car based on keys
       if (keys.down) {
-        bikebilla.position.x -= Math.sin(bikebilla.rotation.y) * carSpeed;
-        bikebilla.position.z -= Math.cos(bikebilla.rotation.y) * carSpeed;
-        c1.rotation.x -= Math.PI/2;
-        c2.rotation.x -= Math.PI/2;
-        c3.rotation.x -= Math.PI/2;
-      }
-      if (keys.up) {
-        bikebilla.position.x += Math.sin(bikebilla.rotation.y) * carSpeed;
-        bikebilla.position.z += Math.cos(bikebilla.rotation.y) * carSpeed;
-        c1.rotation.x += Math.PI/2;
-        c2.rotation.x += Math.PI/2;
-        c3.rotation.x += Math.PI/2;
-      }
-      if (keys.left) {
-        bikebilla.rotation.y += rotationSpeed;
-        
-        
-      }
-      if (keys.right) {
-        bikebilla.rotation.y -= rotationSpeed;
-        
-        
-      } // Update the camera position based on swipe
+    bikebilla.getWorldDirection(moveDirection);
+    bikebilla.position.x -= moveDirection.x * carSpeed;
+    bikebilla.position.z -= moveDirection.z * carSpeed;
+    c1.rotation.x -= Math.PI/2;
+       c2.rotation.x -= Math.PI/2;
+       c3.rotation.x -= Math.PI/2;
+       // ... any other related updates (e.g., c1, c2, c3 rotations)
+  }
+  if (keys.up) {
+    bikebilla.getWorldDirection(moveDirection);
+    bikebilla.position.x += moveDirection.x * carSpeed;
+    bikebilla.position.z += moveDirection.z * carSpeed;
+    c1.rotation.x += Math.PI/2;
+       c2.rotation.x += Math.PI/2;
+       c3.rotation.x += Math.PI/2;
+    // ... any other related updates
+  }
+  if (keys.left) {
+    bikebilla.rotation.y += rotationSpeed;
+  }
+  if (keys.right) {
+    bikebilla.rotation.y -= rotationSpeed;
+  } // Update the camera position based on swipe
       if (swipeDirectionX !== 0 || swipeDirectionY !== 0) {
         // Adjust the angles based on swipe direction
         angleX += swipeDirectionX * 0.001; // X-axis rotation

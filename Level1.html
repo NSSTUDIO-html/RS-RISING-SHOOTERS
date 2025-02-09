@@ -267,10 +267,10 @@ function updateCarPosition() {
     bikebilla.position.clamp(landBoundingBox.min, landBoundingBox.max);}
 
      bikebilla.add(camera);
-camera.position.set(1, 15, 30);
+camera.position.set(1, 15, 20);
     camera.lookAt(bikebilla.position);
     // Animation Variables
-    const radius = 30; // Distance from the center
+    const radius = 20; // Distance from the center
     let angleX = 0; // Starting X-axis angle
     let angleY = 0; // Starting Y-axis angle
     let swipeDirectionX = 0; // Controls rotation direction on X-axis based on swipe

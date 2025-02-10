@@ -12,7 +12,7 @@
     body { margin: 0; overflow: hidden; }
     canvas { display: block; }
         @media (orientation: landscape) {
-  .button {
+  .button ,#up,#down,#left,#right{
     padding:10px;
   }
         }
@@ -37,22 +37,22 @@
   #up {
     justify-self:end;
     position:relative;
-    left:100px;
+    left:150px;
     background:url('https://cdn-icons-png.flaticon.com/512/3602/3602590.png');
     background-position:center;
     background-size:100%;
-    padding:3rem;
+    padding:1rem;
     background-color:white;
   }
   #down {
     justify-self:end;
     position:relative;
-    left:100px;
+    left:150px;
     background:url('https://cdn-icons-png.flaticon.com/512/3602/3602590.png');
     background-position:center;
     background-size:100%;
     transform: rotate(180deg);
-    padding:3rem;background-color:white;
+    padding:1rem;background-color:white;
   }
   #left,#right {
     justify-self:end;
@@ -63,14 +63,14 @@
     background-position:center;
     background-size:100%;
     transform: rotate(-90deg);
-    padding:3rem;background-color:white;
+    padding:1rem;background-color:white;
   }
   #right{
     background:url('https://cdn-icons-png.flaticon.com/512/3602/3602590.png');
     background-position:center;
     background-size:100%;
     transform: rotate(90deg);
-    padding:3rem;background-color:white;
+    padding:1rem;background-color:white;
   }
   </style>
 </head>

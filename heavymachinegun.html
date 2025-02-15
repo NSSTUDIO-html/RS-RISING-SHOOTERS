@@ -26,7 +26,7 @@ const textureLoader53 = new THREE.TextureLoader();
     
 const metalnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdN_0FmrQiJUD33tP1M5HBiiSeGCdHT5yApWgtr8idiDTPWaWXLy6TN_CV&s=10');
 const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl2FlaSfn9lWa3rXf8pL3Q3U_MIOmRB4w0zWs9TG51A85_JfwxN5jTCwE&s=10');
-  
+  const texture2 = textureLoader53.load('/storage/emulated/0/DCIM/Lift and shift/LS20250215170857.png');
     // Create a simple gun-like shape using basic geometries
     const gun = new THREE.Group();
 
@@ -35,6 +35,7 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     const barrelMaterial = new THREE.MeshStandardMaterial({ map: texture1 ,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});
     const barrelMaterial1 = new THREE.MeshPhongMaterial({ color : 0x222222 ,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});
     const barrelMaterial2 = new THREE.MeshStandardMaterial({ color : 0x000000 ,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});
+    const barrelMaterial3 = new THREE.MeshStandardMaterial({ map : texture2,transparent:true,opacity:5});
     
   const barrel = new THREE.Mesh(barrelGeometry, barrelMaterial);
     barrel.rotation.x = Math.PI / 2; // Rotate to make it horizontal
@@ -131,11 +132,30 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     body8.rotation.set(0,0,Math.PI/2);
  body8.scale.set(0.5,0.3,0.3);
   gun.add(body8);
+  //target
   const body9s = new THREE.Mesh(bodyGeometry, barrelMaterial1);
-    body9s.position.set(0,3,-2); // Position it below the barrel
+    body9s.position.set(0.5,3,-2); // Position it below the barrel
     body9s.rotation.set(0,0,Math.PI/2);
- body9s.scale.set(0.4,0.4,0.1);
+ body9s.scale.set(0.4,0.1,0.1);
   gun.add(body9s);
+  const body9s1 = new THREE.Mesh(bodyGeometry, barrelMaterial1);
+    body9s1.position.set(-0.5,3,-2); // Position it below the barrel
+    body9s1.rotation.set(0,0,Math.PI/2);
+ body9s1.scale.set(0.4,0.1,0.1);
+  gun.add(body9s1);
+  const body9s2 = new THREE.Mesh(bodyGeometry, barrelMaterial1);
+    body9s2.position.set(0,3.5,-2); // Position it below the barrel
+    body9s2.rotation.set(0,0,Math.PI);
+ body9s2.scale.set(0.4,0.1,0.1);
+  gun.add(body9s2);
+  const body9s3 = new THREE.Mesh(bodyGeometry, barrelMaterial3);
+    body9s3.position.set(0,3,-2); // Position it below the barrel
+    body9s3.rotation.set(Math.PI/2,0,Math.PI);
+ body9s3.scale.set(0.4,0.15,0.1);
+  gun.add(body9s3);
+  
+  
+  
   const body1s = new THREE.Mesh(bodyGeometry, barrelMaterial1);
     body1s.position.set(0,-0.5,-5); // Position it below the barrel
     body1s.rotation.set(0,0,Math.PI/2);
@@ -318,7 +338,7 @@ for (let i = 0; i < numCylinders; i++) {
     // Animation loop
     function animate() {
       requestAnimationFrame(animate);
-      gun.rotation.y -= 0.01;
+      //gun.rotation.y -= 0.01;
      // racersuit.position.x += 0.1;
       //racersuit.scale.z += 0.1;
 

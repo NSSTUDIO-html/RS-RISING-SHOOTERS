@@ -299,9 +299,13 @@ for (let i = 0; i < numCylinders; i++) {
     directionalLight.castShadow = true;
     gun.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0x404040, 2);
+    const ambientLight = new THREE.AmbientLight(0x000000, 2);
     gun.add(ambientLight);
-  gun.position.y += 2;
+  gun.position.x = 0;
+  scene.add(gun);
+  const ambientLight1 = new THREE.AmbientLight(0x404040, 2);
+    gun.add(ambientLight1);
+  gun.position.x = 0;
   scene.add(gun);
 
     // Camera setup

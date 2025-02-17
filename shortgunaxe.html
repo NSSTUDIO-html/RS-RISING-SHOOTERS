@@ -173,11 +173,15 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     directionalLight.castShadow = true;
     sgun.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0x404040, 2);
+    const ambientLight = new THREE.AmbientLight(0x000000, 3);
     sgun.add(ambientLight);
-  sgun.position.z = 0;
-  scene.add(sgun);
+  
+ 
 
+   const ambientLight1 = new THREE.AmbientLight(0x404040, 2);
+    sgun.add(ambientLight1);
+  sgun.position.x = 0;
+  scene.add(sgun);
     // Camera setup
     camera.position.set(0, 1, 35);
     camera.lookAt(0, 1, 0);

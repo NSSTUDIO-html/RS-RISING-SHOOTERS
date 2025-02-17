@@ -91,6 +91,11 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     barrel65.position.set(0,-1.7,-6.4);
   barrel65.scale.set(0.1,0.15,0.3);
   sgun.add(barrel65);
+     const barrel7 = new THREE.Mesh(barrelGeometry, barrelMaterial1);
+    barrel7.rotation.x = Math.PI/10; // Rotate to make it horizontal
+    barrel7.position.set(0,-2.8,-7.8);
+  barrel7.scale.set(0.5,0.5,0.5);
+  sgun.add(barrel7);
    // Gun body (a box)
     const bodyGeometry = new THREE.BoxGeometry(3, 3, 10);
     const bodyMaterial = new THREE.MeshStandardMaterial({ map: texture1 ,normalMap:texture1,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});

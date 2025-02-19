@@ -1,0 +1,893 @@
+<head>
+<title>shangchigame.com</title>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    overflow:auto;
+    background:black;
+    color:white;
+}
+#gamebox{
+    height:400px;
+    width:340px;
+    border:2px groove black;
+    position:relative;
+    bottom:30px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/images283929-1.jpeg');
+    background-size:120%;
+}
+#wenvubar{
+    position:relative;
+    bottom:38px;
+}
+#land{
+    background-color:black;
+    height:150px;
+    width:340px;
+    position:relative;
+    top:50px;
+    filter: brightness(80%);
+    background:url('https://nagasasank.files.wordpress.com/2024/01/images284029.jpeg');
+    background-size:contain;
+}
+#shangchi{
+    background-color:red;
+    height:100px;
+    width:42px;
+    position: relative;
+    top:150px;
+    left:20px;    background:url('https://nagasasank.files.wordpress.com/2024/01/images__34_-removebg-preview.png');
+    background-size:cover;
+}
+#wenvu{
+    background-color:blue;
+    height:100px;
+    width:50px;
+    position: relative;
+    left:270px;
+    top:50px;
+ background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240116_094844-removebg-preview28229-1.png');
+ background-size:110%;
+}
+#toggleswitch{
+    align:center;
+    height:90px;
+    width:90px;
+    background-color:black;
+    border-radius:50px;
+    border:2px inset black;
+    
+}
+#toggle{
+    height:40px;
+    width:40px;
+    background-color:red;
+    position:relative;
+    bottom:18px;
+    left:24px;
+    border-radius:50px;
+    border:2px outset white;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/61a680b3b2502989374c6836540dbdc6.jpg');
+    background-size:90%;
+    transform:rotate(290deg) rotateX(180deg);
+}
+#toggleswitch1{
+    align:center;
+    height:90px;
+    width:90px;
+    background-color:black;
+    position:relative;
+    left:250px;
+    bottom:90px;
+    border-radius:50px;
+    border:2px outset black;
+}
+button{
+    color:white;
+}
+#toggle1{
+    height:40px;
+    width:40px;
+    background-color:blue;
+    position:relative;
+    bottom:18px;
+    left:24px;
+    border-radius:50px;
+    border:2px outset black;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/1e5593242469e837941032af20ae2796.jpg');
+    background-size:cover;
+    background-position:left;
+    transform:rotate(250deg) rotateX(180deg);
+}
+meter::-webkit-meter-optimum-value {
+      background: var(--meter-accent-color);
+    }
+#shangchibar{
+    --meter-accent-color: red;
+}
+#wenvubar{
+    --meter-accent-color: blue;
+}
+#up,#up1{
+    position:relative;
+    left:32px;
+    background:none;
+    border:none;
+}
+#down,#down1{
+    position:relative;
+    top:70px;
+    left:8px;
+    background:none;
+    border:none;
+}
+#left,#left1{
+    position:relative;
+    top:12px;
+    right:2px;
+    background:none;
+    border:none;
+}
+#right,#right1{
+    
+    position:relative;
+    top:33px;
+    left:15px;
+    background:none;
+    border:none;
+}
+#stick{
+    background-color:red;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    right:10px;
+    bottom:140px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/images__42_-removebg-preview.png');
+    background-size:70%;
+}
+#ring1{
+    background-color:blue;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    left:30px;
+    bottom:140px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
+    background-size:110%;
+}
+#regs{
+    background-color:red;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    left:88px;
+    bottom:200px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/download2817293403331269960801411.jpg');
+    background-size:110%;
+    background-position:center;
+    
+}
+#regw{
+    background-color:blue;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    left:150px;
+    bottom:200px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/download2818295595353980867943226.jpg');
+    background-size:100%;
+    background-position:center;
+}
+#rS{
+    background-color:red;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    right:160px;
+    bottom:90px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png');
+    background-size:150%;
+    filter: hue-rotate(120deg);
+}
+#rW{
+    background-color:blue;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    right:50px;
+    bottom:90px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png');
+    background-size:150%;
+}
+#hand{
+    background-color:red;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    right:5px;
+    bottom:140px;
+    background:url('https://nagasasank.files.wordpress.com/2024/01/2606a63505eb05cba26aa55ab824c8c1.jpg');
+    background-size:90%;
+    transform:rotate(290deg) rotateX(180deg);
+
+}
+#hand1{
+    background-color:blue;
+    border-radius:50px;
+    height:50px;
+    width:50px;
+    position:relative;
+    left:240px;
+    bottom:140px;
+    
+    
+    background:url('https://nagasasank.files.wordpress.com/2024/01/8d8140bf5b28d4dffd7950454133c21f.jpg');
+    background-size:100%;
+}
+#ring{
+    
+    height:10px;
+    width:15px;
+   transform:rotate(140deg); background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
+    background-size:110%;
+}
+.stick{
+    
+   height:70px;
+   width:200px;
+   background:darkred;
+   
+    
+}
+.ring-ball{
+    background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
+    background-size:cover;
+    filter:hue-rotate(120deg);
+    transform:rotate(50deg);
+}
+.ringball{
+    background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
+    background-size:cover;
+}
+</style>
+
+</head>
+<body>
+<label>ShangChi:</label><br>
+<meter id="shangchibar" min="0"max="100"value="100"></meter><span id="shangchiPercentage">100</span>
+<div align="right"id="wenvubar">
+<label>Wenwu:</label><br>
+<span id="wenvuPercentage">100</span>
+<meter id="wenvubar1" min="0"max="100"value="100"></meter></div>
+<div id="gamebox">
+<div id="shangchi"></div>
+<div id="wenvu"></div>
+<div id="land"></div>
+</div>
+<div id="toggleswitch">
+<button id="up">U</button>
+<button id="down">D</button>
+<button id="right">R</button>
+<button id="left">L</button>
+<div id="toggle"></div>
+</div>
+<div id="toggleswitch1">
+<button id="up1">U</button>
+<button id="down1">D</button>
+<button id="right1">R</button>
+<button id="left1">L</button>
+<div id="toggle1"></div>
+</div>
+<button id="regs"></button>
+<button id="regw"></button>
+  <button id="stick"></button>
+    <button id="ring1"></button>
+    <button id="rS"></button>
+    <button id="rW"></button>
+    <button id="hand"></button>
+    <button id="hand1"></button>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const shangchiDiv = document.getElementById("shangchi");
+    const wenvuDiv = document.getElementById("wenvu");
+    const landDiv = document.getElementById("land");
+    const gameboxDiv = document.getElementById("gamebox");
+
+    let shangchiTop = 150;
+    let shangchiLeft = 20;
+    let shangchiRotation = 0;
+    let isShangchiJumping = false;
+
+    let wenvuTop = 150;
+    let wenvuLeft = 270;
+    let wenvuRotation = 0;
+    let isWenvuJumping = false;
+
+    let shangchiHP = 100;
+    let wenvuHP = 100;
+    let wenwuRings = 10;
+    let stickDefenseActive = false;
+
+    const ringDiv = createRingDiv();
+    gameboxDiv.appendChild(ringDiv);
+
+    function createRingDiv() {
+        const ringDiv = document.createElement("div");
+        ringDiv.id = "ring";
+        ringDiv.style.backgroundColor = "transparent";
+        ringDiv.style.borderRadius = "0%";
+        ringDiv.style.height = "30px";
+        ringDiv.style.width = "30px";
+        ringDiv.style.position = "absolute";
+        ringDiv.style.display = "none";
+        return ringDiv;
+    }
+
+    function jump(characterDiv, topPosition, isJumpingFlag) {
+        if (!isJumpingFlag) {
+            isJumpingFlag = true;
+            topPosition -= 120;
+            characterDiv.style.top = topPosition + "px";
+            characterDiv.style.transform = null;
+
+            setTimeout(() => {
+                topPosition = characterDiv === shangchiDiv ? 150 : 50;
+                characterDiv.style.top = topPosition + "px";
+                isJumpingFlag = false;
+            }, 1000);
+        }
+    }
+
+    function moveDown(characterDiv, topPosition, rotation) {
+        topPosition += 30;
+        characterDiv.style.top = topPosition + "px";
+
+        rotation += 90;
+        characterDiv.style.transform = `rotate(${rotation}deg)`;
+    }
+
+    function moveLeft(characterDiv, initialLeftPosition, minLeft) {
+        characterDiv.style.transform = null;
+        let leftPosition = parseFloat(characterDiv.style.left) || initialLeftPosition;
+        leftPosition -= 20;
+        leftPosition = Math.max(leftPosition, minLeft);
+        characterDiv.style.left = leftPosition + "px";
+    }
+
+    function moveRight(characterDiv, initialLeftPosition, maxWidth) {
+        characterDiv.style.transform = null;
+        let leftPosition = parseFloat(characterDiv.style.left) || initialLeftPosition;
+        leftPosition += 20;
+        leftPosition = Math.min(leftPosition, maxWidth);
+        characterDiv.style.left = leftPosition + "px";
+    }
+
+    function throwRing() {
+        if (wenwuRings > 0) {
+            if (stickDefenseActive) {
+                console.log("Ring blocked by stick!");
+            } else {
+                shangchiHP -= 5;
+                document.getElementById("shangchibar").value = shangchiHP;
+                updateShangChiPercentage();
+                console.log("Ring hit ShangChi!");
+            }
+
+            ringDiv.style.left = wenvuLeft + "px";
+            ringDiv.style.top = wenvuTop + "px";
+            ringDiv.style.display = "block";
+
+            let animationDuration = 100;
+            let frames = 60;
+            let frame = 0;
+
+            let interval = setInterval(() => {
+                frame++;
+                let progress = frame / frames;
+
+                let ringX = wenvuLeft + progress * (shangchiLeft - wenvuLeft);
+                let ringY = wenvuTop + progress * (shangchiTop - wenvuTop);
+
+                ringDiv.style.left = ringX + "px";
+                ringDiv.style.top = ringY + "px";
+
+                if (frame === frames) {
+                    clearInterval(interval);
+
+                    ringDiv.style.display = "none";
+                    ringDiv.style.left = wenvuLeft + "px";
+                    ringDiv.style.top = wenvuTop + "px";
+                }
+            }, animationDuration / frames);
+
+            wenwuRings--;
+            console.log("Wenvu rings left: " + wenwuRings);
+            updateWenvuPercentage();
+        } else {
+            console.log("Wenvu is out of rings!");
+        }
+    }
+
+    document.getElementById("up").addEventListener("click", function () {
+        jump(shangchiDiv, shangchiTop, isShangchiJumping);
+    });
+
+    document.getElementById("down").addEventListener("click", function () {
+        moveDown(shangchiDiv, shangchiTop, shangchiRotation);
+    });
+
+    document.getElementById("right").addEventListener("click", function () {
+        moveRight(shangchiDiv, shangchiLeft, gameboxDiv.clientWidth - shangchiDiv.clientWidth);
+    });
+
+    document.getElementById("left").addEventListener("click", function () {
+        moveLeft(shangchiDiv, shangchiLeft, landDiv.offsetLeft);
+        shangchiDiv.style.transform = 'rotateY(180deg)';
+    });
+
+    document.getElementById("up1").addEventListener("click", function () {
+        jump(wenvuDiv, wenvuTop, isWenvuJumping);
+    });
+
+    document.getElementById("down1").addEventListener("click", function () {
+        
+        moveDown(wenvuDiv, wenvuTop, wenvuRotation);
+    });
+
+    document.getElementById("right1").addEventListener("click", function () {
+        moveRight(wenvuDiv, wenvuLeft, gameboxDiv.clientWidth - wenvuDiv.clientWidth);
+        wenvuDiv.style.transform = 'rotateY(180deg)';
+    });
+
+    document.getElementById("left1").addEventListener("click", function () {
+        moveLeft(wenvuDiv, wenvuLeft, landDiv.offsetLeft);
+    });
+
+    document.getElementById("ring1").addEventListener("click", throwRing);
+
+    const shangchiMeter = document.getElementById("shangchibar");
+    const wenvuMeter = document.getElementById("wenvubar1");
+
+    const shangchiPercentageSpan = document.getElementById("shangchiPercentage");
+    const wenvuPercentageSpan = document.getElementById("wenvuPercentage");
+
+    function updateShangChiPercentage() {
+        const shangchiPercentage = (shangchiMeter.value / shangchiMeter.max) * 100;
+        shangchiPercentageSpan.textContent = `${shangchiPercentage.toFixed(2)}%`;
+    }
+
+    function updateWenvuPercentage() {
+        const wenvuPercentage = (wenvuMeter.value / wenvuMeter.max) * 100;
+        wenvuPercentageSpan.textContent = `${wenvuPercentage.toFixed(2)}%`;
+    }
+
+    function regS() {
+        shangchiHP += 25;
+        shangchiHP = Math.min(shangchiHP, 100);
+        document.getElementById("shangchibar").value = shangchiHP;
+        updateShangChiPercentage();
+    }
+
+    function regW() {
+        wenvuHP += 25;
+        wenvuHP = Math.min(wenvuHP, 100);
+        document.getElementById("wenvubar1").value = wenvuHP;
+        updateWenvuPercentage();
+    }
+
+    document.getElementById("regs").addEventListener("click", regS);
+    document.getElementById("regw").addEventListener("click", regW);
+
+    document.getElementById("stick").addEventListener("click", function () {
+        if (!stickDefenseActive) {
+            wenvuHP -= 30;
+            document.getElementById("wenvubar1").value = wenvuHP;
+            updateWenvuPercentage();
+
+            const stickDiv = createStickDiv();
+            gameboxDiv.appendChild(stickDiv);
+
+            animateStickAttack(stickDiv, function () {
+                stickDiv.remove();
+            });
+        } else {
+            console.log("Stick attack blocked by stick defense!");
+        }
+    });
+
+    function createStickDiv() {
+        const stickDiv = document.createElement("div");
+        stickDiv.className = "stick";
+        
+        
+        stickDiv.style.height = "70px";
+        stickDiv.style.width = "5px";
+        stickDiv.style.position = "absolute";
+        
+        return stickDiv;
+    }
+
+    function animateStickAttack(stickDiv, callback) {
+        stickDiv.style.display = "block";
+
+        let animationDuration = 1000;
+        let frames = 60;
+        let frame = 0;
+
+        let interval = setInterval(() => {
+            frame++;
+            let progress = frame / frames;
+
+            let stickX = shangchiLeft + progress * (wenvuLeft - shangchiLeft);
+            let stickY = shangchiTop + progress * (wenvuTop - shangchiTop);
+
+            stickDiv.style.left = stickX + "px";
+            stickDiv.style.top = stickY + "px";
+            stickDiv.style.transform = `rotate(${progress * 360}deg)`;
+
+            if (frame === frames) {
+                clearInterval(interval);
+
+                stickDiv.style.display = "none";
+                stickDiv.style.left = shangchiLeft + "px";
+                stickDiv.style.top = shangchiTop + "px";
+                stickDiv.style.transform = null;
+
+                callback();
+            }
+        }, animationDuration / frames);
+    }
+
+    // Initial percentage updates
+    updateShangChiPercentage();
+    updateWenvuPercentage();
+    
+    
+    document.getElementById("rW").addEventListener("click", function () {
+    const maxRings = 1000;
+
+    if (wenwuRings >= 10 && wenwuRings < maxRings) {
+        shangchiHP -= 50;
+        document.getElementById("shangchibar").value = shangchiHP;
+        updateShangChiPercentage();
+
+        const ballDiv = createRingBallDiv();
+        gameboxDiv.appendChild(ballDiv);
+
+        animateRingBallAttack(ballDiv, function () {
+            ballDiv.remove();
+        });
+
+        wenwuRings += 100;
+        console.log("Wenvu rings left: " + wenwuRings);
+        updateWenvuPercentage();
+    } else if (wenwuRings >= maxRings) {
+        console.log("Wenvu has reached the maximum number of rings!");
+    } else {
+        console.log("Wenvu does not have enough rings!");
+    }
+});
+
+function createRingBallDiv() {
+    const ballDi = document.createElement("div");
+    ballDi.classList.add("ringball");
+    ballDi.style.background = "url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png')";
+    ballDi.style.backgroundSize = "cover";
+    ballDi.style.height = "50px";
+    ballDi.style.width = "50px";
+    ballDi.style.position = "absolute";
+    
+    return ballDi;
+}
+
+function animateRingBallAttack(ballDi, callback) {
+    ballDi.style.display = "block";
+
+    let animationDuration = 2000;
+    let frames = 60;
+    let frame = 0;
+
+    let interval = setInterval(() => {
+        frame++;
+        let progress = frame / frames;
+
+        let ballX = wenvuLeft + progress * (shangchiLeft - wenvuLeft);
+        let ballY = wenvuTop + progress * (shangchiTop - wenvuTop);
+
+        ballDi.style.left = ballX + "px";
+        ballDi.style.top = ballY + "px";
+
+        if (frame === frames) {
+            clearInterval(interval);
+
+            ballDi.style.display = "none";
+            ballDi.remove();
+
+            callback();
+        }
+    }, animationDuration / frames);
+}
+
+document.getElementById("rS").addEventListener("click", function () {
+    const ringBallDiv = createRingBallDiv("blue", "blue");
+    gameboxDiv.appendChild(ringBallDiv);
+
+    const shangchiPosition = {
+        top: shangchiTop,
+        left: shangchiLeft
+    };
+
+    const wenvuPosition = {
+        top: wenvuTop,
+        left: wenvuLeft
+    };
+
+    animateRingBallAttack(ringBallDiv, shangchiPosition, wenvuPosition, function () {
+        ringBallDiv.remove();
+        decreaseWenvuHP(50);
+    });
+
+    console.log("Ring thrown by ShangChi to Wenvu");
+});
+
+function createRingBallDiv(startColor, endColor) {
+    const ballDiv1 = document.createElement("div");
+    ballDiv1.classList.add("ring-ball");
+    
+    ballDiv1.style.height = "50px";
+    ballDiv1.style.width = "50px";
+    ballDiv1.style.position = "absolute";
+    ballDiv1.style.display = "none";
+    return ballDiv1;
+}
+
+function animateRingBallAttack(ringBallDiv, sourcePosition, targetPosition, callback) {
+    ringBallDiv.style.display = "block";
+    ringBallDiv.style.top = sourcePosition.top + "px";
+    ringBallDiv.style.left = sourcePosition.left + "px";
+
+    let animationDuration = 2000;
+    let frames = 60;
+    let frame = 0;
+
+    let interval = setInterval(() => {
+        frame++;
+        let progress = frame / frames;
+
+        let ringX = sourcePosition.left + progress * (targetPosition.left - sourcePosition.left);
+        let ringY = sourcePosition.top + progress * (targetPosition.top - sourcePosition.top);
+
+        ringBallDiv.style.left = ringX + "px";
+        ringBallDiv.style.top = ringY + "px";
+
+        if (frame === frames) {
+            clearInterval(interval);
+            ringBallDiv.style.display = "none";
+            callback();
+        }
+    }, animationDuration / frames);
+}
+
+function decreaseWenvuHP(amount) {
+    wenvuHP -= amount;
+    wenvuHP = Math.max(0, wenvuHP); // Ensure HP doesn't go below 0
+    document.getElementById("wenvubar1").value = wenvuHP;
+    updateWenvuPercentage();
+    console.log("Wenvu HP decreased by " + amount);
+}
+
+
+
+document.getElementById("hand").addEventListener("click", function () {
+    const airWaveDiv = createAirWaveDiv();
+    gameboxDiv.appendChild(airWaveDiv);
+
+    animateAirWaveAttack(airWaveDiv, function () {
+        airWaveDiv.remove();
+        moveWenvuAway();
+    });
+
+    console.log("Shangchi releases air wave to attack Wenvu");
+});
+
+function createAirWaveDiv() {
+    const airWaveDiv = document.createElement("div");
+    airWaveDiv.style.background = "linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8))";
+    airWaveDiv.style.height = "50px";
+    airWaveDiv.style.width = "50px";
+    airWaveDiv.style.borderRadius = "50%";
+    airWaveDiv.style.position = "absolute";
+    airWaveDiv.style.display = "none";
+    return airWaveDiv;
+}
+
+function animateAirWaveAttack(airWaveDiv, callback) {
+    airWaveDiv.style.display = "block";
+    airWaveDiv.style.top = shangchiTop + "px";
+    airWaveDiv.style.left = shangchiLeft + "px";
+
+    let animationDuration = 1000;
+    let frames = 60;
+    let frame = 0;
+    let airWaveHitWenvu = false;
+
+    let interval = setInterval(() => {
+        frame++;
+        let progress = frame / frames;
+
+        let airWaveSize = 50 + progress * 200;
+
+        airWaveDiv.style.width = airWaveSize + "px";
+        airWaveDiv.style.height = airWaveSize + "px";
+        airWaveDiv.style.borderRadius = "50%";
+
+        // Check if the air wave hits Wenvu
+        if (
+            wenvuTop < shangchiTop + airWaveSize &&
+            wenvuTop + 100 > shangchiTop &&
+            wenvuLeft < shangchiLeft + airWaveSize &&
+            wenvuLeft + 50 > shangchiLeft &&
+            !airWaveHitWenvu
+        ) {
+            decreaseWenvuHP();
+            airWaveHitWenvu = true; // Set a flag to avoid multiple hits during one animation
+        }
+
+        if (frame === frames) {
+            clearInterval(interval);
+            airWaveDiv.style.display = "none";
+            airWaveDiv.remove();
+            callback();
+        }
+    }, animationDuration / frames);
+}
+
+function moveWenvuAway() {
+    // Calculate the new position for Wenvu to move away (either left or right)
+    const moveDirection = Math.random() < 0.5 ? -1 : 1; // Randomly choose left or right
+    const moveDistance = 50; // Adjust the distance as needed
+
+    wenvuLeft += moveDirection * moveDistance;
+
+    // Ensure that the new position is within the game container
+    wenvuLeft = Math.max(landDiv.offsetLeft, wenvuLeft);
+    const maxRight = gameboxDiv.clientWidth - wenvuDiv.clientWidth;
+    wenvuLeft = Math.min(maxRight, wenvuLeft);
+
+    // Update the WenvuDiv's style to reflect the new position
+    wenvuDiv.style.left = wenvuLeft + "px";
+
+    console.log("Wenvu moves away from Shangchi");
+}
+
+function decreaseWenvuHP() {
+    wenvuHP -= 10; // Decrease Wenvu HP by 10
+    wenvuHP = Math.max(0, wenvuHP); // Ensure HP doesn't go below 0
+    document.getElementById("wenvubar1").value = wenvuHP;
+    updateWenvuPercentage();
+    console.log("Wenvu HP decreased by 10");
+}
+
+
+document.getElementById("toggle").addEventListener("click", function () {
+    const touchableDistance = 50; // Adjust the touchable distance as needed
+
+    // Recalculate positions
+    const shangchiRect = shangchiDiv.getBoundingClientRect();
+    const wenvuRect = wenvuDiv.getBoundingClientRect();
+
+    const distanceX = Math.abs(shangchiRect.left - wenvuRect.left);
+    const distanceY = Math.abs(shangchiRect.top - wenvuRect.top);
+
+    if (distanceX < touchableDistance && distanceY < touchableDistance) {
+        // ShangChi and Wenwu are in touchable distance, decrease Wenvu bar by 2
+        wenvuHP -= 2;
+        wenvuHP = Math.max(0, wenvuHP);
+        document.getElementById("wenvubar1").value = wenvuHP;
+        updateWenvuPercentage();
+        console.log("Wenvu HP decreased by 2");
+    }
+});
+document.getElementById("toggle1").addEventListener("click", function () {
+    const touchableDistance = 50; // Adjust the touchable distance as needed
+
+    // Recalculate positions
+    const shangchiRect = shangchiDiv.getBoundingClientRect();
+    const wenvuRect = wenvuDiv.getBoundingClientRect();
+
+    const distanceX = Math.abs(wenvuRect.left - shangchiRect.left);
+    const distanceY = Math.abs(wenvuRect.top - shangchiRect.top);
+
+    if (distanceX < touchableDistance && distanceY < touchableDistance) {
+        // ShangChi and Wenwu are in touchable distance, decrease Wenvu bar by 2
+        shangchiHP -= 2;
+        shangchiHP = Math.max(0, wenvuHP);
+        document.getElementById("shangchibar").value = shangchiHP;
+        updateShangChiPercentage();
+        console.log("shangchi HP decreased by 2");
+    }
+});
+
+document.getElementById("hand1").addEventListener("click", function () {
+    const waveDiv = createWaveDiv();
+    gameboxDiv.appendChild(waveDiv);
+
+    animateWaveAttack(waveDiv, function () {
+        waveDiv.remove();
+        decreaseShangChiHP(35);
+    });
+
+    console.log("Wenvu releases a powerful wave to attack ShangChi");
+});
+
+function createWaveDiv() {
+    const waveDiv = document.createElement("div");
+    waveDiv.style.background = "linear-gradient(rgba(0, 0, 255, 0), rgba(0, 0, 255, 0.8))";
+    waveDiv.style.height = "50px";
+    waveDiv.style.width = "200px"; // Adjust the width as needed
+    waveDiv.style.position = "absolute";
+    waveDiv.style.display = "none";
+    return waveDiv;
+}
+
+function animateWaveAttack(waveDiv, callback) {
+    waveDiv.style.display = "block";
+    waveDiv.style.top = wenvuTop + "px";
+    waveDiv.style.left = wenvuLeft + "px";
+
+    const shangchiRect = shangchiDiv.getBoundingClientRect();
+    const targetX = shangchiRect.left + window.scrollX;
+    const targetY = shangchiRect.top + window.scrollY;
+
+    let animationDuration = 1500;
+    let frames = 60;
+    let frame = 0;
+
+    let interval = setInterval(() => {
+        frame++;
+        let progress = frame / frames;
+
+        let waveX = wenvuLeft + progress * (targetX - wenvuLeft);
+        let waveY = wenvuTop + progress * (targetY - wenvuTop);
+
+        waveDiv.style.left = waveX + "px";
+        waveDiv.style.top = waveY + "px";
+
+        if (frame === frames) {
+            clearInterval(interval);
+            waveDiv.style.display = "none";
+            waveDiv.remove();
+            callback();
+        }
+    }, animationDuration / frames);
+}
+
+function decreaseShangChiHP(amount) {
+    shangchiHP -= amount;
+    shangchiHP = Math.max(0, shangchiHP); // Ensure HP doesn't go below 0
+    document.getElementById("shangchibar").value = shangchiHP;
+    updateShangChiPercentage();
+    console.log("ShangChi HP decreased by " + amount);
+}
+
+});
+ 
+   
+    
+</script>
+</body>
+</html>
+
+
+
+
+

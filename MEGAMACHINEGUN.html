@@ -221,16 +221,17 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     MMG.add(torus3);
    // Lighting
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(1, 0, 1);
+    directionalLight.position.set(-5, 5, -5);
     directionalLight.castShadow = true;
     MMG.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0x000000, 1);
-    MMG.add(ambientLight);
+    const pointlight = new THREE.PointLight(0xffffff, 1,10);
+    pointlight.position.set(10,10,10);
+           MMG.add(pointlight);
   
  
 
-   const ambientLight1 = new THREE.AmbientLight(0x222222, 3);
+   const ambientLight1 = new THREE.AmbientLight(0x404040, 3);
     MMG.add(ambientLight1);
   MMG.position.x = 3;
   scene.add(MMG);

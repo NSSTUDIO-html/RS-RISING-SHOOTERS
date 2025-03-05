@@ -43,7 +43,7 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     const barrelGeometry1 = new THREE.CylinderGeometry(1, 0.1, 2, 32);
     const barrelGeometry2 = new THREE.CylinderGeometry(2.7, 1.5, 10, 32);
     
-   const barrelMaterial4 = new THREE.MeshStandardMaterial({ map:texture1,transparent:true,opacity:0.7 ,envMap:scene.environment});
+   const barrelMaterial4 = new THREE.MeshStandardMaterial({ map:texture1,transparent:true,opacity:0.8 ,envMap:scene.environment});
     const barrelMaterial = new THREE.MeshStandardMaterial({ color : 0x404040,metalness:0.85,roughness:0.0,envMap:scene.environment});
     const barrelMaterial2 = new THREE.MeshStandardMaterial({color : 0x0000ff,envMap:scene.environment,});
     const barrelMaterial3 = new THREE.MeshPhongMaterial({ color:0xffa500,envMap:scene.environment});
@@ -97,8 +97,10 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
   barrel1.scale.set(1,2,1);
   MMG.add(barrel1);
    
-   
-   
+   const barrels = new THREE.Group();
+   const barrels1 = new THREE.Group();
+   const barrels2 = new THREE.Group();
+   const barrels3 = new THREE.Group();
    // Cylinder Setup
         const numCylinders = 16;
         const cylinderRadius = 0.8;
@@ -116,7 +118,9 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
             cylinder.position.set(x, y, 0);
            cylinder.rotation.x = Math.PI/2;
             
-            MMG.add(cylinder);
+            barrels.add(cylinder);
+           MMG.add(barrels);
+           
         }
            const numCylinders1 = 10;
         const cylinderRadius1 = 0.7;
@@ -134,7 +138,8 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
             cylinder1.position.set(x, y, 0);
            cylinder1.rotation.x = Math.PI/2;
             
-            MMG.add(cylinder1);
+            barrels1.add(cylinder1);
+           MMG.add(barrels1);
         }
            
            const numCylinders2 = 16;
@@ -153,7 +158,8 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
             cylinder2.position.set(x, y, 0.1);
            cylinder2.rotation.x = Math.PI/2;
             
-            MMG.add(cylinder2);
+            barrels2.add(cylinder2);
+           MMG.add(barrels2);
         }
            const numCylinders12 = 10;
         const cylinderRadius12 = 0.6;
@@ -171,7 +177,8 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
             cylinder12.position.set(x, y, 0.1);
            cylinder12.rotation.x = Math.PI/2;
             
-            MMG.add(cylinder12);
+            barrels3.add(cylinder12);
+           MMG.add(barrels3);
         }
    const bodyGeometry = new THREE.BoxGeometry(3, 3, 10);
     const bodyMaterial = new THREE.MeshStandardMaterial({ color:0x222222,metalness:0.85,roughnessMap:0.0,envMap:scene.environment});
@@ -233,7 +240,7 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
 
    const ambientLight1 = new THREE.AmbientLight(0x404040, 3);
     MMG.add(ambientLight1);
-  MMG.position.x = 3;
+  MMG.position.x = 0;
   scene.add(MMG);
    
     // Camera setup
@@ -271,6 +278,11 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     function animate() {
       requestAnimationFrame(animate);
       MMG.rotation.y += 0.01;
+       barrels.rotation.z += 0.03;
+       barrels1.rotation.z -= 0.02;
+       barrels2.rotation.z += 0.03;
+       barrels3.rotation.z -= 0.02;
+       //numCylinders.rotation.x += 0.01;
      // racersuit.position.x += 0.1;
       //racersuit.scale.z += 0.1;
 

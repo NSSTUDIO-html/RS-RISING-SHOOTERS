@@ -3,19 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Gun with Three.js</title>
+  <title>HEAVYMACHINEGUN</title>
   <style>
     body { margin: 0; }
     canvas { display: block; }
+    #shootButton {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 40px 40px;
+      background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYJnbcjoa848_GOr5iDnJLg-WqdCsiCZbPK-_frYttwZYf5oU9VdqUJGnz&s=10');
+      background-position:center;
+      background-size:100%;
+      border: 6px ridge white;
+      border-radius:50%;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
+  <button id="shootButton"></button>
+  <audio id="shootingSound" src="/storage/emulated/0/Download/clean-machine-gun-burst-98224.mp3" preload="auto"></audio>
   <!-- Include Three.js library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script>
     // Set up the scene, camera, and renderer
     const scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0x444444 );
+  scene.background = new THREE.Color( 0x444442 );
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -26,14 +40,14 @@ const textureLoader53 = new THREE.TextureLoader();
     
 const metalnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdN_0FmrQiJUD33tP1M5HBiiSeGCdHT5yApWgtr8idiDTPWaWXLy6TN_CV&s=10');
 const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl2FlaSfn9lWa3rXf8pL3Q3U_MIOmRB4w0zWs9TG51A85_JfwxN5jTCwE&s=10');
-  const texture2 = textureLoader53.load('Target.png');
+  const texture2 = textureLoader53.load('/storage/emulated/0/DCIM/Lift and shift/LS20250215170857.png');
     // Create a simple gun-like shape using basic geometries
     const gun = new THREE.Group();
 
     // Gun barrel (a cylinder)
     const barrelGeometry = new THREE.CylinderGeometry(1, 1, 10, 32);
     const barrelMaterial = new THREE.MeshStandardMaterial({ map: texture1,bumpMap:texture1 ,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});
-    const barrelMaterial1 = new THREE.MeshPhongMaterial({ color : 0x222222,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});
+    const barrelMaterial1 = new THREE.MeshPhongMaterial({ color : 0x222222,envMap:scene.environment});
     const barrelMaterial2 = new THREE.MeshStandardMaterial({ color : 0x000000 ,metalnessMap:metalnessMap2,roughnessMap:0.0,envMap:scene.environment});
     const barrelMaterial3 = new THREE.MeshStandardMaterial({ map : texture2,transparent:true,opacity:5});
     
@@ -293,24 +307,57 @@ for (let i = 0; i < numCylinders; i++) {
     // Add the gun to the scene
     scene.add(gun);
 
+  const bulletGeometry = new THREE.CylinderGeometry(0.1, 0.1, 1,32);
+    const bulletMaterial = new THREE.MeshBasicMaterial({ color: 0xffa500 });
+    let bullets = [];
+
+    document.getElementById('shootButton').addEventListener('click', shoot);
+
+    function shoot() {
+      const audio = document.getElementById('shootingSound');
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+
+      const bullet = new THREE.Mesh(bulletGeometry, bulletMaterial);
+      bullet.position.copy(gun1.getWorldPosition(new THREE.Vector3())); // Bullet starts at gun's position
+      //bullet.rotation.copy(gun1.rotation); // Match gun's rotation
+bullet.rotation.x = Math.PI/2;
+      // Adjust bullet position to come from the gun's "muzzle"
+      bullet.translateZ(0);
+      bullet.translateX(0);
+      //bullet.translateY(-0.6);
+
+      gun.add(bullet);
+      bullets.push(bullet);
+    }
+
+
     // Lighting
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(1, 2, 10);
     directionalLight.castShadow = true;
     gun.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0x000000, 2);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
     gun.add(ambientLight);
   gun.position.x = 0;
   scene.add(gun);
-  const ambientLight1 = new THREE.AmbientLight(0x404040, 2);
+  const ambientLight1 = new THREE.AmbientLight(0x000000, 2);
     gun.add(ambientLight1);
   gun.position.x = 0;
   scene.add(gun);
 
+  const gunGeometry = new THREE.BoxGeometry(0.2, 1, 1);
+    const gunMaterial = new THREE.MeshBasicMaterial({ color: 0x888888 });
+    const gun1 = new THREE.Mesh(gunGeometry, gunMaterial);
+    gun.add(gun1);
+    gun1.position.z = 7;
+  gun1.position.y = 0;
     // Camera setup
     camera.position.set(0, 1, 25);
-    camera.lookAt(0, 1, 5);
+    camera.lookAt(0, 1, 0);
 
     // Animation Variables
     const radius = 25; // Distance from the center
@@ -342,7 +389,16 @@ for (let i = 0; i < numCylinders; i++) {
     // Animation loop
     function animate() {
       requestAnimationFrame(animate);
-      gun.rotation.y -= 0.01;
+      for (let i = 0; i < bullets.length; i++) {
+        bullets[i].position.z += 0.5; // Move forward
+
+        if (bullets[i].position.z < -10) { // Remove when far away
+          scene.remove(bullets[i]);
+          bullets.splice(i, 1);
+          i--;
+        }
+      }
+     gun.rotation.y -= 0.01;
      // racersuit.position.x += 0.1;
       //racersuit.scale.z += 0.1;
 

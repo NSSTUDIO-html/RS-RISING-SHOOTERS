@@ -384,7 +384,7 @@ const roughnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
     // Animation loop
     function animate() {
       requestAnimationFrame(animate);
-      
+      jeep.rotation.y += 0.01;
 
       // Update the camera position based on swipe
       if (swipeDirectionX !== 0 || swipeDirectionY !== 0) {

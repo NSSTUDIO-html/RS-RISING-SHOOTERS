@@ -239,7 +239,7 @@ racer.add(spotLight);
     // Animation loop
     function animate() {
       requestAnimationFrame(animate);
-      
+      racer.rotation.y += 0.01;
 
       // Update the camera position based on swipe
       if (swipeDirectionX !== 0 || swipeDirectionY !== 0) {

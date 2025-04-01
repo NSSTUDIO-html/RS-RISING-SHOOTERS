@@ -18,7 +18,7 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
    const texture5 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwARDqWEUA1Oc6_KqnWcs5bKKyoCI6OKLHMRMiXE9SLUtx1jEmH5vMfspA&s=10');
    
     // Create a simple gun-like shape using basic geometries
-   export const mg = new THREE.Group();
+   const mg = new THREE.Group();
 
     // Gun barrel (a cylinder)
     const barrelGeometry = new THREE.CylinderGeometry(1, 1, 10, 32);
@@ -219,5 +219,6 @@ c2334.rotation.z = Math.PI/2;
   // const ambientLight1 = new THREE.AmbientLight(0x404040, 1);
     //mg.add(ambientLight1);
   mg.position.x = 0;
-  scene.add(mg);
-   export default mg;
+  
+   export const mg1 = new THREE.Group();
+mg1.add(mg);scene.add(mg1);

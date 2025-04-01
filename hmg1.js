@@ -14,7 +14,7 @@ const metalnessMap2 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/i
 const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl2FlaSfn9lWa3rXf8pL3Q3U_MIOmRB4w0zWs9TG51A85_JfwxN5jTCwE&s=10');
   const texture2 = textureLoader53.load('/storage/emulated/0/DCIM/Lift and shift/LS20250215170857.png');
     // Create a simple gun-like shape using basic geometries
-   export const gun = new THREE.Group();
+   const gun = new THREE.Group();
 
     // Gun barrel (a cylinder)
     const barrelGeometry = new THREE.CylinderGeometry(1, 1, 10, 32);
@@ -275,10 +275,10 @@ for (let i = 0; i < numCylinders; i++) {
     gun.add(cylinder);
     gun.add(cylinder1);
 }
-
+export const egun = new THREE.Group();
     // Add the gun to the scene
-    scene.add(gun);
-
+    egun.add(gun);
+scene.add(egun);
   
 
 
@@ -287,3 +287,4 @@ for (let i = 0; i < numCylinders; i++) {
   
 
     
+

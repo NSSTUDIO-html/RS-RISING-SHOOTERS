@@ -243,21 +243,21 @@ meter {
    <button id="mmg"></button>
    <button id="az"></button>
    <div id="mapDiv"></div>
-   <audio id="gunSound" src="/storage/emulated/0/#RS LEVEL 2/clean-machine-gun-burst-98224.mp3" preload="auto"></audio>
-<audio id="sgunSound" src="/storage/emulated/0/#RS LEVEL 2/gun-shot-sound-effect-224087.mp3" preload="auto"></audio>
-<audio id="pistolSound" src="/storage/emulated/0/#RS LEVEL 2/gun-shots-230534.mp3" preload="auto"></audio>
-<audio id="blasterSound" src="/storage/emulated/0/#RS LEVEL 2/laser-gun-72558.mp3" preload="auto"></audio>
-<audio id="rifleSound" src="/storage/emulated/0/#RS LEVEL 2/9mm-pistol-shoot-short-reverb-7152.mp3" preload="auto"></audio>
-<audio id="icegunSound" src="/storage/emulated/0/#RS LEVEL 2/firing-lazer-gun-241650.mp3" preload="auto"></audio>
-<audio id="pblSound" src="/storage/emulated/0/#RS LEVEL 2/laser-gun-174976.mp3" preload="auto"></audio>
-<audio id="mgSound" src="/storage/emulated/0/#RS LEVEL 2/machine-gun-burst-43670.mp3" preload="auto"></audio>
-<audio id="ftSound" src="/storage/emulated/0/#RS LEVEL 2/flamethrower-soundeffect-147322.mp3" preload="auto"></audio>
-<audio id="mbSound" src="/storage/emulated/0/#RS LEVEL 2/sci-fi-weapon-shoot-firing-pulse-dn-02-233831.mp3" preload="auto"></audio>
-<audio id="mlSound" src="/storage/emulated/0/#RS LEVEL 2/missile-blast-2-95177.mp3" preload="auto"></audio>
-<audio id="bomberSound" src="/storage/emulated/0/#RS LEVEL 2/explosion-307469.mp3" preload="auto"></audio>
+   <audio id="gunSound" src="clean-machine-gun-burst-98224.mp3" preload="auto"></audio>
+<audio id="sgunSound" src="gun-shot-sound-effect-224087.mp3" preload="auto"></audio>
+<audio id="pistolSound" src="gun-shots-230534.mp3" preload="auto"></audio>
+<audio id="blasterSound" src="laser-gun-72558.mp3" preload="auto"></audio>
+<audio id="rifleSound" src="9mm-pistol-shoot-short-reverb-7152.mp3" preload="auto"></audio>
+<audio id="icegunSound" src="firing-lazer-gun-241650.mp3" preload="auto"></audio>
+<audio id="pblSound" src="laser-gun-174976.mp3" preload="auto"></audio>
+<audio id="mgSound" src="machine-gun-burst-43670.mp3" preload="auto"></audio>
+<audio id="ftSound" src="flamethrower-soundeffect-147322.mp3" preload="auto"></audio>
+<audio id="mbSound" src="sci-fi-weapon-shoot-firing-pulse-dn-02-233831.mp3" preload="auto"></audio>
+<audio id="mlSound" src="missile-blast-2-95177.mp3" preload="auto"></audio>
+<audio id="bomberSound" src="explosion-307469.mp3" preload="auto"></audio>
 
- <audio id="tarSound" src="/storage/emulated/0/#RS LEVEL 2/1911-reload-6248.mp3" preload="auto"></audio>
- <audio id="clickSound" src="/storage/emulated/0/#RS LEVEL 2/menu-click-89198.mp3" preload="auto"></audio>
+ <audio id="tarSound" src="1911-reload-6248.mp3" preload="auto"></audio>
+ <audio id="clickSound" src="menu-click-89198.mp3" preload="auto"></audio>
 
    <meter min="0" max="100" value="100"></meter>
 <meter id="v"min="0" max="100" value="100"></meter>
@@ -292,9 +292,9 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
      BASE.position.copy(landPosition);
      BASE.rotation.set(0, 2 * Math.PI, 0);
      BASE.scale.set(1.5, 1.5, 1.5);
-     import { BASE1 } from '/storage/emulated/0/#RS LEVEL 2/mbase.js';
+     import { BASE1 } from './mbase.js';
      scene.add(BASE1);
-   import { c256 } from '/storage/emulated/0/#RS LEVEL 2/mbase.js';
+   import { c256 } from './mbase.js';
      scene.add(c256);
      const c256PositionZ = 50; // Store the Z position of c256
      BASE1.position.set(0, 10, 60);
@@ -303,29 +303,29 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
    c256.position.set(-1, 20.5, c256PositionZ);
      c256.rotation.set(0, Math.PI, 0);
      c256.scale.set(1.5, 0.4, 0.5);
-     import { MMG } from '/storage/emulated/0/#RS LEVEL 2/MMG.js';
+     import { MMG } from './MMG.js';
      scene.add(MMG);
      MMG.position.set(17, 12.5, -60);
      MMG.rotation.set(0, 2 * Math.PI, 0);
      MMG.scale.set(0.3, 0.3, 0.3);
 
-     import { AZ } from '/storage/emulated/0/#RS LEVEL 2/AZ.js';
+     import { AZ } from './AZ.js';
      scene.add(AZ);
      AZ.position.set(2, 12, 60);
      AZ.rotation.set(0, Math.PI, 0);
      AZ.scale.set(0.07, 0.07, 0.07);
-   import { ultrarider } from '/storage/emulated/0/@RS/ultrarider.js';
+   import { ultrarider } from './ultrarider.js';
      scene.add(ultrarider);
      ultrarider.position.set(13, 12, 40);
      ultrarider.rotation.set(0, -Math.PI/2, 0);
      ultrarider.scale.set(0.3, 0.3, 0.3);
      const HT1 = new THREE.Group();
-     import { a2 } from '/storage/emulated/0/#RS LEVEL 2/A2.js';
+     import { a2 } from './A2.js';
      HT1.add(a2);
      a2.position.set(-1, 23, 50);
      a2.rotation.set(0, Math.PI, 0);
      a2.scale.set(0.05, 0.05, 0.05);
-   import { armysuit } from '/storage/emulated/0/#RS LEVEL 2/as1.js';
+   import { armysuit } from './as1.js';
 //import * as THREE from 'three'; // Assuming you're using Three.js
 
 for (let i = 0; i < 4; i++) {
@@ -344,10 +344,10 @@ const harmy = new THREE.Group();
   newWeapon.scale.set(0.08, 0.08, 0.08);
 scene.add(harmy);
 }
-  import { vs } from '/storage/emulated/0/#RS LEVEL 2/vs1.js';
-import { ak47 } from '/storage/emulated/0/#RS LEVEL 2/sni1.js';
-import { mg1 } from '/storage/emulated/0/#RS LEVEL 2/mg1.js';
-import { egun } from '/storage/emulated/0/#RS LEVEL 2/hmg1.js';
+  import { vs } from './vs1.js';
+import { ak47 } from './sni1.js';
+import { mg1 } from './mg1.js';
+import { egun } from './hmg1.js';
 
   //import * as THREE from 'three'; // Assuming you're using Three.js
 
@@ -422,19 +422,19 @@ sni1.push(newArmysuit1);
   newArmysuit1.scale.set(0.15, 0.15, 0.15);
 }
       scene.add(harmy1r);
-     import { gun } from '/storage/emulated/0/#RS LEVEL 2/hmg.js';
-     import { sgun } from '/storage/emulated/0/#RS LEVEL 2/sga.js';
-     import { pistol } from '/storage/emulated/0/#RS LEVEL 2/p.js';
-     import { blaster } from '/storage/emulated/0/#RS LEVEL 2/bla.js';
-     import { rifle } from '/storage/emulated/0/#RS LEVEL 2/sni.js';
-     import { icegun } from '/storage/emulated/0/#RS LEVEL 2/ig.js';
-     import { pbl } from '/storage/emulated/0/#RS LEVEL 2/bl.js';
-     import { mg } from '/storage/emulated/0/#RS LEVEL 2/mg.js';
-     import { ft } from '/storage/emulated/0/#RS LEVEL 2/ft.js';
-     import { mb } from '/storage/emulated/0/#RS LEVEL 2/mb.js';
-     import { ml } from '/storage/emulated/0/#RS LEVEL 2/ml.js';
-     import { BOMBER } from '/storage/emulated/0/#RS LEVEL 2/b.js';
-    import { rhand } from '/storage/emulated/0/#RS LEVEL 2/a2.js';
+     import { gun } from './hmg.js';
+     import { sgun } from './sga.js';
+     import { pistol } from './p.js';
+     import { blaster } from './bla.js';
+     import { rifle } from './sni.js';
+     import { icegun } from './ig.js';
+     import { pbl } from './bl.js';
+     import { mg } from './mg.js';
+     import { ft } from './ft.js';
+     import { mb } from './mb.js';
+     import { ml } from './ml.js';
+     import { BOMBER } from './b.js';
+    import { rhand } from './a2.js';
      
      let currentGun;
  const rh = new THREE.Group();
@@ -575,18 +575,18 @@ function shoot() {
      
       const nameDiv = document.getElementById('name');
      const imageArray = [
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111753.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250207111154.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111725.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111807.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111758.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111714.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111706 (1).png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111640.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111647.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111747.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111738.png',
-       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111601.png',
+       'LS20250206111753.png',
+       'LS20250207111154.png',
+       '/LS20250206111725.png',
+       '/LS20250206111807.png',
+       '/LS20250206111758.png',
+       '/LS20250206111714.png',
+       '/LS20250206111706 (1).png',
+       '/LS20250206111640.png',
+       '/LS20250206111647.png',
+       '/LS20250206111747.png',
+       '/LS20250206111738.png',
+       '/LS20250206111601.png',
 
      ];
 

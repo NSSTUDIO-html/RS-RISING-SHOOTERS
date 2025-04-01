@@ -1,0 +1,834 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>LEVEL 2 ZOMBIES AND WEAPONS FPS</title>
+   <style>
+     body { margin: 0; overflow: hidden; }
+     canvas { display: block; }
+     #shootButton {
+       position: absolute;
+       bottom: 0px;
+       right: 0px;
+       padding: 30px 30px;
+       background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYJnbcjoa848_GOr5iDnJLg-WqdCsiCZbPK-_frYttwZYf5oU9VdqUJGnz&s=10');
+       background-position:center;
+       background-size:100%;
+       border: 6px ridge white;
+       border-radius:50%;
+       
+     }
+   #targetButton {
+       position: absolute;
+       bottom: 0px;
+       right: 80px;
+       padding: 20px 20px;
+       background:url('/storage/emulated/0/DCIM/Lift and shift/LS20250215170857.png');
+       background-position:center;
+       background-size:cover;
+       border: 6px double black;
+       border-radius:50%;
+       
+     }
+   #watch {
+       position: absolute;
+       bottom: 0px;
+       right: 150px;
+       padding: 20px 20px;
+       background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHp-fkMxco7r8dtSyAY-RSnl6ytIavBimxwQf7XZ38ImE4cVZrkpRpuj8&s=10');
+     background-position:center;
+       background-size:cover;
+       border: 6px ridge black;
+       border-radius:50%;
+       
+     }
+   #uButton,#dButton,#rButton,#lButton,#fButton,#bButton {
+       
+       padding: 20px 20px;
+       background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_WcqlmJ9336gaJ6LagOLe8CYSRa5ZifaNkE16DOVniVwp-SED8SwA0ZI&s=10');
+       background-position:center;
+       background-size:cover;
+       border: 6px inset black;
+       border-radius:50%;
+       
+     }
+   #uButton{
+      position: absolute;
+       bottom: 80px;
+       left: 40px;
+     transform : rotate(-90deg);
+   }
+    #dButton{
+      position: absolute;
+       bottom: 0px;
+       left: 40px;
+      transform : rotate(90deg);
+   }
+   #rButton{
+      position: absolute;
+       bottom: 40px;
+       left: 0px;
+     transform : rotate(180deg);
+   }
+    #lButton{
+      position: absolute;
+       bottom: 40px;
+       left: 80px;
+      transform : rotate(360deg);
+   }
+   #fButton{
+      position: absolute;
+       bottom: 90px;
+       left: 90px;
+     padding:15px;
+      transform : rotate(-90deg);
+   }
+   #bButton{
+      position: absolute;
+       bottom: 0px;
+       left: 90px;
+     padding:15px;
+      transform : rotate(90deg);
+   }
+     #clickableDiv {
+       width: 100px;
+       height: 50px;
+       text-align:center;
+       font-family:courier;
+       position:absolute;
+       right:0px;
+       color:white;
+       border: 2px double white;
+       cursor: pointer;
+       background-size: cover;
+     }
+   #name {
+       width: 100px;
+       height: 40px;
+       text-align:center;
+       font-family:courier;
+       position:absolute;
+     top:40px;
+       right:0px;
+       color:white;
+       border: 2px double white;
+       cursor: pointer;
+       background-size: cover;
+     }
+    #info {
+       width: 30px;
+       height: 30px;
+       text-align:center;
+       font-family:courier;
+       position:absolute;
+       right:110px;
+       color:white;
+      text-align:center;
+      background:blue;
+       border: 2px groove white;
+      border-radius:50%;
+       cursor: pointer;
+       background-size: cover;
+     }
+   #cam {
+       width: 30px;
+       height: 30px;
+       text-align:center;
+       font-family:courier;
+       position:absolute;
+       right:140px;
+       color:white;
+      text-align:center;
+      background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIvp2zlbHYBQdzdOBkdjL7H4YUHrY2e2wYrnKDmZQMzs13NeyiABtQ-Pg&s=10');
+       border: 2px groove white;
+      border-radius:50%;
+       cursor: pointer;
+       background-size: cover;
+     }
+   #mmg {
+       width: 30px;
+       height: 30px;
+       text-align:center;
+       font-family:courier;
+       position:absolute;
+       right:110px;
+      top:30px;
+       color:white;
+      text-align:center;
+      background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgugJ3ciElqO5PFlKbM2oAhluZB6hfsf0vMSQQs3u7KVFbm69xRsBs5aVP&s=10');
+       border: 2px groove white;
+      border-radius:50%;
+       cursor: pointer;
+       background-size: cover;
+     }
+   #az {
+       width: 30px;
+       height: 30px;
+       text-align:center;
+       font-family:courier;
+       position:absolute;
+       right:140px;
+     top:30px;
+       color:white;
+      text-align:center;
+      background:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7s-rAMcjb0ZKVJ3OlU5WmP8pxwnQhW3qU0lUCVlZ96J_NrHbl4QZ6iC0&s=10');
+       border: 2px groove white;
+      border-radius:50%;
+       cursor: pointer;
+       background-size: cover;
+     }
+    #mapDiv {
+       width: 75px;
+       height: 75px;
+       position:absolute;
+       left:0px;
+       color:white;
+       border: 2px inset white;
+       cursor: pointer;
+       background-size: cover;
+     }
+   meter::-webkit-meter-bar {
+  background: white;
+}
+meter::-webkit-meter-optimum-value {
+  background: linear-gradient(to right,lightgreen,cyan,blue);
+}
+   #v::-webkit-meter-bar {
+  background: white;
+}
+#v::-webkit-meter-optimum-value {
+  background: linear-gradient(to right,yellow,orange,red);
+}
+meter {
+       width: 100px;
+       height: 20px;
+       position:absolute;
+       left:80px;
+       color:white;
+  
+     }
+   #v {
+       width: 100px;
+       height: 20px;
+       position:absolute;
+     top:15px;
+       left:80px;
+       color:white;
+  
+     }
+   </style>
+ </head>
+ <body>
+   <div id="controls">
+     <button id="uButton"></button>
+     <button id="dButton"></button>
+     <button id="rButton"></button>
+     <button id="lButton"></button>
+     <button id="fButton"></button>
+     <button id="bButton"></button>
+   </div>
+   <button id="shootButton"></button>
+   <button id="targetButton"></button>
+   <button id="watch"></button>
+   
+   <div id="clickableDiv"><p>SELECT</p></div>
+   <div id="nameDiv"><p id="name"></p></div>
+   <a href="/storage/emulated/0/INFO.html">
+     <button id="info">?</button>
+   </a>
+   
+   
+   <button id="cam"></button>
+   <button id="mmg"></button>
+   <button id="az"></button>
+   <div id="mapDiv"></div>
+   <audio id="gunSound" src="/storage/emulated/0/#RS LEVEL 2/clean-machine-gun-burst-98224.mp3" preload="auto"></audio>
+<audio id="sgunSound" src="/storage/emulated/0/#RS LEVEL 2/gun-shot-sound-effect-224087.mp3" preload="auto"></audio>
+<audio id="pistolSound" src="/storage/emulated/0/#RS LEVEL 2/gun-shots-230534.mp3" preload="auto"></audio>
+<audio id="blasterSound" src="/storage/emulated/0/#RS LEVEL 2/laser-gun-72558.mp3" preload="auto"></audio>
+<audio id="rifleSound" src="/storage/emulated/0/#RS LEVEL 2/9mm-pistol-shoot-short-reverb-7152.mp3" preload="auto"></audio>
+<audio id="icegunSound" src="/storage/emulated/0/#RS LEVEL 2/firing-lazer-gun-241650.mp3" preload="auto"></audio>
+<audio id="pblSound" src="/storage/emulated/0/#RS LEVEL 2/laser-gun-174976.mp3" preload="auto"></audio>
+<audio id="mgSound" src="/storage/emulated/0/#RS LEVEL 2/machine-gun-burst-43670.mp3" preload="auto"></audio>
+<audio id="ftSound" src="/storage/emulated/0/#RS LEVEL 2/flamethrower-soundeffect-147322.mp3" preload="auto"></audio>
+<audio id="mbSound" src="/storage/emulated/0/#RS LEVEL 2/sci-fi-weapon-shoot-firing-pulse-dn-02-233831.mp3" preload="auto"></audio>
+<audio id="mlSound" src="/storage/emulated/0/#RS LEVEL 2/missile-blast-2-95177.mp3" preload="auto"></audio>
+<audio id="bomberSound" src="/storage/emulated/0/#RS LEVEL 2/explosion-307469.mp3" preload="auto"></audio>
+
+ <audio id="tarSound" src="/storage/emulated/0/#RS LEVEL 2/1911-reload-6248.mp3" preload="auto"></audio>
+ <audio id="clickSound" src="/storage/emulated/0/#RS LEVEL 2/menu-click-89198.mp3" preload="auto"></audio>
+
+   <meter min="0" max="100" value="100"></meter>
+<meter id="v"min="0" max="100" value="100"></meter>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+   
+   <script type="module">
+     const scene = new THREE.Scene();
+     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+     const renderer = new THREE.WebGLRenderer({ antialias: true });
+     renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(window.devicePixelRatio);
+     document.body.appendChild(renderer.domElement);
+
+     scene.background = new THREE.Color(0x000000);
+
+     import { BASE } from '/storage/emulated/0/#RS LEVEL 2/vbase.js';
+     const textureLoader53 = new THREE.TextureLoader();
+const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScVyJhx8Q-ImDmsy09v5j-NSRH8CUT-DIfzDnbEXh9UIYtaTZLW_LbfWdk&s=10');
+ 
+   const bodyGeometry = new THREE.BoxGeometry(3, 3, 10);
+    const bodyMaterial = new THREE.MeshStandardMaterial({ map:texture1,envMap:scene.environment});
+    const b11 = new THREE.Mesh(bodyGeometry, bodyMaterial);
+    b11.position.set(0,2,13); // Position it below the barrel
+    b11.scale.set(1.8,1.8,0.1);
+  BASE.add(b11);
+   scene.add(BASE);
+     const landPosition = new THREE.Vector3(17, 9.5, -60); // Store land's initial position
+     const landWidth = 180;
+     const landDepth = 200;
+     const landHeight = 20;
+     BASE.position.copy(landPosition);
+     BASE.rotation.set(0, 2 * Math.PI, 0);
+     BASE.scale.set(1.5, 1.5, 1.5);
+     import { BASE1 } from '/storage/emulated/0/#RS LEVEL 2/mbase.js';
+     scene.add(BASE1);
+   import { c256 } from '/storage/emulated/0/#RS LEVEL 2/mbase.js';
+     scene.add(c256);
+     const c256PositionZ = 50; // Store the Z position of c256
+     BASE1.position.set(0, 10, 60);
+     BASE1.rotation.set(0, Math.PI, 0);
+     BASE1.scale.set(1, 1, 1);
+   c256.position.set(-1, 20.5, c256PositionZ);
+     c256.rotation.set(0, Math.PI, 0);
+     c256.scale.set(1.5, 0.4, 0.5);
+     import { MMG } from '/storage/emulated/0/#RS LEVEL 2/MMG.js';
+     scene.add(MMG);
+     MMG.position.set(17, 12.5, -60);
+     MMG.rotation.set(0, 2 * Math.PI, 0);
+     MMG.scale.set(0.3, 0.3, 0.3);
+
+     import { AZ } from '/storage/emulated/0/#RS LEVEL 2/AZ.js';
+     scene.add(AZ);
+     AZ.position.set(2, 12, 60);
+     AZ.rotation.set(0, Math.PI, 0);
+     AZ.scale.set(0.07, 0.07, 0.07);
+   import { ultrarider } from '/storage/emulated/0/@RS/ultrarider.js';
+     scene.add(ultrarider);
+     ultrarider.position.set(13, 12, 40);
+     ultrarider.rotation.set(0, -Math.PI/2, 0);
+     ultrarider.scale.set(0.3, 0.3, 0.3);
+     const HT1 = new THREE.Group();
+     import { a2 } from '/storage/emulated/0/#RS LEVEL 2/A2.js';
+     HT1.add(a2);
+     a2.position.set(-1, 23, 50);
+     a2.rotation.set(0, Math.PI, 0);
+     a2.scale.set(0.05, 0.05, 0.05);
+   import { armysuit } from '/storage/emulated/0/#RS LEVEL 2/as1.js';
+//import * as THREE from 'three'; // Assuming you're using Three.js
+
+for (let i = 0; i < 4; i++) {
+  const newArmysuit = armysuit.clone(); // Clone to create a new instance
+const harmy = new THREE.Group();
+  harmy.add(newArmysuit);
+  newArmysuit.position.set(i * 5, 14, 40); // Adjust x-position for line placement
+  newArmysuit.rotation.set(0, Math.PI, 0);
+  newArmysuit.scale.set(0.05, 0.05, 0.05);
+  
+  const newWeapon = egun.clone(); // Clone to create a new instance
+
+  harmy.add(newWeapon);
+  newWeapon.position.set(i * 5+0.7, 12, 40); // Adjust x-position for line placement
+  newWeapon.rotation.set(Math.PI/2, 0, Math.PI);
+  newWeapon.scale.set(0.08, 0.08, 0.08);
+scene.add(harmy);
+}
+  import { vs } from '/storage/emulated/0/#RS LEVEL 2/vs1.js';
+import { ak47 } from '/storage/emulated/0/#RS LEVEL 2/sni1.js';
+import { mg1 } from '/storage/emulated/0/#RS LEVEL 2/mg1.js';
+import { egun } from '/storage/emulated/0/#RS LEVEL 2/hmg1.js';
+
+  //import * as THREE from 'three'; // Assuming you're using Three.js
+
+for (let i = 0; i < 5; i++) {
+  const newArmysuit1 = vs.clone(); // Clone to create a new instance
+const varmy = new THREE.Group();
+  varmy.add(newArmysuit1);
+  newArmysuit1.position.set(i * 4, 12.5, 30); // Adjust x-position for line placement
+  newArmysuit1.rotation.set(0, Math.PI/20, 0);
+  newArmysuit1.scale.set(0.06, 0.06, 0.06);
+  
+  
+  const newWeapon1 = ak47.clone(); // Clone to create a new instance
+
+  varmy.add(newWeapon1);
+  newWeapon1.position.set(i * 4+0.8, 11.5, 30); // Adjust x-position for line placement
+  newWeapon1.rotation.set(Math.PI/2, Math.PI/20, 0);
+  newWeapon1.scale.set(0.15, 0.15, 0.15);
+scene.add(varmy);
+}
+  for (let i = 0; i < 4; i++) {
+  const newArmysuit2 = vs.clone(); // Clone to create a new instance
+const harmy1 = new THREE.Group();
+  harmy1.add(newArmysuit2);
+  newArmysuit2.position.set(i * 10, 12.5, -30); // Adjust x-position for line placement
+  newArmysuit2.rotation.set(0, Math.PI/20, 0);
+  newArmysuit2.scale.set(0.06, 0.06, 0.06);
+    const newWeapon2 = mg1.clone(); // Clone to create a new instance
+
+  harmy1.add(newWeapon2);
+  newWeapon2.position.set(i * 10+0.8, 11.5, -30); // Adjust x-position for line placement
+  newWeapon2.rotation.set(Math.PI/2, Math.PI/20, 0);
+  newWeapon2.scale.set(0.15, 0.15, 0.15);
+scene.add(harmy1);
+  }
+    const harmy1r = new THREE.Group(); 
+    const vs1 = [];
+    const radius1 = 15; // Adjust the radius of the circle as needed
+const numArmysuits = 30; // Number of armysuits to place in the circle
+
+    for (let i = 0; i < numArmysuits; i++) {
+  const newArmysuit3 = vs.clone(); // Clone to create a new instance
+
+  harmy1r.add(newArmysuit3);
+vs1.push(newArmysuit3);
+  const angle = (i / numArmysuits) * 2 * Math.PI; // Calculate the angle for each armysuit
+
+  const x = radius1 * Math.cos(angle); // Calculate x-coordinate
+  const z = radius1 * Math.sin(angle); // Calculate z-coordinate
+
+  newArmysuit3.position.set(x+17, 12.5, z-60); // Set the position in a circle
+  newArmysuit3.rotation.set(0,0, 0); // Rotate to face outwards, or however desired.
+  newArmysuit3.scale.set(0.06, 0.06, 0.06);
+}
+      
+      const sni1 = [];
+    const radius11 = 15; // Adjust the radius of the circle as needed
+const numArmyweapons = 30; // Number of armysuits to place in the circle
+
+    for (let i = 0; i < numArmyweapons; i++) {
+  const newArmysuit1 = ak47.clone(); // Clone to create a new instance
+
+  harmy1r.add(newArmysuit1);
+sni1.push(newArmysuit1);
+  const angle1 = (i / numArmyweapons) * 2* Math.PI; // Calculate the angle for each armysuit
+
+  const x = radius11 * Math.cos(angle1); // Calculate x-coordinate
+  const z = radius11 * Math.sin(angle1); // Calculate z-coordinate
+
+  newArmysuit1.position.set(x+17+0.8, 11.5, z-60); // Set the position in a circle
+  newArmysuit1.rotation.set(-Math.PI/2,Math.PI, -2*Math.PI); // Rotate to face outwards, or however desired.
+  newArmysuit1.scale.set(0.15, 0.15, 0.15);
+}
+      scene.add(harmy1r);
+     import { gun } from '/storage/emulated/0/#RS LEVEL 2/hmg.js';
+     import { sgun } from '/storage/emulated/0/#RS LEVEL 2/sga.js';
+     import { pistol } from '/storage/emulated/0/#RS LEVEL 2/p.js';
+     import { blaster } from '/storage/emulated/0/#RS LEVEL 2/bla.js';
+     import { rifle } from '/storage/emulated/0/#RS LEVEL 2/sni.js';
+     import { icegun } from '/storage/emulated/0/#RS LEVEL 2/ig.js';
+     import { pbl } from '/storage/emulated/0/#RS LEVEL 2/bl.js';
+     import { mg } from '/storage/emulated/0/#RS LEVEL 2/mg.js';
+     import { ft } from '/storage/emulated/0/#RS LEVEL 2/ft.js';
+     import { mb } from '/storage/emulated/0/#RS LEVEL 2/mb.js';
+     import { ml } from '/storage/emulated/0/#RS LEVEL 2/ml.js';
+     import { BOMBER } from '/storage/emulated/0/#RS LEVEL 2/b.js';
+    import { rhand } from '/storage/emulated/0/#RS LEVEL 2/a2.js';
+     
+     let currentGun;
+ const rh = new THREE.Group();
+  // const rhand = new THREE.Group();
+     function setGun(gunModel) {
+       if (currentGun) {
+         HT1.remove(currentGun);
+       }
+       currentGun = gunModel.clone();
+       currentGun.position.set(rhand.position);
+       currentGun.rotation.set(Math.PI/2, 0, -Math.PI
+);
+       currentGun.scale.set(0.05, 0.05, 0.05);
+      HT1.add(currentGun);
+       //rhand.add(currentGun);
+     }
+
+     setGun(gun); // Initial gun setup
+ //currentGun.rotation.x = -Math.PI/2;
+   // currentGun.position.set(0,-11,-10);
+     rh.add(rhand);
+   rh.add(currentGun);
+   scene.add(HT1);
+     const textureLoader = new THREE.TextureLoader();
+
+     const landm = textureLoader.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR19XcVC3dZSgheZp2yy85v6bursk5yUFUkPA&usqp=CAU', undefined, undefined, (error) => {
+       console.error('Failed to load road texture:', error);
+     });
+
+     const geometry = new THREE.BoxGeometry(250, 20, 400);
+     const lmaterial = new THREE.MeshStandardMaterial({ map: landm, roughness: 0.5, metalness: 0.2 });
+     const land = new THREE.Mesh(geometry, lmaterial);
+     scene.add(land);
+
+     const ambientLight = new THREE.AmbientLight(0x000000, 1.5);
+     scene.add(ambientLight);
+
+     const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+     directionalLight.position.set(1, 2, 0).normalize();
+     scene.add(directionalLight);
+
+     
+     const bulletGeometry = new THREE.CylinderGeometry(0.1, 0.1, 1, 32);
+     const bulletMaterial = new THREE.MeshBasicMaterial({ color: 0xffa500 });
+     let bullets =[];
+
+     document.getElementById('shootButton').addEventListener('click', shoot);
+ document.getElementById('targetButton').addEventListener('click', target);
+document.getElementById('uButton').addEventListener('click', u);
+document.getElementById('dButton').addEventListener('click', d);
+document.getElementById('rButton').addEventListener('click', r);
+document.getElementById('lButton').addEventListener('click', l);
+document.getElementById('fButton').addEventListener('click', f);
+document.getElementById('bButton').addEventListener('click', b);
+
+     const bulletProperties = {
+  0: { color: 0xffd700, size: 0.1 },
+  1: { color: 0xffd700, size: 0.2 },
+  2: { color: 0xffd700, size: 0.15 },
+  3: { color: 0x0000ff, size: 0.3 },
+  4: { color: 0x000088, size: 0.25 },
+  5: { color: 0xffd700, size: 0.2 },
+  6: { color: 0x00ffff, size: 0.25 },
+  7: { color: 0x00FFFF, size: 0.3 },
+  8: { color: 0xff4500, size: 2 },
+  9: { color: 0xfff700, size: 3 },
+  10: { color: 0xffffff, size: 1.3 },
+  11: { color: 0xfff700, size: 1.4 },
+       12: { color: 0x000000, size: 1 },
+
+     };
+
+function shoot() {
+  const audio = document.getElementById(currentAudioId);
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const properties = bulletProperties[imageIndex];
+  const bulletGeometry = new THREE.CylinderGeometry(properties.size, properties.size, 1, 32);
+  const bulletMaterial = new THREE.MeshBasicMaterial({ color: properties.color });
+  const bullet = new THREE.Mesh(bulletGeometry, bulletMaterial);
+
+  bullet.position.set(0, 0, 0);
+  bullet.rotation.x = Math.PI / 2;
+  bullet.translateZ(0.1);
+  bullet.translateX(0.1);
+
+  currentGun.add(bullet);
+  bullets.push(bullet);
+}
+
+// ... rest of your code ...
+
+
+   HT1.add(currentGun);
+   function target() {
+     
+     //rhand.rotation.x = Math.PI/2;
+ //rhand.position.set(-0.4, 22, 49.8);
+     currentGun.rotation.x = -Math.PI;
+ currentGun.position.set(-0.45, 23.7, 48.2);
+     const audio = document.getElementById('tarSound'); // Replace 'myAudio' with your audio element's ID
+  if (audio) {
+    audio.currentTime = 0; // Reset audio to the beginning if it's already playing
+    audio.play();
+  } else {
+    console.error("Audio element with ID not found.");
+  }
+   }
+   let isA = false; 
+   function u() {
+     isA = !isA;
+   }
+   let isA1 = false; 
+   function d() {
+     isA1 = !isA1;
+   }
+   let isA2 = false; 
+   function r() {
+     isA2 = !isA2;
+   }
+   let isA3 = false; 
+   function l() {
+     isA3 = !isA3;
+   }
+   let isA4 = false; 
+   function f() {
+     isA4 = !isA4;
+   }
+   let isA5 = false; 
+   function b() {
+     isA5 = !isA5;
+   }
+   console.log(target);
+     const clickableDiv = document.getElementById('clickableDiv');
+     
+      const nameDiv = document.getElementById('name');
+     const imageArray = [
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111753.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250207111154.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111725.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111807.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111758.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111714.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111706 (1).png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111640.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111647.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111747.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111738.png',
+       '/storage/emulated/0/DCIM/#RS LEVEL 2/LS20250206111601.png',
+
+     ];
+
+     let imageIndex = 0;
+
+     let currentAudioId; // Variable to store the current audio ID
+
+clickableDiv.addEventListener('click', () => {
+  if (imageIndex < imageArray.length) {
+    clickableDiv.style.backgroundImage = `url('${imageArray[imageIndex]}')`;
+    if (imageIndex === 0) {
+      setGun(gun);
+      currentAudioId = 'gunSound';
+      nameDiv.innerText = 'HMG GUN';
+    } else if (imageIndex === 1) {
+      setGun(sgun);
+      currentAudioId = 'sgunSound';
+      nameDiv.innerText = 'SHOT GUN AXE';
+    } else if (imageIndex === 2) {
+      setGun(pistol);
+      currentAudioId = 'pistolSound';
+      nameDiv.innerText = 'PISTOL';
+    }
+    else if (imageIndex === 3) {
+      setGun(blaster);
+      currentGun.scale.set(0.2,0.1,0.1);
+      currentAudioId = 'blasterSound';
+      nameDiv.innerText = 'BLASTER 1';
+    }
+    else if (imageIndex === 4) {
+      setGun(rifle);
+      currentGun.scale.set(0.1,0.1,0.1);
+      currentAudioId = 'rifleSound';
+      nameDiv.innerText = 'SNIPER RIFLE';
+    }
+    else if (imageIndex === 5) {
+      setGun(icegun);
+      currentGun.scale.set(0.1,0.1,0.1);
+      currentAudioId = 'icegunSound';
+      nameDiv.innerText = 'ICE GUN';
+    }
+    else if (imageIndex === 6) {
+      setGun(pbl);
+      currentGun.scale.set(0.1,0.1,0.1);
+      currentAudioId = 'pblSound';
+      nameDiv.innerText = 'PLASMA BLASTER';
+    }
+    else if (imageIndex === 7) {
+      setGun(mg);
+      currentGun.scale.set(0.1,0.1,0.1);
+      currentAudioId = 'mgSound';
+      nameDiv.innerText = 'MACHINE GUN';
+    }
+    else if (imageIndex === 8) {
+      setGun(ft);
+      currentGun.scale.set(0.1,0.1,0.1);
+      currentAudioId = 'ftSound';
+      nameDiv.innerText = 'FLAME THROWER';
+    }
+    else if (imageIndex === 9) {
+      setGun(mb);
+      currentGun.scale.set(0.1,0.1,0.1);
+      currentAudioId = 'mbSound';
+      nameDiv.innerText = 'MACHINE BLASTER';
+    }
+    else if (imageIndex === 10) {
+      setGun(ml);
+      currentGun.scale.set(0.1,0.1,0.1);
+      currentAudioId = 'mlSound';
+      nameDiv.innerText = 'MISSILE LAUNCHER';
+    }
+    else if (imageIndex === 11) {
+      setGun(BOMBER);
+      currentGun.scale.set(0.15,0.15,0.15);
+      currentAudioId = 'bomberSound';
+      nameDiv.innerText = 'BOMBER';
+    }
+    imageIndex++;
+  } else {
+    imageIndex = 0;
+    clickableDiv.style.backgroundImage = `url('${imageArray[imageIndex]}')`;
+    setGun(); // Reset to the first gun
+    currentAudioId = 'gunSound';
+    imageIndex++;
+  }
+    const audio = document.getElementById('clickSound'); // Replace 'myAudio' with your audio element's ID
+  if (audio) {
+    audio.currentTime = 0; // Reset audio to the beginning if it's already playing
+    audio.play();
+  } else {
+    console.error("Audio element with ID 'myAudio' not found.");
+  }
+});
+
+
+     function preloadImages(array) {
+       if (!preloadImages.list) {
+         preloadImages.list =[];
+
+       }
+
+       var list = preloadImages.list;
+       for (var i = 0; i < array.length; i++) {
+         var img = new Image();
+         img.onload = function () {
+           var index = list.indexOf(this);
+           if (index !== -1) {
+             list.splice(index, 1);
+           }
+         }
+         list.push(img);
+         img.src = array[i];
+       }
+     }
+     preloadImages(imageArray);
+a2.add(camera);
+   camera.position.set(1, 16, 80);
+   camera.lookAt(a2.position); // Look at the land object
+ 
+
+    // Map Camera Setup
+    const mapCamera = new THREE.OrthographicCamera(
+      -100, // left
+      100,  // right
+      100,  // top
+      -100, // bottom
+      1,    // near
+      100  // far
+    );
+    mapCamera.position.set(0, 50, 0); // Position high above the scene
+    mapCamera.lookAt(0, 0, 0); // Look straight down
+
+     // Animation Variables
+     const radius = 70;
+     let angleX = 0;
+     let angleY = 0;
+     let swipeDirectionX = 0;
+     let swipeDirectionY = 0;
+
+     // Touch Event Handlers
+     let startX = 0, startY = 0;
+
+     document.addEventListener("touchstart", (e) => {
+       startX = e.touches[0].clientX;
+       startY = e.touches[0].clientY;
+     });
+
+     document.addEventListener("touchmove", (e) => {
+       const endX = e.touches[0].clientX;
+       const endY = e.touches[0].clientY;
+       swipeDirectionX = endX - startX;
+       swipeDirectionY = endY - startY;
+     });
+
+     document.addEventListener("touchend", () => {
+       swipeDirectionX = 0;
+       swipeDirectionY = 0;
+     });
+     function animate() {
+       requestAnimationFrame(animate);
+       const moveSpeed = 0.8;
+
+       // Boundary checks for land
+       const minX = landPosition.x - landWidth / 2;
+       const maxX = landPosition.x + landWidth / 2;
+       const minZ = landPosition.z - landDepth / 2;
+       const maxZ = landPosition.z + landDepth / 2;
+       const minY = landPosition.y - landHeight / 2 - 10; // Added a bit of offset
+       const maxY = landPosition.y + landHeight / 2 + 23; // Considering HT1's approximate height
+
+       if(isA){
+         HT1.position.z -= moveSpeed;
+         if (HT1.position.z < minZ) HT1.position.z = minZ;
+       }
+       if(isA1){
+         HT1.position.z += moveSpeed;
+         if (HT1.position.z > maxZ) HT1.position.z = maxZ;
+       }
+       if(isA2){
+         HT1.position.x -= moveSpeed;
+         if (HT1.position.x < minX) HT1.position.x = minX;
+       }
+       if(isA3){
+         HT1.position.x += moveSpeed;
+         if (HT1.position.x > maxX) HT1.position.x = maxX;
+       }
+       if(isA4){
+         HT1.position.y += moveSpeed;
+         if (HT1.position.y > maxY) HT1.position.y = maxY;
+       }
+       if(isA5){
+         HT1.position.y -= moveSpeed;
+         if (HT1.position.y < minY) HT1.position.y = minY;
+       }
+ //camera.position.z += 0.1;
+     //HT1.position.y += 50.1;
+      //camera.position.y += 0.027;
+       //camera.position.x = -1;
+      //HT.rotation.y += 0.1;
+       for (let i = 0; i < bullets.length; i++) {
+         bullets[i].position.z += 10; // Move forward
+
+         if (bullets[i].position.z < -50) { // Remove when far away
+           scene.remove(bullets[i]);
+           bullets.splice(i, 1);
+           i--;
+         }
+       }
+       if (swipeDirectionX !== 0 || swipeDirectionY !== 0) {
+         angleX += swipeDirectionX * 0.001;
+         angleY += swipeDirectionY * 0.001;
+
+         camera.position.x = radius * Math.cos(angleY) * Math.cos(angleX);
+         camera.position.y = radius * Math.sin(angleY);
+         camera.position.z = radius * Math.cos(angleY) * Math.sin(angleX);
+
+         camera.lookAt(HT1.position); // Look at the land object
+       }
+
+     
+
+      renderer.setViewport(0, 0, window.innerWidth, window.innerHeight);
+    renderer.setScissor(0, 0, window.innerWidth, window.innerHeight);
+    renderer.setScissorTest(true);
+    renderer.render(scene, camera);
+    renderer.setScissorTest(false);
+
+    // Render map view (Inside mapDiv)
+    const mapDiv = document.getElementById('mapDiv');
+    const mapWidth = mapDiv.clientWidth;
+    const mapHeight = mapDiv.clientHeight;
+    const mapLeft = mapDiv.offsetLeft;
+    const mapBottom = window.innerHeight - mapDiv.offsetTop - mapHeight;
+
+    renderer.setViewport(mapLeft, mapBottom, mapWidth, mapHeight);
+    renderer.setScissor(mapLeft, mapBottom, mapWidth, mapHeight);
+    renderer.setScissorTest(true);
+    renderer.render(scene, mapCamera);
+    renderer.setScissorTest(false);
+}
+
+     animate();
+   </script>
+ </body>
+ </html>

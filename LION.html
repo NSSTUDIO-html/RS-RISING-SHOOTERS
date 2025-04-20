@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meshy.ai Lion Animation</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    camera.position.set(0, 1.5, 3);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLight.position.set(5, 10, 7.5);
+    scene.add(dirLight);
+
+    const loader = new THREE.GLTFLoader();
+    const clock = new THREE.Clock();
+
+    const modelPath = '/storage/emulated/0/Download/Majestic_Stride_0410034742_texture.glb';
+
+    let frontLeftBone, frontRightBone;
+
+    loader.load(
+      modelPath,
+      function (gltf) {
+        const model = gltf.scene;
+        model.position.set(0, 0, 0);
+        model.scale.set(1, 1, 1.3);
+        scene.add(model);
+
+        model.traverse((child) => {
+          if (child.isSkinnedMesh) {
+            console.log('Found SkinnedMesh:', child.name);
+            child.skeleton.bones.forEach((bone) => {
+              console.log('Bone:', bone.name);
+
+              // Change these names based on what shows up in console
+              if (bone.name.toLowerCase().includes("front_l")) frontLeftBone = bone;
+              if (bone.name.toLowerCase().includes("front_r")) frontRightBone = bone;
+            });
+          }
+        });
+      },
+      undefined,
+      function (error) {
+        console.error('Error loading model:', error);
+      }
+    );
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      if (frontLeftBone && frontRightBone) {
+        frontLeftBone.rotation.x = Math.sin(t * 3) * 0.4;
+        frontRightBone.rotation.x = -Math.sin(t * 3) * 0.4;
+      }
+
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

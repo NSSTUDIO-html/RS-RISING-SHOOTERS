@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D A2 Model</title>
+    <title>3D TIGER Model</title>
     <style>
         body { margin: 0; overflow: hidden; }
         canvas { display: block; }
@@ -23,10 +23,10 @@
         document.body.appendChild(renderer.domElement);
 
         // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff,1);
+        const ambientLight = new THREE.AmbientLight(0xffffff);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
         directionalLight.position.set(1, 1, 1);
         scene.add(directionalLight);
 
@@ -43,7 +43,7 @@
 
         // GLTF Loader
         const loader = new THREE.GLTFLoader();
-        const modelPath = '/storage/emulated/0/Download/Stealth_Operative_A2_0411101742_texture.glb'; // Replace with the public URL of your model
+        const modelPath = '/storage/emulated/0/Download/Fierce_Majesty_0410041840_texture.glb'; // Replace with the public URL of your model
 
         loader.load(
             modelPath,
@@ -51,7 +51,7 @@
                 scene.add(gltf.scene);
                 // Optionally adjust the model's position, scale, or rotation here
                  gltf.scene.position.set(0, 0, 0);
-                gltf.scene.scale.set(1, 1, 1);
+                gltf.scene.scale.set(1.5, 1.5, 1.5);
             },
             function (xhr) {
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');

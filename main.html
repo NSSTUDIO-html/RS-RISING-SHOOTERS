@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BAHUBALI-MACHINE-GUN.ORG</title>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      canvas { display: block; }
+    </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  
+<script type="module">
+import { OrbitControls } from 'https://esm.sh/three@0.158.0/examples/jsm/controls/OrbitControls';
+  
+      const scene = new THREE.Scene();
+  scene.background = new THREE.Color( 0xffffff );
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+  //controls
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+  
+  //lighting
+      const light = new THREE.PointLight(0xffffff, 10);
+      light.position.set(0, 0, 20);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight(0xffffff));
+  //shapes(geometry)
+      const material = new THREE.MeshStandardMaterial({ color: 0x000000 });
+      
+      
+      
+      
+  const BMG1 = new THREE.Group();
+
+  function BBMG(){
+    const BBMG = new THREE.Group();
+
+    const barrels = new THREE.Group();
+   const barrels1 = new THREE.Group();
+   const barrels2 = new THREE.Group();
+   const barrels3 = new THREE.Group();
+   const barrels4 = new THREE.Group();
+   const barrels5 = new THREE.Group();
+   
+    // Cylinder Setup
+    //barrel 1
+        const numCylinders = 20;
+        const cylinderRadius = 0.7;
+        const circleRadius = 5;
+
+        const cylinderGeometry = new THREE.CylinderGeometry(cylinderRadius, cylinderRadius, 15, 32);
+        const cylinderMaterial = new THREE.MeshPhongMaterial({ color: 0x222222 }); // Use MeshStandardMaterial
+
+        for (let i = 0; i < numCylinders; i++) {
+            const angle = (i / numCylinders) * Math.PI * 2;
+            const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+
+            const x = Math.sin(angle) * circleRadius;
+            const y = Math.cos(angle) * circleRadius;
+            cylinder.position.set(x, y, 0);
+           cylinder.rotation.x = Math.PI/2;
+            
+            barrels.add(cylinder);
+           BBMG.add(barrels);
+           
+        }
+          //barrel 2
+           const numCylinders1 = 20;
+        const cylinderRadius1 = 0.6;
+        const circleRadius1 = 5;
+
+        const cylinderGeometry1 = new THREE.CylinderGeometry(cylinderRadius1, cylinderRadius1, 15, 32);
+        const cylinderMaterial1 = new THREE.MeshPhongMaterial({ color: 0x000000 }); // Use MeshStandardMaterial
+
+        for (let i = 0; i < numCylinders1; i++) {
+            const angle1 = (i / numCylinders1) * Math.PI * 2;
+            const cylinder1 = new THREE.Mesh(cylinderGeometry1, cylinderMaterial1);
+
+            const x = Math.sin(angle1) * circleRadius1;
+            const y = Math.cos(angle1) * circleRadius1;
+            cylinder1.position.set(x, y, 0.3);
+           cylinder1.rotation.x = Math.PI/2;
+            
+            barrels1.add(cylinder1);
+           BBMG.add(barrels1);
+        }
+           //barrel 3
+           const numCylinders2 = 18;
+        const cylinderRadius2 = 0.5;
+        const circleRadius2 = 3.7;
+
+        const cylinderGeometry2 = new THREE.CylinderGeometry(cylinderRadius2, cylinderRadius2, 15, 32);
+        const cylinderMaterial2 = new THREE.MeshPhongMaterial({ color: 0x000000 }); // Use MeshStandardMaterial
+
+        for (let i = 0; i < numCylinders2; i++) {
+            const angle2= (i / numCylinders2) * Math.PI * 2;
+            const cylinder2 = new THREE.Mesh(cylinderGeometry2, cylinderMaterial2);
+
+            const x = Math.sin(angle2) * circleRadius2;
+            const y = Math.cos(angle2) * circleRadius2;
+            cylinder2.position.set(x, y, 0.6);
+           cylinder2.rotation.x = Math.PI/2;
+            
+            barrels2.add(cylinder2);
+          BBMG.add(barrels2);
+        }
+          //barrel 4
+           const numCylinders12 = 18;
+        const cylinderRadius12 = 0.4;
+        const circleRadius12 = 3.7;
+
+        const cylinderGeometry12 = new THREE.CylinderGeometry(cylinderRadius12, cylinderRadius12, 15, 32);
+        const cylinderMaterial12 = new THREE.MeshPhongMaterial({ color: 0x000000 }); // Use MeshStandardMaterial
+
+        for (let i = 0; i < numCylinders12; i++) {
+            const angle12 = (i / numCylinders12) * Math.PI * 2;
+            const cylinder12 = new THREE.Mesh(cylinderGeometry12, cylinderMaterial12);
+
+            const x = Math.sin(angle12) * circleRadius12;
+            const y = Math.cos(angle12) * circleRadius12;
+            cylinder12.position.set(x, y, 0.7);
+           cylinder12.rotation.x = Math.PI/2;
+            
+            barrels3.add(cylinder12);
+           BBMG.add(barrels3);
+          }
+          //barrelbase5
+          const numCylinders22 = 28;
+        const cylinderRadius22 = 0.4;
+        const circleRadius22 = 2.7;
+
+        const cylinderGeometry22 = new THREE.CylinderGeometry(cylinderRadius22, cylinderRadius22, 15, 20);
+        const cylinderMaterial22 = new THREE.MeshPhongMaterial({ color: 0x000000 }); // Use MeshStandardMaterial
+
+        for (let i = 0; i < numCylinders22; i++) {
+            const angle22 = (i / numCylinders22) * Math.PI * 2;
+            const cylinder22 = new THREE.Mesh(cylinderGeometry22, cylinderMaterial22);
+
+            const x = Math.sin(angle22) * circleRadius22;
+            const y = Math.cos(angle22) * circleRadius22;
+            cylinder22.position.set(x, y, 0.2);
+           cylinder22.rotation.x = Math.PI/2;
+            
+            barrels4.add(cylinder22);
+           BBMG.add(barrels4);
+          }
+          //barrel 6
+          const numCylinders221 = 28;
+        const cylinderRadius221 = 0.3;
+        const circleRadius221 = 2.7;
+
+        const cylinderGeometry221 = new THREE.CylinderGeometry(cylinderRadius221, cylinderRadius221, 15, 20);
+        const cylinderMaterial221 = new THREE.MeshPhongMaterial({ color: 0x000000 }); // Use MeshStandardMaterial
+
+        for (let i = 0; i < numCylinders221; i++) {
+            const angle221 = (i / numCylinders221) * Math.PI * 2;
+            const cylinder221 = new THREE.Mesh(cylinderGeometry221, cylinderMaterial221);
+
+            const x = Math.sin(angle221) * circleRadius221;
+            const y = Math.cos(angle221) * circleRadius221;
+            cylinder221.position.set(x, y, 0.3);
+           cylinder221.rotation.x = Math.PI/2;
+            
+            barrels5.add(cylinder221);
+           BBMG.add(barrels5);
+          }
+          //supportbase
+          const cyl = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl.position.z = 4;
+          cyl.rotation.x = Math.PI/2;
+          cyl.scale.set(6,1,6);
+      BBMG.add(cyl);
+          const cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl1.position.z = -6;
+          cyl1.rotation.x = Math.PI/2;
+          cyl1.scale.set(6,2,6);
+      BBMG.add(cyl1);
+          
+          scene.add(BBMG);
+          BBMG.scale.set(0.5,0.5,0.5);
+        
+  }BBMG()
+  function NM(){
+    const textureLoaderRS = new THREE.TextureLoader();
+    const texture1N = textureLoaderRS.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd3CbskPUXSR0G-rpyAjCg8fCpvo-LlEQxJsqm3UyqcleZBrUowuq2ib0&s=10');
+    const material1 = new THREE.MeshStandardMaterial({ color: 0xffa500 });
+      const material2 = new THREE.MeshStandardMaterial({ map:texture1N });
+      
+    const NM = new THREE.Group();
+    //NUCLEAR MISSILE
+    const cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material1);
+      cyl1.position.z = 3;
+          cyl1.rotation.x = Math.PI/2;
+          cyl1.scale.set(1,4,1);
+      NM.add(cyl1);
+    const cyl2 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl2.position.z = 3;
+          cyl2.rotation.x = Math.PI/2;
+          cyl2.scale.set(1.1,2.5,1.1);
+      NM.add(cyl2);
+    const cyl3 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material2);
+      cyl3.position.z = 3;
+          cyl3.rotation.x = Math.PI/2;
+          cyl3.scale.set(1.15,1,1.15);
+      NM.add(cyl3);
+    const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material1);
+      sphere.position.set(0,0,7);
+      NM.add(sphere);
+    
+    scene.add(NM);
+    NM.position.z = -1;
+  }NM()
+  function MGBASE(){
+    const textureLoaderRS = new THREE.TextureLoader();
+    const texture1N = textureLoaderRS.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd3CbskPUXSR0G-rpyAjCg8fCpvo-LlEQxJsqm3UyqcleZBrUowuq2ib0&s=10');
+    const material1 = new THREE.MeshStandardMaterial({ color: 0xffa500 });
+      const material3 = new THREE.MeshStandardMaterial({ color: 0x222222 });
+      
+    const material2 = new THREE.MeshStandardMaterial({ map:texture1N });
+      
+    const MGB = new THREE.Group();
+    
+    const cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl1.position.set(0,-3.8,-3);
+          cyl1.rotation.y = Math.PI/2;
+          cyl1.scale.set(2.8,1,2.8);
+      MGB.add(cyl1);
+    const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material3);
+      cube.position.set(0,-5,0);
+    cube.scale.set(3,1.5,5);
+      MGB.add(cube);
+    const cyl12 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl12.position.set(3,-5,0);
+          cyl12.rotation.x = Math.PI/2;
+          cyl12.scale.set(1.5,5.5,1.5);
+      MGB.add(cyl12);
+    const cyl13 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl13.position.set(-3,-5,0);
+          cyl13.rotation.x = Math.PI/2;
+          cyl13.scale.set(1.5,5.5,1.5);
+      MGB.add(cyl13);
+    const cyl14 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl14.position.set(0,-5,5);
+          cyl14.rotation.z = Math.PI/2;
+          cyl14.scale.set(1.5,4.5,1.5);
+      MGB.add(cyl14);
+    
+    const cyl15 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl15.position.set(0,-5,5);
+          cyl15.rotation.z = Math.PI/2;
+          cyl15.scale.set(1.5,4.5,1.5);
+      MGB.add(cyl15);
+    const cyl16 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl16.position.set(0,-5,1);
+          cyl16.rotation.z = Math.PI/2;
+          cyl16.scale.set(1.5,8,1.5);
+      MGB.add(cyl16);
+    const cyl17 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl17.position.set(0,-5,-2);
+          cyl17.rotation.z = Math.PI/2;
+          cyl17.scale.set(1.5,8,1.5);
+      MGB.add(cyl17);
+    
+    
+    
+    scene.add(MGB);
+  }MGBASE()
+  function FTW(){
+    const FTW = new THREE.Group();
+    
+    const torus = new THREE.Mesh(new THREE.TorusGeometry(2, 1, 30, 100), material);
+      torus.position.set(7,-5,0);
+    torus.rotation.y = Math.PI/2;
+    torus.scale.set(2.5,1.5,2.5);
+      FTW.add(torus);
+    const torus1 = new THREE.Mesh(new THREE.TorusGeometry(2, 1, 30, 100), material);
+      torus1.position.set(-7,-5,0);
+    torus1.rotation.y = Math.PI/2;
+    torus1.scale.set(2.5,1.5,2.5);
+      FTW.add(torus1);
+    scene.add(FTW);
+  }FTW()
+  function C(){
+    const C = new THREE.Group();
+    const material3 = new THREE.MeshStandardMaterial({ color: 0x000000 });
+      
+    const cyl17 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material3);
+      cyl17.position.set(-9,1,-10);
+          cyl17.rotation.x = Math.PI/2;
+          cyl17.scale.set(1.8,4,1.8);
+      C.add(cyl17);
+    const cyl16 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material3);
+      cyl16.position.set(9,1,-10);
+          cyl16.rotation.x = Math.PI/2;
+          cyl16.scale.set(1.8,4,1.8);
+      C.add(cyl16);
+    
+    scene.add(C);
+    
+  }C()
+  function WINGJET(){
+    const WJ = new THREE.Group();
+    
+    const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube.position.set(8,-1.5,-14);
+    cube.rotation.y = Math.PI/2;
+    cube.scale.set(2.5,1,5);
+      WJ.add(cube);
+      const cube1 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube1.position.set(-8,-1.5,-14);
+    cube1.rotation.y = Math.PI/2;
+    cube1.scale.set(2.5,1,5);
+      WJ.add(cube1);
+      
+      const cube2 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube2.position.set(8,-1.5,-11);
+    cube2.rotation.y = -Math.PI/3;
+    cube2.scale.set(2.5,1,5);
+      WJ.add(cube2);
+      const cube12 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube12.position.set(-8,-1.5,-11);
+    cube12.rotation.y = Math.PI/3;
+    cube12.scale.set(2.5,1,5);
+      WJ.add(cube12);
+  
+    const cyl17 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl17.position.set(-13,-1,-13);
+          cyl17.rotation.x = Math.PI/2;
+          cyl17.scale.set(1.5,4,1.5);
+      WJ.add(cyl17);
+    const cyl16 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl16.position.set(13,-1,-13);
+          cyl16.rotation.x = Math.PI/2;
+          cyl16.scale.set(1.5,4,1.5);
+      WJ.add(cyl16);
+    
+    scene.add(WJ);
+  }WINGJET()
+  function SEATBASE(){
+    const SB = new THREE.Group();
+    const material3 = new THREE.MeshStandardMaterial({ color: 0x444444 });
+      
+    const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube.position.set(0,-2,-5);
+    cube.rotation.x = Math.PI/2;
+    cube.scale.set(4,1,5);
+      SB.add(cube);
+    const cube1 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube1.position.set(0,3,-5);
+    cube1.rotation.x = Math.PI/6;
+    cube1.scale.set(4,1,2);
+      SB.add(cube1);
+    const cube12 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube12.position.set(0,3.8,-10.7);
+    cube12.rotation.x = Math.PI;
+    cube12.scale.set(4,1,5);
+      SB.add(cube12);
+    const cube13 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube13.position.set(0,-5.3,-10.7);
+    cube13.rotation.z = Math.PI;
+    cube13.scale.set(4,1,5);
+      SB.add(cube13);
+    
+    const cube135 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube135.position.set(-4,-3.5,-10);
+    cube135.rotation.z = Math.PI/2;
+    cube135.scale.set(3,0.5,5.5);
+      SB.add(cube135);
+    const cube134 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube134.position.set(4,-3.5,-10);
+    cube134.rotation.z = Math.PI/2;
+    cube134.scale.set(3,0.5,5.5);
+      SB.add(cube134);
+    
+    const cube6 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube6.position.set(0,-1,-15);
+    cube6.rotation.x = Math.PI/2;
+    cube6.scale.set(4.5,0.5,5);
+      SB.add(cube6);
+    //seat
+    const cube67 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material3);
+      cube67.position.set(0,-4,-12);
+    cube67.rotation.x = Math.PI;
+    cube67.scale.set(2.5,1.5,2.5);
+      SB.add(cube67);
+    const cube68 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material3);
+      cube68.position.set(0,-1,-13.5);
+    cube68.rotation.x = Math.PI/2;
+    cube68.scale.set(2.5,1,2.5);
+      SB.add(cube68);
+    //control panel
+    const textureLoaderRS = new THREE.TextureLoader();
+    const texture2N = textureLoaderRS.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBOg_c7ng7DaV_pKWzsVQ8Yy_T8PqHg4jqCY6Z6gRJrq86vQHS3i8fsIU&s=10');
+    const material4 = new THREE.MeshStandardMaterial({ map:texture2N });
+      
+    const cube681 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material4);
+      cube681.position.set(0,-1,-7);
+    cube681.rotation.x = -Math.PI/3;
+    cube681.scale.set(2.3,0.2,1.4);
+      SB.add(cube681);
+    
+    //side glasses
+    
+    scene.add(SB);
+  }SEATBASE()
+  function ATOMB(){
+    const ATOMB = new THREE.Group();
+    
+    const cyl17 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl17.position.set(0,7,-12);
+          cyl17.rotation.x = Math.PI/2;
+          cyl17.scale.set(3,3.5,3);
+      ATOMB.add(cyl17);
+    const s = new THREE.Mesh(new THREE.SphereGeometry(3, 32, 32), material);
+      s.position.set(0,7,-8);
+      ATOMB.add(s);
+    const s1 = new THREE.Mesh(new THREE.SphereGeometry(3, 32, 32), material);
+      s1.position.set(0,7,-15);
+      ATOMB.add(s1);
+    const cube68 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube68.position.set(0,7,-17);
+    cube68.rotation.x = Math.PI/2;
+    cube68.scale.set(3,1,3);
+      ATOMB.add(cube68);
+    scene.add(ATOMB);
+  }ATOMB()
+  function BNW(){
+    const BNW = new THREE.Group();
+    
+    const torus = new THREE.Mesh(new THREE.TorusGeometry(2, 1, 30, 100), material);
+      torus.position.set(8,-3,-22);
+    torus.rotation.y = Math.PI/2;
+    torus.scale.set(1.2,1.2,2);
+      BNW.add(torus);
+    const torus1 = new THREE.Mesh(new THREE.TorusGeometry(2, 1, 30, 100), material);
+      torus1.position.set(-8,-3,-22);
+    torus1.rotation.y = Math.PI/2;
+    torus1.scale.set(1.2,1.2,2);
+      BNW.add(torus1);
+    scene.add(BNW);
+  }BNW()
+  function BSML(){
+    const BSML = new THREE.Group();
+    const material6 = new THREE.MeshStandardMaterial({ color: 0x444444 });
+      const material7 = new THREE.MeshStandardMaterial({ color: 0x222222 });
+      
+    const cube68 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material6);
+      cube68.position.set(0,-3,-16);
+    cube68.rotation.x = -Math.PI/3;
+    cube68.scale.set(5,2,3);
+      BSML.add(cube68);
+    
+    const cube681 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material7);
+      cube681.position.set(-5,-3,-17);
+    cube681.rotation.y = Math.PI/2;
+    cube681.scale.set(5,2,1);
+      BSML.add(cube681);
+    const cube682 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material7);
+      cube682.position.set(5,-3,-17);
+    cube682.rotation.y = Math.PI/2;
+    cube682.scale.set(5,2,1);
+      BSML.add(cube682);
+    const cyl17 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl17.position.set(-6,-3,-22);
+          cyl17.rotation.z = Math.PI/2;
+          cyl17.scale.set(2.5,2.5,2.5);
+      BSML.add(cyl17);
+    const cyl18 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl18.position.set(6,-3,-22);
+          cyl18.rotation.z = Math.PI/2;
+          cyl18.scale.set(2.5,2.5,2.5);
+      BSML.add(cyl18);
+    
+    const numCylinders22 = 4;
+        const cylinderRadius22 = 0.5;
+        const circleRadius22 = 3;
+
+        const cylinderGeometry22 = new THREE.CylinderGeometry(cylinderRadius22, cylinderRadius22, 5, 25);
+        const cylinderMaterial22 = new THREE.MeshPhongMaterial({ color: 0x000000 }); // Use MeshStandardMaterial
+
+            const cylinder22 = new THREE.Mesh(cylinderGeometry22, cylinderMaterial22);
+            cylinder22.position.set(0, -1, -14.5);
+           cylinder22.rotation.set(-Math.PI/3,0,0);
+          cylinder22.scale.set(1,1,1);
+           BSML.add(cylinder22);
+    const cylinder221 = new THREE.Mesh(cylinderGeometry22, cylinderMaterial22);
+            cylinder221.position.set(0, -2, -15);
+           cylinder221.rotation.set(-Math.PI/3,0,0);
+          cylinder221.scale.set(1,1,1);
+           BSML.add(cylinder221);
+    const cylinder222 = new THREE.Mesh(cylinderGeometry22, cylinderMaterial22);
+            cylinder222.position.set(0, -3, -15.5);
+           cylinder222.rotation.set(-Math.PI/3,0,0);
+          cylinder222.scale.set(1,1,1);
+           BSML.add(cylinder222);
+    const cylinder223 = new THREE.Mesh(cylinderGeometry22, cylinderMaterial22);
+            cylinder223.position.set(0, -4, -16.1);
+           cylinder223.rotation.set(-Math.PI/3,0,0);
+          cylinder223.scale.set(1,1,1);
+           BSML.add(cylinder223);
+          
+          
+    scene.add(BSML);
+  }BSML()
+  function BASE(){
+    
+  }BASE()
+  
+  
+      camera.position.set(10,0,-50);
+      function animate() {
+        requestAnimationFrame(animate);
+        scene.rotation.y += 0.01;
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+  </body>
+</html>

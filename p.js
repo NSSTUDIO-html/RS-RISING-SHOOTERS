@@ -1,4 +1,5 @@
-
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
+   
     // Set up the scene, camera, and renderer
     const scene = new THREE.Scene();
   scene.background = new THREE.Color( 0x444442 );

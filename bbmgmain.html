@@ -379,6 +379,53 @@
           cyl168.rotation.x = Math.PI/2;
           cyl168.scale.set(1.5,4,1.5);
       C.add(cyl168);
+
+      const texture4N = textureLoaderRS.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScI6tB-X2pAtsEqgBzzcqMdH4D7cIwiIWSAWBZP5lQCsFSSdgNRgQbST9J&s=10');
+    const material6 = new THREE.MeshStandardMaterial({ map:texture4N,metalness:0.7 });
+      //launchpads
+    const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material6);
+      cube.position.set(9,3,-15);
+    cube.rotation.x = Math.PI/5;
+    cube.scale.set(2.5,1,4);
+      C.add(cube);
+    const cube1 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material6);
+      cube1.position.set(-9,3,-15);
+    cube1.rotation.x = Math.PI/5;
+    cube1.scale.set(2.5,1,4);
+      C.add(cube1);
+    //antenas
+    const cube3 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube3.position.set(11,6,-16);
+    cube3.rotation.x = Math.PI;
+    cube3.scale.set(0.4,7,0.4);
+      C.add(cube3);
+    const cube13 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube13.position.set(-11,6,-16);
+    cube13.rotation.x = Math.PI;
+    cube13.scale.set(0.4,7,0.4);
+      C.add(cube13);
+    //ml
+    const cyl0 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl0.position.set(9,2.5,-13);
+          cyl0.rotation.x = Math.PI/5;
+          cyl0.scale.set(1.5,1.5,1.5);
+      C.add(cyl0);
+    const cy = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cy.position.set(-9,2.5,-13);
+          cy.rotation.x = Math.PI/5;
+          cy.scale.set(1.5,1.5,1.5);
+      C.add(cy);
+    const cyl01 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl01.position.set(9,4.7,-16);
+          cyl01.rotation.x = Math.PI/5;
+          cyl01.scale.set(1.5,1.5,1.5);
+      C.add(cyl01);
+    const cy1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cy1.position.set(-9,4.7,-16);
+          cy1.rotation.x = Math.PI/5;
+          cy1.scale.set(1.5,1.5,1.5);
+      C.add(cy1);
+    
     scene.add(C);
     
   }C()

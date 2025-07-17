@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BIKEBILLA.COM</title>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      canvas { display: block; }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import * as THREE from 'https://esm.sh/three@0.158.0';
+      import { OrbitControls } from 'https://esm.sh/three@0.158.0/examples/jsm/controls/OrbitControls';
+
+      const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffe4b5); // Light orange (Moccasin)
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+
+      const light = new THREE.DirectionalLight(0xffffff);
+      light.position.set(10, 10, 10);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight(0x404040));
+
+      const material = new THREE.MeshStandardMaterial({ color: 0x00ffcc });
+
+      camera.position.set(10,20,22);
+const body = new THREE.Group();
+      
+    function BBBODY() {
+      const texturel = new THREE.TextureLoader();
+      const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
+      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
+      const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material1);
+      sphere.position.x = 0;
+      body.add(sphere);
+      sphere.scale.set(3,2,2);
+      const torus = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.4, 7, 100), material);
+      torus.position.x = 0;
+      torus.rotation.set(Math.PI/2,Math.PI/20,0);
+      torus.scale.set(2,1.5,1.5);
+      body.add(torus);
+      const torus1 = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.4, 7, 100), material);
+      torus1.position.y = -1;
+      torus1.rotation.set(Math.PI/2,0,0);
+      torus1.scale.set(2,1.5,2);
+      body.add(torus1);
+      const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube.position.set(-3.5,-0.6,0);
+      cube.scale.set(0.5,0.8,1.8);
+      body.add(cube);
+      const cube1 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cube1.position.set(-2.5,0.7,0);
+      cube1.rotation.set(0,0,Math.PI/4);
+      cube1.scale.set(1.5,0.3,0.5);
+      body.add(cube1);
+      const cy = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cy.position.set(3,-0.5,0);
+      cy.scale.set(1,1.8,1.2);
+      cy.rotation.set(Math.PI/2,0,0);
+      body.add(cy);
+      const cy1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cy1.position.set(-1.3,1.8,0);
+      cy1.scale.set(0.7,0.3,0.7);
+      cy1.rotation.set(Math.PI,0,0);
+      body.add(cy1);
+      scene.add(body);
+      body.scale.set(1.3,1.3,1.3);
+      
+    }
+    BBBODY()
+    const bbl = new THREE.Group();
+      
+    function BBL() {
+      const texturel = new THREE.TextureLoader();
+      const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
+      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
+      const material12 = new THREE.MeshStandardMaterial({ color: 0x000000});
+      
+      
+      const cubel = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubel.position.set(-3.5,-0.6,3);
+      cubel.scale.set(2.5,0.7,0.7);
+      bbl.add(cubel);
+      const cubel1 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubel1.position.set(-6,-0.6,3);
+      cubel1.scale.set(1,0.7,1.8);
+      bbl.add(cubel1);
+      const cubel2 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubel2.position.set(-8,-0.6,4.5);
+      cubel2.scale.set(1.5,0.7,0.5);
+      bbl.add(cubel2);
+      const cubel3 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubel3.position.set(-8,-0.6,1.5);
+      cubel3.scale.set(1.5,0.7,0.5);
+      bbl.add(cubel3);
+      const cyl = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl.position.set(-2,-0.5,2.7);
+      cyl.scale.set(1,1,1);
+      cyl.rotation.set(Math.PI/2,0,0);
+      bbl.add(cyl);
+      const cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl1.position.set(-9,-0.5,3);
+      cyl1.scale.set(0.3,1.5,0.3);
+      cyl1.rotation.set(Math.PI/2,0,0);
+      bbl.add(cyl1);
+      const torusl = new THREE.Mesh(new THREE.TorusGeometry(1, 0.8, 17, 100), material12);
+      torusl.position.set(-9,-0.5,3);
+      torusl.rotation.set(Math.PI,Math.PI,0);
+      torusl.scale.set(1,1,1.3);
+      bbl.add(torusl);
+      
+      scene.add(bbl);
+      bbl.position.set(-1,0,1);
+    }
+    BBL()
+    const bbr = new THREE.Group();
+      
+    function BBR() {
+      const texturel = new THREE.TextureLoader();
+      const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
+      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
+      const material12 = new THREE.MeshStandardMaterial({ color: 0x000000});
+      
+      
+      const cuber = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cuber.position.set(-3.5,-0.6,-3);
+      cuber.scale.set(2.5,0.7,0.7);
+      bbr.add(cuber);
+      const cuber1 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cuber1.position.set(-6,-0.6,-3);
+      cuber1.scale.set(1,0.7,1.8);
+      bbr.add(cuber1);
+      const cubel2 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubel2.position.set(-8,-0.6,-4.5);
+      cubel2.scale.set(1.5,0.7,0.5);
+      bbr.add(cubel2);
+      const cubel3 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubel3.position.set(-8,-0.6,-1.5);
+      cubel3.scale.set(1.5,0.7,0.5);
+      bbr.add(cubel3);
+      const cyr = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyr.position.set(-2,-0.5,-2.7);
+      cyr.scale.set(1,1,1);
+      cyr.rotation.set(Math.PI/2,0,0);
+      bbr.add(cyr);
+      
+      const cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl1.position.set(-9,-0.5,-3);
+      cyl1.scale.set(0.3,1.5,0.3);
+      cyl1.rotation.set(Math.PI/2,0,0);
+      bbr.add(cyl1);
+      const torusl = new THREE.Mesh(new THREE.TorusGeometry(1, 0.8, 17, 100), material12);
+      torusl.position.set(-9,-0.5,-3);
+      torusl.rotation.set(Math.PI,Math.PI,0);
+      torusl.scale.set(1,1,1.3);
+      bbr.add(torusl);
+      
+      scene.add(bbr);
+      bbr.position.set(-1,0,-1);
+    }
+    BBR()
+    const bbb = new THREE.Group();
+      
+    function BBBACK() {
+      const texturel = new THREE.TextureLoader();
+      const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
+      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
+      const material12 = new THREE.MeshStandardMaterial({ color: 0x000000});
+      
+      
+      const cyb = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyb.position.set(4.5,-0.5,0);
+      cyb.scale.set(1,1,3);
+      cyb.rotation.set(0,0,Math.PI/2);
+      bbb.add(cyb);
+      const cubeb = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubeb.position.set(4.8,-0.6,2.3);
+      cubeb.rotation.y = Math.PI/3;
+      cubeb.scale.set(0.8,1,1.8);
+      bbb.add(cubeb);
+      const cubeb1 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubeb1.position.set(4.8,-0.6,-2.3);
+      cubeb1.rotation.y = -Math.PI/3;
+      cubeb1.scale.set(0.8,1,1.8);
+      bbb.add(cubeb1);
+      const cubeb2 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubeb2.position.set(8,-0.6,3);
+      cubeb2.rotation.y = Math.PI;
+      cubeb2.scale.set(2,1,0.8);
+      bbb.add(cubeb2);
+      const cubeb13 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material);
+      cubeb13.position.set(8,-0.6,-3);
+      cubeb13.rotation.y = -Math.PI;
+      cubeb13.scale.set(2,1,0.8);
+      bbb.add(cubeb13);
+      const cyb1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyb1.position.set(9,-0.5,0);
+      cyb1.scale.set(0.5,2.5,0.5);
+      cyb1.rotation.set(Math.PI/2,0,0);
+      bbb.add(cyb1);
+      const torusb = new THREE.Mesh(new THREE.TorusGeometry(1, 0.8, 17, 100), material12);
+      torusb.position.set(9,-0.5,0);
+      torusb.rotation.set(Math.PI,Math.PI,0);
+      torusb.scale.set(1.5,1.2,2.8);
+      bbb.add(torusb);
+      
+      
+      scene.add(bbb);
+      bbb.position.set(1.5,0,0);
+    }
+    BBBACK()
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+       // bbb.rotation.x += 0.1;
+      //  bbl.rotation.x -= 0.1;
+      //  bbr.rotation.x += 0.1;
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>

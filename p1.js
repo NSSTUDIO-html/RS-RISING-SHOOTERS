@@ -136,7 +136,7 @@ const texture1 = textureLoader53.load('https://encrypted-tbn0.gstatic.com/images
     //pistol.add(ambientLight1);
   pistol.position.x = 0;
   scene.add(pistol);
-   const pistol2 = new THREE.Group();
+   export const pistol2 = new THREE.Group();
    pistol2.add(pistol);
    scene.add(pistol2);
     

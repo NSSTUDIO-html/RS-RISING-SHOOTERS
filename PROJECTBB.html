@@ -25,11 +25,11 @@
       controls.dampingFactor = 0.05;
 
       const light = new THREE.DirectionalLight(0xffffff);
-      light.position.set(10, 10, 10);
+      light.position.set(0, 10, 10);
       scene.add(light);
       scene.add(new THREE.AmbientLight(0x404040));
 
-      const material = new THREE.MeshStandardMaterial({ color: 0x00ffcc });
+      const material = new THREE.MeshStandardMaterial({ color: 0x000fcc,metalness:0.7 });
 
       camera.position.set(10,20,22);
 const body = new THREE.Group();
@@ -37,7 +37,7 @@ const body = new THREE.Group();
     function BBBODY() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material1);
       sphere.position.x = 0;
@@ -82,7 +82,7 @@ const body = new THREE.Group();
     function BBL() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material12 = new THREE.MeshStandardMaterial({ color: 0x000000});
       
@@ -128,7 +128,7 @@ const body = new THREE.Group();
     function BBR() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material12 = new THREE.MeshStandardMaterial({ color: 0x000000});
       
@@ -175,7 +175,7 @@ const body = new THREE.Group();
     function BBBACK() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material12 = new THREE.MeshStandardMaterial({ color: 0x000000});
       

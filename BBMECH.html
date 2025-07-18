@@ -23,7 +23,7 @@
       controls.enableDamping = true;
       controls.dampingFactor = 0.05;
       const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(10, 10, 10);
+      light.position.set(0, 10, 10);
       scene.add(light);
       
       const material = new THREE.MeshStandardMaterial({ color: 0x00ffcc });
@@ -38,7 +38,7 @@
     function BBHEAD() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xc0c0c0,metalness:0.5,roughness:0.1});
       const material3 = new THREE.MeshStandardMaterial({ color: 0x000000});
       const material4 = new THREE.MeshStandardMaterial({ emissive: 0x00FFFF});
@@ -96,7 +96,7 @@
     function BBBODY1() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material3 = new THREE.MeshStandardMaterial({ color: 0x000000});
       const material4 = new THREE.MeshStandardMaterial({ emissive: 0x00FFFF});
@@ -175,7 +175,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material1);
     function BBR() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material3 = new THREE.MeshStandardMaterial({ color: 0x000000});
       const material4 = new THREE.MeshStandardMaterial({ emissive: 0x00FFFF});
@@ -226,7 +226,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material1);
     function BBL() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material3 = new THREE.MeshStandardMaterial({ color: 0x000000});
       const material4 = new THREE.MeshStandardMaterial({ emissive: 0x00FFFF});
@@ -277,7 +277,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material1);
     function BBRL() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material3 = new THREE.MeshStandardMaterial({ color: 0x000000});
       const material4 = new THREE.MeshStandardMaterial({ emissive: 0x404040,metalness:1.0,roughness:0.2});
@@ -311,7 +311,7 @@ const sphere = new THREE.Mesh(new THREE.SphereGeometry(1, 32, 32), material1);
     function BBLL() {
       const texturel = new THREE.TextureLoader();
       const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
-      const material = new THREE.MeshStandardMaterial({ map : texture });
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
       const material1 = new THREE.MeshStandardMaterial({ color: 0xFFFFFF ,transparent:true,opacity:0.5});
       const material3 = new THREE.MeshStandardMaterial({ color: 0x000000});
       const material4 = new THREE.MeshStandardMaterial({ emissive: 0x222222,metalness:1.0,roughness:0.2});

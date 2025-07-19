@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>BBMECH1.COM</title>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      canvas { display: block; }
+    </style>
+  </head>
+  <body>
+  <script type="module">
+      import * as THREE from 'https://esm.sh/three@0.158.0';
+      import { OrbitControls } from 'https://esm.sh/three@0.158.0/examples/jsm/controls/OrbitControls';
+    
+      const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffe4b5);
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      const light = new THREE.DirectionalLight(0xffffff, 3);
+      light.position.set(0, 5, 10);
+      scene.add(light);
+      scene.add(new THREE.AmbientLight(0x000000));
+      const material = new THREE.MeshStandardMaterial({ color: 0x00ffcc });
+      
+    
+    function missile(){
+      
+      const m = new THREE.Group();
+      
+      const texturel = new THREE.TextureLoader();
+      const texture = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuEtwUznm24kJCI8K_vL-uuDIDFoPXLNgj-9cY-5TEz52N6TwtMvnfQIU&s=10');
+      const material = new THREE.MeshStandardMaterial({ map : texture,metalness:0.5,roughness:0.5 });
+      const material1 = new THREE.MeshStandardMaterial({ color: 0xc0c0c0,metalness:0.5,roughness:0.1});
+      const material3 = new THREE.MeshStandardMaterial({ color: 0x000000});
+      const material4 = new THREE.MeshStandardMaterial({ emissive: 0x00FFFF});
+      
+      const texture1 = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8bXJxnJ7dFjLoWPgXOKn2Zzr3nSvtZm8up1yDtOniZGSkeJmGfGnfVnt8&s=10');
+      const material8 = new THREE.MeshStandardMaterial({ map : texture1,emissive:0xffffff,emissiveIntensity:0.4 });
+      
+      const texture3 = texturel.load('/storage/emulated/0/Documents/pixelLab/brahmos.png');
+      const material10 = new THREE.MeshStandardMaterial({ map : texture3,transparent:true });
+      
+      //brahmos logo
+      const cubes = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material10);
+      cubes.position.set(0,0,0);
+      cubes.scale.set(0.7,0.3,0.5);
+      cubes.rotation.z = Math.PI/2;
+      scene.add(cubes);
+      
+      //indian flag
+      const texture2 = texturel.load('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP-UiQP1aiIBn9ZeedDUBIYGD4eL7QQhFsVjcDSny0z_TKabQjHMY8ttZr&s=10');
+      const material9 = new THREE.MeshStandardMaterial({ map : texture2  });
+      
+      const cube = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), material9);
+      cube.position.set(0,3,0);
+      cube.scale.set(0.5,0.3,0.5);
+      cube.rotation.z = Math.PI/2;
+      scene.add(cube);
+      
+      //rocket base
+      const cyl = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 1, 2, 32), material8);
+      cyl.position.set(0,6,0);
+      cyl.scale.set(0.5,1,0.5);
+      m.add(cyl);
+      const cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material8);
+      cyl1.position.set(0,0,0);
+      cyl1.scale.set(0.5,5,0.5);
+      m.add(cyl1);
+      const cyl11 = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 2, 32), material);
+      cyl11.position.set(0,1.5,0);
+      cyl11.scale.set(0.51,0.5,0.51);
+      m.add(cyl11);
+      
+      // Triangle Shape
+  const shape = new THREE.Shape();
+  shape.moveTo(0, 0);
+  shape.lineTo(-1, -1);
+  shape.lineTo(0, -1);
+  shape.lineTo(0, 0); // close the shape
+
+  // Prism (Extrude)
+  const extrudeSettings = {
+    steps: 1,
+    depth: 0.3,
+    bevelEnabled: false
+  };
+  const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+  
+  const prism = new THREE.Mesh(geometry, material8);
+  prism.rotation.z = Math.PI / 2;
+  m.add(prism);
+      prism.position.set(0.3,1,0.2);
+      prism.rotation.set(0,2*Math.PI/2,0);
+      
+      const prism1 = new THREE.Mesh(geometry, material8);
+  prism1.rotation.z = -Math.PI / 2;
+  m.add(prism1);
+      prism1.position.set(-0.3,1,-0.1);
+      prism1.rotation.set(0,2*Math.PI,0);
+      
+      
+      const prism2 = new THREE.Mesh(geometry, material8);
+  prism2.rotation.z = Math.PI / 2;
+  m.add(prism2);
+      prism2.position.set(0.3,-4,0.2);
+      prism2.rotation.set(0,2*Math.PI/2,0);
+      
+      const prism12 = new THREE.Mesh(geometry, material8);
+  prism12.rotation.z = -Math.PI / 2;
+  m.add(prism12);
+      prism12.position.set(-0.3,-4,-0.1);
+      prism12.rotation.set(0,2*Math.PI,0);
+      
+      const prism21 = new THREE.Mesh(geometry, material8);
+  prism21.rotation.z = Math.PI / 2;
+  m.add(prism21);
+      prism21.position.set(-0.15,-4,0.3);
+      prism21.rotation.set(0,Math.PI/2,0);
+      
+      const prism121 = new THREE.Mesh(geometry, material8);
+  prism121.rotation.z = -Math.PI / 2;
+  m.add(prism121);
+      prism121.position.set(0.15,-4,-0.3);
+      prism121.rotation.set(0,-Math.PI/2,0);
+      
+
+      scene.add(m);
+    }missile()
+    
+      camera.position.z = 10;
+    
+    
+    
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+  </body>
+</html>

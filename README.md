@@ -2,7 +2,7 @@
 
 **RS Rising Shooters** is a web-based action game packed with thrilling battles, cinematic storytelling, Indian mythological elements, and high-tech AI warfare. Built by **Naga Sasank**, the game merges **Tollywood heroes**, **cyber-villains**, and **divine power weapons** into one massive adventure.
 
-🌐 **Live Demo**: [Play Now](https://nsstudio-html.github.io/RS-RISING-SHOOTERS/)
+[![🌐 Play Now - RS Rising Shooters](https://img.shields.io/badge/🌐%20Play%20Now-RS%20Rising%20Shooters-gold?style=for-the-badge&logo=game&logoColor=white)](https://nsstudio-html.github.io/RS-RISING-SHOOTERS/)
 
 ---
 

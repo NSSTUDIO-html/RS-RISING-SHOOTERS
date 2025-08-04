@@ -17,14 +17,20 @@
   }
     h4{font-family:times;}
     h3{font-family:courier;}
-    p{
-      font-size:10px;
-      font-family: "Mozilla Headline"; /* Choose a name for your font family */
-        src: url("../fonts/MozillaHeadline-Regular.woff2") format("woff2"),
-             url("../fonts/MozillaHeadline-Regular.woff") format("woff"); /* Include other formats for broader compatibility */
-        font-weight: normal; /* Adjust as per the font file's weight */
-        font-style: normal;
+    @font-face {
+  font-family: "Mozilla Headline"; /* This is the name you'll use in your CSS */
+  src: url("../fonts/MozillaHeadline-Regular.woff2") format("woff2"), /* Path to your font files */
+       url("../fonts/MozillaHeadline-Regular.woff") format("woff"); /* Include other formats for browser compatibility */
+  font-weight: normal; /* Define the weight of this specific font file */
+  font-style: normal; /* Define the style of this specific font file */
+  font-display: swap; /* Optional: This helps manage how the font loads and prevents a blank screen */
     }
+    
+    p {
+  font-size: 10px;
+  font-family: "Mozilla Headline", sans-serif; /* Apply your custom font, with a fallback generic font */
+}
+
   div {
       font-family: times;
       display: box;

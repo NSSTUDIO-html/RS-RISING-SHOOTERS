@@ -17,7 +17,14 @@
   }
     h4{font-family:times;}
     h3{font-family:courier;}
-    p{font-size:10px;font-family:fantasy;}
+    p{
+      font-size:10px;
+      font-family: "Mozilla Headline"; /* Choose a name for your font family */
+        src: url("../fonts/MozillaHeadline-Regular.woff2") format("woff2"),
+             url("../fonts/MozillaHeadline-Regular.woff") format("woff"); /* Include other formats for broader compatibility */
+        font-weight: normal; /* Adjust as per the font file's weight */
+        font-style: normal;
+    }
   div {
       font-family: times;
       display: box;

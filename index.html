@@ -1,201 +1,107 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  
+  <meta charset="UTF-8">
   <title>RISINGSHOOTERS.COM</title>
-  <style>
-  body{
-    background-image: url('./hex9.jpg');
-    text-align: center;
-    
-    background-position:center;
-    background-size:COVER;
-    color:white;
-    font-family: "Mozilla Headline", sans-serif;
-  }
-    h4{font-family:times;}
-    h3{font-family:courier;}
-    @font-face {
-      font-family: "Mozilla Headline";
-      src: url("fonts/MozillaHeadline-Regular.woff2") format("woff2"),
-           url("fonts/MozillaHeadline-Regular.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    p {
-      font-family: "Mozilla Headline", sans-serif;
-      font-size: 10px;
-    }
-
-  
-
-   
-  button:hover {
-      background-color: gray; /* Darker Green on Hover */
-    }
-
-    button:active {
-      background-color: darkblue; /* Darker Green on Click */
-      border-color:white;
-      transform: translateY(4px); /* Slight downward shift on click */
-    }
-    .level-button {
-      padding: 30px;
-      font-size:35px;
-      text-align: center;
-      border: 15px inset;
-      border-radius: 5px;
-      border-color: white;
-      background-color: transparent;
-      color: white;
-      cursor: pointer;
-    }
-    #f{
-border-color: blue;
-      color:blue;
-      background:linear-gradient(120deg,black,blue);
-      
-    }
-    #l{
-border-color: red;
-      color:red;
-      background:linear-gradient(120deg,black,red);
-      
-    }
-    #s{
-border-color: cyan;
-      color:cyan;
-      background:linear-gradient(120deg,black,cyan);
-    }
-  .lbutton{
-    border-radius:55px;
-    font-size:35px;
-    border: 5px ridge black;
-    padding:25px;
-    background:url('Silvermetal.jpg');
-    background-size:100%;
-    background-position:center;
-  }
-    img{height:200px;}
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-</head>
-<body>
-  <header>
-    <img src="Images/RS.png"/>
-  
-  <h1>
-    RS - RISING SHOOTERS HOME
-    
-  </h1>
+<body class="bg-[url('./hex9.jpg')] bg-cover bg-center text-white font-sans text-center">
+
+  <!-- Header -->
+  <header class="p-6">
+    <img src="Images/RS.png" alt="RS Logo" class="mx-auto h-48"/>
+    <h1 class="text-4xl font-bold mt-4">RS - RISING SHOOTERS HOME</h1>
   </header>
-  
-  <section>
+
+  <!-- Main Buttons -->
+  <section class="my-10 space-y-6">
     <a href="Free.html">
-  <button class="level-button"id="f">FREE MODE(OG)</button>
-    </a><p></p>
-  <a href="LEVELS.html">
-     <button class="level-button"id="l">LEVELS</button>
-   
-  </a><p></p>
-  <a href="Story.html">
-    <button class="level-button"id="s">STORY MODE</button><br>
-  </a><br/>
+      <button class="px-8 py-6 text-3xl border-8 rounded-md cursor-pointer bg-gradient-to-r from-black to-blue-800 border-blue-500 text-blue-400 hover:bg-gray-700 active:bg-blue-900 active:border-white active:translate-y-1">
+        FREE MODE(OG)
+      </button>
+    </a>
+    <br>
+    <a href="LEVELS.html">
+      <button class="px-8 py-6 text-3xl border-8 rounded-md cursor-pointer bg-gradient-to-r from-black to-red-800 border-red-500 text-red-400 hover:bg-gray-700 active:bg-blue-900 active:border-white active:translate-y-1">
+        LEVELS
+      </button>
+    </a>
+    <br>
+    <a href="Story.html">
+      <button class="px-8 py-6 text-3xl border-8 rounded-md cursor-pointer bg-gradient-to-r from-black to-cyan-800 border-cyan-500 text-cyan-400 hover:bg-gray-700 active:bg-blue-900 active:border-white active:translate-y-1">
+        STORY MODE
+      </button>
+    </a>
   </section>
-    
-  <hr/>
 
-  <section>
+  <hr class="border-t-2 border-white mx-20 my-8"/>
+
+  <!-- Feature Buttons -->
+  <section class="space-x-4 space-y-6">
     <a href="Vehicles.html">
-    <button class="lbutton">VEHICLES</button>
-  </a>
-  <a href="Suits.html">
-    <button class="lbutton">SUITS</button>
-  </a>
-  <a href="Weapons.html">
-    <button class="lbutton">WEAPONS</button>
-  </a><br>
-  <button class="lbutton">RS TRAILER</button>
-<button class="lbutton">RS HEROES</button>
-
-  <a href="https://nsstudio-html.github.io/PYTHONAIMODELS/">
-  <button class="lbutton">RS TRAILER MODELS</button>
-  </a>
+      <button class="rounded-full text-3xl border-4 border-black px-10 py-6 bg-[url('Silvermetal.jpg')] bg-cover bg-center shadow-lg">VEHICLES</button>
+    </a>
+    <a href="Suits.html">
+      <button class="rounded-full text-3xl border-4 border-black px-10 py-6 bg-[url('Silvermetal.jpg')] bg-cover bg-center shadow-lg">SUITS</button>
+    </a>
+    <a href="Weapons.html">
+      <button class="rounded-full text-3xl border-4 border-black px-10 py-6 bg-[url('Silvermetal.jpg')] bg-cover bg-center shadow-lg">WEAPONS</button>
+    </a>
+    <br>
+    <button class="rounded-full text-3xl border-4 border-black px-10 py-6 bg-[url('Silvermetal.jpg')] bg-cover bg-center shadow-lg">RS TRAILER</button>
+    <button class="rounded-full text-3xl border-4 border-black px-10 py-6 bg-[url('Silvermetal.jpg')] bg-cover bg-center shadow-lg">RS HEROES</button>
+    <a href="https://nsstudio-html.github.io/PYTHONAIMODELS/">
+      <button class="rounded-full text-3xl border-4 border-black px-10 py-6 bg-[url('Silvermetal.jpg')] bg-cover bg-center shadow-lg">RS TRAILER MODELS</button>
+    </a>
   </section>
 
-  <section>
-    <h2>
-    POWERED BY 
-    
-  </h2>  
-  <a href="Mygames.html">
-  <img src="Images/NSSTUDIO.png"/>
-  </a>
-  
-    <h3>🌌 RS – Rising Shooters: Game Summary</h3>
+  <!-- Powered By -->
+  <section class="mt-16">
+    <h2 class="text-2xl font-semibold">POWERED BY</h2>
+    <a href="Mygames.html">
+      <img src="Images/NSSTUDIO.png" alt="NS Studio" class="mx-auto h-48 my-4"/>
+    </a>
 
-<p>
-  RS – Rising Shooters is a futuristic, high-octane FPS RPG game that pushes the boundaries of immersive gameplay and storytelling. Set in a world torn by secret wars and cybercrime, players step into the boots of elite agents belonging to the International Spy Agency (ISA) — a covert global force formed to counter rising digital terrorism.
+    <h3 class="text-xl font-mono">🌌 RS – Rising Shooters: Game Summary</h3>
+    <p class="text-sm max-w-3xl mx-auto leading-relaxed">
+      RS – Rising Shooters is a futuristic, high-octane FPS RPG game that pushes the boundaries of immersive gameplay and storytelling. 
+      Set in a world torn by secret wars and cybercrime, players step into the boots of elite agents belonging to the International Spy Agency (ISA) — a covert global force formed to counter rising digital terrorism.
+      <br><br>
+      At the center of this chaos is the Anonymous Head, a masked villain with unmatched hacking prowess and a dangerous vision for the future. As his shadowy hacker gang unleashes chaos worldwide, 11 elite heroes — including 10 top Tollywood stars and the mysterious Agent Veer (played by the player) — unite to stop him.
+    </p>
 
-At the center of this chaos is the Anonymous Head, a masked villain with unmatched hacking prowess and a dangerous vision for the future. As his shadowy hacker gang unleashes chaos worldwide, 11 elite heroes — including 10 top Tollywood stars and the mysterious Agent Veer (played by the player) — unite to stop him.
+    <hr class="border-t-2 border-white my-8 mx-20"/>
 
-  
-</p>
----
+    <h3 class="text-xl font-mono">🕹️ Key Features</h3>
+    <p class="text-sm max-w-3xl mx-auto leading-relaxed">
+      🚀 Futuristic FPS + RPG Hybrid: Tactical shooting combined with deep character upgrades, missions, and alliances.<br><br>
+      🎭 Cinematic Hero Lineup: Each hero has unique powers, abilities, and backstory inspired by legendary Tollywood stars.<br><br>
+      ⚔️ Level-Based Campaign (1–50):<br>
+      Levels 1–35: Tactical missions and story-driven maps<br>
+      Level 36–40: Hacker war climax against the Anonymous gang and its leader, Yash<br>
+      Levels 41–50: "Rudra Shakti" Mythical Arc: Enter a mythic sci-fi dimension with ancient powers and gods.<br><br>
+      🤖 Futuristic Weapons & Tech: From plasma rifles to AI drones, gear up with the deadliest futuristic arsenal.<br><br>
+      🦾 BOSS Battles Every 5 Levels: Face off against mini-bosses, each tied to the villain's network.<br><br>
+      🔓 Secret Level 51: An unexpected twist that reveals a new threat and changes everything.
+    </p>
 
-<h3>🕹️ Key Features</h3>
-<p>
-  🚀 Futuristic FPS + RPG Hybrid: Tactical shooting combined with deep character upgrades, missions, and alliances.
+    <hr class="border-t-2 border-white my-8 mx-20"/>
 
-🎭 Cinematic Hero Lineup: Each hero has unique powers, abilities, and backstory inspired by legendary Tollywood stars.
+    <h3 class="text-xl font-mono">🎮 Why RS Will Stand Out</h3>
+    <p class="text-sm max-w-3xl mx-auto leading-relaxed">
+      💥 Powerful Tollywood hero branding + immersive story<br><br>
+      🌍 Fusion of modern FPS + mythology + cyberwarfare<br><br>
+      🧠 Thought-provoking villain: The Anonymous Head questions the system, not just fights it<br><br>
+      🎨 Stunning visuals powered by AI-enhanced animations and real-time 3D environments
+    </p>
 
-⚔️ Level-Based Campaign (1–50):
-
-Levels 1–35: Tactical missions and story-driven maps
-
-Level 36–40: Hacker war climax against the Anonymous gang and its leader, Yash
-
-Levels 41–50: "Rudra Shakti" Mythical Arc: Enter a mythic sci-fi dimension with ancient powers and gods.
-
-
-🤖 Futuristic Weapons & Tech: From plasma rifles to AI drones, gear up with the deadliest futuristic arsenal.
-
-🦾 BOSS Battles Every 5 Levels: Face off against mini-bosses, each tied to the villain's network.
-
-🔓 Secret Level 51: An unexpected twist that reveals a new threat and changes everything.
-
-  
-</p>
-
-
----
-
-<h3>🎮 Why RS Will Stand Out</h3>
-<p>
-  💥 Powerful Tollywood hero branding + immersive story
-
-🌍 Fusion of modern FPS + mythology + cyberwarfare
-
-🧠 Thought-provoking villain: The Anonymous Head questions the system, not just fights it
-
-🎨 Stunning visuals powered by AI-enhanced animations and real-time 3D environments
-
-  
-</p>
-
-    <h4>
+    <h4 class="mt-10 text-lg font-serif">
       CREATOR : NAGA SASANK POLEPALLI<br/>
       CONTACT : +91-7989141471<br/>
       EMAIL : rockingshooters7@gmail.com<br/>
       INSTAGRAM : @rs_sasankml5h
     </h4>
-    
-  
   </section>
-  
+
 </body>
 </html>

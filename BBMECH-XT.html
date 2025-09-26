@@ -23,9 +23,13 @@
       controls.enableDamping = true;
       controls.dampingFactor = 0.05;
       const light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(0, 5, 15);
+      light.position.set(10, 5, 15);
       scene.add(light);
-      
+      const light1 = new THREE.DirectionalLight(0xffffff, 1);
+      light1.position.set(-10, 10, 5);
+      scene.add(light1);
+      scene.add(new THREE.AmbientLight(0xffffff,-1));
+    
       const material = new THREE.MeshStandardMaterial({ color: 0x00ffcc });
       camera.position.z = 35;
   

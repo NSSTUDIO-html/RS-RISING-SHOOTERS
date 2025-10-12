@@ -1,301 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>shangchigame.com</title>
-<meta charset="UTF-8">
+  <title>shangchigame.com</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=420, initial-scale=1.0">
-<style>
-  
-body{
-    overflow:auto;
-    background:black;
-    color:white;
-}
-#gamebox{
-    height:400px;
-    width:340px;
-    border:2px groove black;
-    position:relative;
-    bottom:30px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/images283929-1.jpeg');
-    background-size:120%;
-}
-#wenvubar{
-    position:relative;
-    bottom:38px;
-}
-#land{
-    background-color:black;
-    height:150px;
-    width:340px;
-    position:relative;
-    top:50px;
-    filter: brightness(80%);
-    background:url('https://nagasasank.files.wordpress.com/2024/01/images284029.jpeg');
-    background-size:contain;
-}
-#shangchi{
-    background-color:red;
-    height:100px;
-    width:42px;
-    position: relative;
-    top:150px;
-    left:20px;    background:url('https://nagasasank.files.wordpress.com/2024/01/images__34_-removebg-preview.png');
-    background-size:cover;
-}
-#wenvu{
-    background-color:blue;
-    height:100px;
-    width:50px;
-    position: relative;
-    left:270px;
-    top:50px;
- background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240116_094844-removebg-preview28229-1.png');
- background-size:110%;
-}
-#toggleswitch{
-    align:center;
-    height:90px;
-    width:90px;
-    background-color:black;
-    border-radius:50px;
-    border:2px inset black;
-    
-}
-#toggle{
-    height:40px;
-    width:40px;
-    background-color:red;
-    position:relative;
-    bottom:18px;
-    left:24px;
-    border-radius:50px;
-    border:2px outset white;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/61a680b3b2502989374c6836540dbdc6.jpg');
-    background-size:90%;
-    transform:rotate(290deg) rotateX(180deg);
-}
-#toggleswitch1{
-    align:center;
-    height:90px;
-    width:90px;
-    background-color:black;
-    position:relative;
-    left:250px;
-    bottom:90px;
-    border-radius:50px;
-    border:2px outset black;
-}
-button{
-    color:white;
-}
-#toggle1{
-    height:40px;
-    width:40px;
-    background-color:blue;
-    position:relative;
-    bottom:18px;
-    left:24px;
-    border-radius:50px;
-    border:2px outset black;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/1e5593242469e837941032af20ae2796.jpg');
-    background-size:cover;
-    background-position:left;
-    transform:rotate(250deg) rotateX(180deg);
-}
-meter::-webkit-meter-optimum-value {
-      background: var(--meter-accent-color);
-    }
-#shangchibar{
-    --meter-accent-color: red;
-}
-#wenvubar{
-    --meter-accent-color: blue;
-}
-#up,#up1{
-    position:relative;
-    left:32px;
-    background:none;
-    border:none;
-}
-#down,#down1{
-    position:relative;
-    top:70px;
-    left:8px;
-    background:none;
-    border:none;
-}
-#left,#left1{
-    position:relative;
-    top:12px;
-    right:2px;
-    background:none;
-    border:none;
-}
-#right,#right1{
-    
-    position:relative;
-    top:33px;
-    left:15px;
-    background:none;
-    border:none;
-}
-#stick{
-    background-color:red;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    right:10px;
-    bottom:140px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/images__42_-removebg-preview.png');
-    background-size:70%;
-}
-#ring1{
-    background-color:blue;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    left:30px;
-    bottom:140px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
-    background-size:110%;
-}
-#regs{
-    background-color:red;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    left:88px;
-    bottom:200px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/download2817293403331269960801411.jpg');
-    background-size:110%;
-    background-position:center;
-    
-}
-#regw{
-    background-color:blue;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    left:150px;
-    bottom:200px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/download2818295595353980867943226.jpg');
-    background-size:100%;
-    background-position:center;
-}
-#rS{
-    background-color:red;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    right:160px;
-    bottom:90px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png');
-    background-size:150%;
-    filter: hue-rotate(120deg);
-}
-#rW{
-    background-color:blue;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    right:50px;
-    bottom:90px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png');
-    background-size:150%;
-}
-#hand{
-    background-color:red;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    right:5px;
-    bottom:140px;
-    background:url('https://nagasasank.files.wordpress.com/2024/01/2606a63505eb05cba26aa55ab824c8c1.jpg');
-    background-size:90%;
-    transform:rotate(290deg) rotateX(180deg);
-
-}
-#hand1{
-    background-color:blue;
-    border-radius:50px;
-    height:50px;
-    width:50px;
-    position:relative;
-    left:240px;
-    bottom:140px;
-    
-    
-    background:url('https://nagasasank.files.wordpress.com/2024/01/8d8140bf5b28d4dffd7950454133c21f.jpg');
-    background-size:100%;
-}
-#ring{
-    
-    height:10px;
-    width:15px;
-   transform:rotate(140deg); background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
-    background-size:110%;
-}
-.stick{
-    
-   height:70px;
-   width:200px;
-   background:darkred;
-   
-    
-}
-.ring-ball{
-    background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
-    background-size:cover;
-    filter:hue-rotate(120deg);
-    transform:rotate(50deg);
-}
-.ringball{
-    background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png');
-    background-size:cover;
-}
-</style>
-
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<label>ShangChi:</label><br>
-<meter id="shangchibar" min="0"max="100"value="100"></meter><span id="shangchiPercentage">100</span>
-<div align="right"id="wenvubar">
-<label>Wenwu:</label><br>
-<span id="wenvuPercentage">100</span>
-<meter id="wenvubar1" min="0"max="100"value="100"></meter></div>
-<div id="gamebox">
-<div id="shangchi"></div>
-<div id="wenvu"></div>
-<div id="land"></div>
-</div>
-<div id="toggleswitch">
-<button id="up">U</button>
-<button id="down">D</button>
-<button id="right">R</button>
-<button id="left">L</button>
-<div id="toggle"></div>
-</div>
-<div id="toggleswitch1">
-<button id="up1">U</button>
-<button id="down1">D</button>
-<button id="right1">R</button>
-<button id="left1">L</button>
-<div id="toggle1"></div>
-</div>
-<button id="regs"></button>
-<button id="regw"></button>
-  <button id="stick"></button>
-    <button id="ring1"></button>
-    <button id="rS"></button>
-    <button id="rW"></button>
-    <button id="hand"></button>
-    <button id="hand1"></button>
+<body class="overflow-auto bg-black text-white p-4">
+
+  <label class="block font-bold mb-1">ShangChi:</label>
+  <meter id="shangchibar" min="0" max="100" value="100" class="w-2/3 h-3 align-middle"></meter>
+  <span id="shangchiPercentage" class="ml-2">100</span>
+
+  <div id="wenvubar" class="float-right -mt-12 mb-2">
+    <label class="block font-bold">Wenwu:</label>
+    <span id="wenvuPercentage">100</span>
+    <meter id="wenvubar1" min="0" max="100" value="100" class="w-2/3 h-3 align-middle"></meter>
+  </div>
+
+  <div id="gamebox" class="relative h-[400px] w-[340px] border-2 border-black rounded-md mb-4"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/images283929-1.jpeg'); background-size:120%;">
+    <div id="shangchi" class="absolute top-[150px] left-[20px] h-[100px] w-[42px]"
+      style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__34_-removebg-preview.png'); background-size:cover;">
+    </div>
+    <div id="wenvu" class="absolute top-[50px] left-[270px] h-[100px] w-[50px]"
+      style="background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240116_094844-removebg-preview28229-1.png'); background-size:110%;">
+    </div>
+    <div id="land" class="absolute top-[50px] h-[150px] w-[340px] brightness-80"
+      style="background:url('https://nagasasank.files.wordpress.com/2024/01/images284029.jpeg'); background-size:contain;">
+    </div>
+  </div>
+
+  <div id="toggleswitch" class="flex flex-col items-center justify-center bg-black rounded-full border-2 border-black w-[90px] h-[90px] mb-3">
+    <div class="flex gap-2 mb-1">
+      <button id="up" class="bg-gray-700 text-white rounded-full px-3 py-1">U</button>
+      <button id="down" class="bg-gray-700 text-white rounded-full px-3 py-1">D</button>
+    </div>
+    <div class="flex gap-2 mb-1">
+      <button id="right" class="bg-gray-700 text-white rounded-full px-3 py-1">R</button>
+      <button id="left" class="bg-gray-700 text-white rounded-full px-3 py-1">L</button>
+    </div>
+    <div id="toggle" class="w-[40px] h-[40px] rounded-full border-2 border-white mt-1"
+      style="background:url('https://nagasasank.files.wordpress.com/2024/01/61a680b3b2502989374c6836540dbdc6.jpg'); background-size:90%; transform:rotate(290deg) rotateX(180deg);">
+    </div>
+  </div>
+
+  <div id="toggleswitch1" class="flex flex-col items-center justify-center bg-black rounded-full border-2 border-black w-[90px] h-[90px] mb-3">
+    <div class="flex gap-2 mb-1">
+      <button id="up1" class="bg-gray-700 text-white rounded-full px-3 py-1">U</button>
+      <button id="down1" class="bg-gray-700 text-white rounded-full px-3 py-1">D</button>
+    </div>
+    <div class="flex gap-2 mb-1">
+      <button id="right1" class="bg-gray-700 text-white rounded-full px-3 py-1">R</button>
+      <button id="left1" class="bg-gray-700 text-white rounded-full px-3 py-1">L</button>
+    </div>
+    <div id="toggle1" class="w-[40px] h-[40px] rounded-full border-2 border-white mt-1"></div>
+  </div>
+
+  <button id="regs" class="bg-red-700 rounded-full w-[50px] h-[50px] absolute left-[88px] -bottom-[200px]"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/download2817293403331269960801411.jpg'); background-size:110%; background-position:center;">
+  </button>
+  <button id="regw" class="bg-blue-700 rounded-full w-[50px] h-[50px] absolute left-[150px] -bottom-[200px]"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/download2818295595353980867943226.jpg'); background-size:100%; background-position:center;">
+  </button>
+
+  <button id="stick" class="bg-red-700 rounded-full w-[50px] h-[50px] absolute left-[30px] -bottom-[140px]"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
+  </button>
+  <button id="ring1" class="h-[10px] w-[15px] absolute left-[60px] -bottom-[110px]"
+    style="transform:rotate(140deg); background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
+  </button>
+  <button id="rS" class="bg-red-700 rounded-full w-[50px] h-[50px] absolute right-[160px] -bottom-[90px] filter hue-rotate-120"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
+  </button>
+  <button id="rW" class="bg-blue-700 rounded-full w-[50px] h-[50px] absolute right-[50px] -bottom-[90px]"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
+  </button>
+  <button id="hand" class="bg-red-700 rounded-full w-[50px] h-[50px] absolute right-[5px] -bottom-[140px]"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/2606a63505eb05cba26aa55ab824c8c1.jpg'); background-size:90%; transform:rotate(290deg) rotateX(180deg);">
+  </button>
+  <button id="hand1" class="bg-blue-700 rounded-full w-[50px] h-[50px] absolute left-[240px] -bottom-[140px]"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/8d8140bf5b28d4dffd7950454133c21f.jpg'); background-size:100%;">
+  </button>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const shangchiDiv = document.getElementById("shangchi");

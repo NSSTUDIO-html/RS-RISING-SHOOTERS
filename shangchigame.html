@@ -2,99 +2,126 @@
 <html lang="en">
 <head>
   <title>shangchigame.com</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Limit gamebox max size but allow full width */
+    #gamebox {
+      max-width: 340px;
+      width: 90vw;
+      height: auto;
+      aspect-ratio: 340 / 400;
+    }
+    /* Make action buttons smaller on mobile */
+    .action-btn {
+      width: 40px !important;
+      height: 40px !important;
+    }
+    /* Toggle buttons scale */
+    #toggleswitch, #toggleswitch1 {
+      width: 70px !important;
+      height: 90px !important;
+      left: -35px !important;
+      right: -35px !important;
+      bottom: 110px !important;
+    }
+  </style>
 </head>
-<body class="bg-black text-white p-4 min-h-screen">
-  <!-- HP Bars in a Flex Row -->
-  <div class="flex justify-between items-center mb-4 max-w-[340px] mx-auto">
+<body class="bg-black text-white p-4 min-h-screen flex items-center justify-center">
+  <!-- HP Bars -->
+  <div class="flex justify-between items-center mb-4 max-w-[340px] w-full px-2">
     <div class="flex items-center gap-2">
       <span class="font-bold">ShangChi:</span>
-      <meter id="shangchibar" min="0" max="100" value="100" class="w-32 h-3"></meter>
+      <meter id="shangchibar" min="0" max="100" value="100" class="w-28 h-3"></meter>
       <span id="shangchiPercentage" class="ml-2">100</span>
     </div>
     <div class="flex items-center gap-2">
       <span class="font-bold">Wenwu:</span>
       <span id="wenvuPercentage">100</span>
-      <meter id="wenvubar1" min="0" max="100" value="100" class="w-32 h-3"></meter>
+      <meter id="wenvubar1" min="0" max="100" value="100" class="w-28 h-3"></meter>
     </div>
   </div>
 
-  <!-- Main GameBox Area -->
-  <div class="relative h-[400px] w-[340px] mx-auto border-2 border-black rounded-md mb-5 overflow-hidden"
-    style="background:url('https://nagasasank.files.wordpress.com/2024/01/images283929-1.jpeg');background-size:120%;">
+  <!-- Game area container -->
+  <div id="gamebox" class="relative border-2 border-black rounded-md mb-5"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/images283929-1.jpeg'); background-size:120%; background-position:center;">
     <!-- Characters -->
-    <div id="shangchi" class="absolute top-[150px] left-[20px] h-[100px] w-[42px]"
+    <div id="shangchi" class="absolute top-[37.5%] left-[6%] h-[25%] w-[12%]"
       style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__34_-removebg-preview.png'); background-size:cover;">
     </div>
-    <div id="wenvu" class="absolute top-[50px] left-[270px] h-[100px] w-[50px]"
+    <div id="wenvu" class="absolute top-[12.5%] left-[79%] h-[25%] w-[14.5%]"
       style="background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240116_094844-removebg-preview28229-1.png'); background-size:110%;">
     </div>
     <!-- Land -->
-    <div id="land" class="absolute top-[50px] h-[150px] w-full brightness-80 left-0"
+    <div id="land" class="absolute top-[12.5%] left-0 w-full h-[37.5%] brightness-80"
       style="background:url('https://nagasasank.files.wordpress.com/2024/01/images284029.jpeg'); background-size:contain;">
     </div>
 
-    <!-- Action Buttons Area (flex centered at bottom) -->
-    <div class="absolute left-0 bottom-0 w-full flex justify-center gap-3 pb-3 pointer-events-none">
-      <button id="regs" class="pointer-events-auto bg-red-700 rounded-full w-[48px] h-[48px]"
+    <!-- Bottom action buttons center aligned -->
+    <div class="absolute left-0 right-0 bottom-0 flex justify-center gap-2 pb-2 pointer-events-none">
+      <button id="regs" class="action-btn pointer-events-auto bg-red-700 rounded-full"
         style="background:url('https://nagasasank.files.wordpress.com/2024/01/download2817293403331269960801411.jpg'); background-size:110%; background-position:center;">
       </button>
-      <button id="regw" class="pointer-events-auto bg-blue-700 rounded-full w-[48px] h-[48px]"
+      <button id="regw" class="action-btn pointer-events-auto bg-blue-700 rounded-full"
         style="background:url('https://nagasasank.files.wordpress.com/2024/01/download2818295595353980867943226.jpg'); background-size:100%; background-position:center;">
       </button>
     </div>
-    <!-- Misc Action Buttons - evenly spaced above -->
-    <div class="absolute left-0 right-0 bottom-[65px] flex justify-between px-5 pointer-events-none">
-      <button id="stick" class="pointer-events-auto bg-red-700 rounded-full w-[42px] h-[42px]"
+
+    <!-- Misc action buttons positioned above bottom buttons, spaced evenly -->
+    <div class="absolute left-0 right-0 bottom-[15%] flex justify-between px-5 pointer-events-none">
+      <button id="stick" class="action-btn pointer-events-auto bg-red-700 rounded-full"
         style="background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
       </button>
-      <div class="flex flex-col gap-2">
-        <button id="ring1" class="pointer-events-auto h-[18px] w-[24px] mt-2"
-          style="transform:rotate(140deg);background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
+      <div class="flex flex-col gap-1">
+        <button id="ring1" class="pointer-events-auto h-[36px] w-[48px]"
+          style="transform:rotate(140deg); background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
         </button>
-        <button id="rS" class="pointer-events-auto bg-red-700 rounded-full w-[42px] h-[42px] filter hue-rotate-120"
+        <button id="rS" class="action-btn pointer-events-auto bg-red-700 rounded-full filter hue-rotate-120"
           style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
         </button>
-        <button id="rW" class="pointer-events-auto bg-blue-700 rounded-full w-[42px] h-[42px]"
+        <button id="rW" class="action-btn pointer-events-auto bg-blue-700 rounded-full"
           style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
         </button>
       </div>
-      <div class="flex flex-col gap-2">
-        <button id="hand" class="pointer-events-auto bg-red-700 rounded-full w-[42px] h-[42px] ml-auto"
+      <div class="flex flex-col gap-1">
+        <button id="hand" class="action-btn pointer-events-auto bg-red-700 rounded-full ml-auto"
           style="background:url('https://nagasasank.files.wordpress.com/2024/01/2606a63505eb05cba26aa55ab824c8c1.jpg'); background-size:90%; transform:rotate(290deg) rotateX(180deg);">
         </button>
-        <button id="hand1" class="pointer-events-auto bg-blue-700 rounded-full w-[42px] h-[42px] ml-auto"
-          style="background:url('https://nagasasank.files.wordpress.com/2024/01/8d8140bf5b28d4dffd7950454133c21f.jpg');background-size:100%;">
+        <button id="hand1" class="action-btn pointer-events-auto bg-blue-700 rounded-full ml-auto"
+          style="background:url('https://nagasasank.files.wordpress.com/2024/01/8d8140bf5b28d4dffd7950454133c21f.jpg'); background-size:100%;">
         </button>
       </div>
     </div>
-    <!-- Toggle Controls (Left & Right) -->
-    <div id="toggleswitch" class="absolute left-[-45px] bottom-[210px] flex flex-col items-center bg-black rounded-full border-2 border-black w-[70px] h-[90px] z-10">
+
+    <!-- Left and right toggle button groups -->
+    <div id="toggleswitch" class="absolute -left-9 bottom-[27.5%] flex flex-col items-center bg-black rounded-full border-2 border-black w-[70px] h-[90px] z-10">
       <div class="flex gap-2 mt-2">
-        <button id="up" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">U</button>
-        <button id="down" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">D</button>
+        <button id="up" class="bg-gray-700 text-white rounded-full px-2 py-1">U</button>
+        <button id="down" class="bg-gray-700 text-white rounded-full px-2 py-1">D</button>
       </div>
       <div class="flex gap-2 mb-1">
-        <button id="right" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">R</button>
-        <button id="left" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">L</button>
+        <button id="right" class="bg-gray-700 text-white rounded-full px-2 py-1">R</button>
+        <button id="left" class="bg-gray-700 text-white rounded-full px-2 py-1">L</button>
       </div>
-      <div id="toggle" class="w-[32px] h-[32px] rounded-full border-2 border-white mt-1"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/61a680b3b2502989374c6836540dbdc6.jpg');background-size:90%;transform:rotate(290deg) rotateX(180deg);"></div>
+      <div id="toggle" class="w-8 h-8 rounded-full border-2 border-white mt-1"
+        style="background:url('https://nagasasank.files.wordpress.com/2024/01/61a680b3b2502989374c6836540dbdc6.jpg'); background-size:90%; transform:rotate(290deg) rotateX(180deg);"></div>
     </div>
-    <div id="toggleswitch1" class="absolute right-[-45px] bottom-[210px] flex flex-col items-center bg-black rounded-full border-2 border-black w-[70px] h-[90px] z-10">
+    <div id="toggleswitch1" class="absolute -right-9 bottom-[27.5%] flex flex-col items-center bg-black rounded-full border-2 border-black w-[70px] h-[90px] z-10">
       <div class="flex gap-2 mt-2">
-        <button id="up1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">U</button>
-        <button id="down1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">D</button>
+        <button id="up1" class="bg-gray-700 text-white rounded-full px-2 py-1">U</button>
+        <button id="down1" class="bg-gray-700 text-white rounded-full px-2 py-1">D</button>
       </div>
       <div class="flex gap-2 mb-1">
-        <button id="right1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">R</button>
-        <button id="left1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">L</button>
+        <button id="right1" class="bg-gray-700 text-white rounded-full px-2 py-1">R</button>
+        <button id="left1" class="bg-gray-700 text-white rounded-full px-2 py-1">L</button>
       </div>
-      <div id="toggle1" class="w-[32px] h-[32px] rounded-full border-2 border-white mt-1"></div>
+      <div id="toggle1" class="w-8 h-8 rounded-full border-2 border-white mt-1"></div>
     </div>
   </div>
+
+
+        
 
 
 <script>

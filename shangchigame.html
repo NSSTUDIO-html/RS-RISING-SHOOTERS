@@ -6,85 +6,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="overflow-auto bg-black text-white p-4">
-  <label class="block font-bold mb-1">ShangChi:</label>
-  <meter id="shangchibar" min="0" max="100" value="100" class="w-2/3 h-3 align-middle"></meter>
-  <span id="shangchiPercentage" class="ml-2">100</span>
-  <div id="wenvubar" class="float-right -mt-12 mb-2">
-    <label class="block font-bold">Wenwu:</label>
-    <span id="wenvuPercentage">100</span>
-    <meter id="wenvubar1" min="0" max="100" value="100" class="w-2/3 h-3 align-middle"></meter>
+<body class="bg-black text-white p-4 min-h-screen">
+  <!-- HP Bars in a Flex Row -->
+  <div class="flex justify-between items-center mb-4 max-w-[340px] mx-auto">
+    <div class="flex items-center gap-2">
+      <span class="font-bold">ShangChi:</span>
+      <meter id="shangchibar" min="0" max="100" value="100" class="w-32 h-3"></meter>
+      <span id="shangchiPercentage" class="ml-2">100</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="font-bold">Wenwu:</span>
+      <span id="wenvuPercentage">100</span>
+      <meter id="wenvubar1" min="0" max="100" value="100" class="w-32 h-3"></meter>
+    </div>
   </div>
 
-  <!-- Absolute UI elements require a relative parent for proper alignment! -->
-  <div class="relative h-[500px] w-[340px] mx-auto">
-    <div id="gamebox" class="relative h-[400px] w-[340px] border-2 border-black rounded-md mb-4"
-      style="background:url('https://nagasasank.files.wordpress.com/2024/01/images283929-1.jpeg'); background-size:120%;">
-      <div id="shangchi" class="absolute top-[150px] left-[20px] h-[100px] w-[42px]"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__34_-removebg-preview.png'); background-size:cover;">
-      </div>
-      <div id="wenvu" class="absolute top-[50px] left-[270px] h-[100px] w-[50px]"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240116_094844-removebg-preview28229-1.png'); background-size:110%;">
-      </div>
-      <div id="land" class="absolute top-[50px] h-[150px] w-[340px] brightness-80"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/images284029.jpeg'); background-size:contain;">
-      </div>
+  <!-- Main GameBox Area -->
+  <div class="relative h-[400px] w-[340px] mx-auto border-2 border-black rounded-md mb-5 overflow-hidden"
+    style="background:url('https://nagasasank.files.wordpress.com/2024/01/images283929-1.jpeg');background-size:120%;">
+    <!-- Characters -->
+    <div id="shangchi" class="absolute top-[150px] left-[20px] h-[100px] w-[42px]"
+      style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__34_-removebg-preview.png'); background-size:cover;">
+    </div>
+    <div id="wenvu" class="absolute top-[50px] left-[270px] h-[100px] w-[50px]"
+      style="background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240116_094844-removebg-preview28229-1.png'); background-size:110%;">
+    </div>
+    <!-- Land -->
+    <div id="land" class="absolute top-[50px] h-[150px] w-full brightness-80 left-0"
+      style="background:url('https://nagasasank.files.wordpress.com/2024/01/images284029.jpeg'); background-size:contain;">
     </div>
 
-    <div class=" absolute left-0 bottom-0 w-full pointer-events-none">
-      <!-- All action buttons are absolutely positioned within this relative parent -->
-      <button id="regs" class="pointer-events-auto bg-red-700 rounded-full w-[50px] h-[50px] absolute left-[88px] bottom-[60px]"
+    <!-- Action Buttons Area (flex centered at bottom) -->
+    <div class="absolute left-0 bottom-0 w-full flex justify-center gap-3 pb-3 pointer-events-none">
+      <button id="regs" class="pointer-events-auto bg-red-700 rounded-full w-[48px] h-[48px]"
         style="background:url('https://nagasasank.files.wordpress.com/2024/01/download2817293403331269960801411.jpg'); background-size:110%; background-position:center;">
       </button>
-      <button id="regw" class="pointer-events-auto bg-blue-700 rounded-full w-[50px] h-[50px] absolute left-[150px] bottom-[60px]"
+      <button id="regw" class="pointer-events-auto bg-blue-700 rounded-full w-[48px] h-[48px]"
         style="background:url('https://nagasasank.files.wordpress.com/2024/01/download2818295595353980867943226.jpg'); background-size:100%; background-position:center;">
       </button>
-      <button id="stick" class="pointer-events-auto bg-red-700 rounded-full w-[50px] h-[50px] absolute left-[30px] bottom-[120px]"
+    </div>
+    <!-- Misc Action Buttons - evenly spaced above -->
+    <div class="absolute left-0 right-0 bottom-[65px] flex justify-between px-5 pointer-events-none">
+      <button id="stick" class="pointer-events-auto bg-red-700 rounded-full w-[42px] h-[42px]"
         style="background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
       </button>
-      <button id="ring1" class="pointer-events-auto h-[10px] w-[15px] absolute left-[60px] bottom-[150px]"
-        style="transform:rotate(140deg); background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
-      </button>
-      <button id="rS" class="pointer-events-auto bg-red-700 rounded-full w-[50px] h-[50px] absolute right-[160px] bottom-[180px] filter hue-rotate-120"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
-      </button>
-      <button id="rW" class="pointer-events-auto bg-blue-700 rounded-full w-[50px] h-[50px] absolute right-[50px] bottom-[180px]"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
-      </button>
-      <button id="hand" class="pointer-events-auto bg-red-700 rounded-full w-[50px] h-[50px] absolute right-[5px] bottom-[120px]"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/2606a63505eb05cba26aa55ab824c8c1.jpg'); background-size:90%; transform:rotate(290deg) rotateX(180deg);">
-      </button>
-      <button id="hand1" class="pointer-events-auto bg-blue-700 rounded-full w-[50px] h-[50px] absolute left-[240px] bottom-[120px]"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/8d8140bf5b28d4dffd7950454133c21f.jpg'); background-size:100%;">
-      </button>
+      <div class="flex flex-col gap-2">
+        <button id="ring1" class="pointer-events-auto h-[18px] w-[24px] mt-2"
+          style="transform:rotate(140deg);background:url('https://nagasasank.files.wordpress.com/2024/01/img_20240115_163452-removebg-preview.png'); background-size:110%;">
+        </button>
+        <button id="rS" class="pointer-events-auto bg-red-700 rounded-full w-[42px] h-[42px] filter hue-rotate-120"
+          style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
+        </button>
+        <button id="rW" class="pointer-events-auto bg-blue-700 rounded-full w-[42px] h-[42px]"
+          style="background:url('https://nagasasank.files.wordpress.com/2024/01/images__36_-removebg-preview.png'); background-size:150%;">
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <button id="hand" class="pointer-events-auto bg-red-700 rounded-full w-[42px] h-[42px] ml-auto"
+          style="background:url('https://nagasasank.files.wordpress.com/2024/01/2606a63505eb05cba26aa55ab824c8c1.jpg'); background-size:90%; transform:rotate(290deg) rotateX(180deg);">
+        </button>
+        <button id="hand1" class="pointer-events-auto bg-blue-700 rounded-full w-[42px] h-[42px] ml-auto"
+          style="background:url('https://nagasasank.files.wordpress.com/2024/01/8d8140bf5b28d4dffd7950454133c21f.jpg');background-size:100%;">
+        </button>
+      </div>
     </div>
-
-    <!-- Place toggles above action bar, below the game area -->
-    <div id="toggleswitch" class="absolute left-2 bottom-[230px] flex flex-col items-center justify-center bg-black rounded-full border-2 border-black w-[90px] h-[90px] mb-3 z-10">
-      <div class="flex gap-2 mb-1">
-        <button id="up" class="bg-gray-700 text-white rounded-full px-3 py-1">U</button>
-        <button id="down" class="bg-gray-700 text-white rounded-full px-3 py-1">D</button>
+    <!-- Toggle Controls (Left & Right) -->
+    <div id="toggleswitch" class="absolute left-[-45px] bottom-[210px] flex flex-col items-center bg-black rounded-full border-2 border-black w-[70px] h-[90px] z-10">
+      <div class="flex gap-2 mt-2">
+        <button id="up" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">U</button>
+        <button id="down" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">D</button>
       </div>
       <div class="flex gap-2 mb-1">
-        <button id="right" class="bg-gray-700 text-white rounded-full px-3 py-1">R</button>
-        <button id="left" class="bg-gray-700 text-white rounded-full px-3 py-1">L</button>
+        <button id="right" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">R</button>
+        <button id="left" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">L</button>
       </div>
-      <div id="toggle" class="w-[40px] h-[40px] rounded-full border-2 border-white mt-1"
-        style="background:url('https://nagasasank.files.wordpress.com/2024/01/61a680b3b2502989374c6836540dbdc6.jpg'); background-size:90%; transform:rotate(290deg) rotateX(180deg);"></div>
+      <div id="toggle" class="w-[32px] h-[32px] rounded-full border-2 border-white mt-1"
+        style="background:url('https://nagasasank.files.wordpress.com/2024/01/61a680b3b2502989374c6836540dbdc6.jpg');background-size:90%;transform:rotate(290deg) rotateX(180deg);"></div>
     </div>
-    <div id="toggleswitch1" class="absolute right-2 bottom-[230px] flex flex-col items-center justify-center bg-black rounded-full border-2 border-black w-[90px] h-[90px] mb-3 z-10">
-      <div class="flex gap-2 mb-1">
-        <button id="up1" class="bg-gray-700 text-white rounded-full px-3 py-1">U</button>
-        <button id="down1" class="bg-gray-700 text-white rounded-full px-3 py-1">D</button>
+    <div id="toggleswitch1" class="absolute right-[-45px] bottom-[210px] flex flex-col items-center bg-black rounded-full border-2 border-black w-[70px] h-[90px] z-10">
+      <div class="flex gap-2 mt-2">
+        <button id="up1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">U</button>
+        <button id="down1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">D</button>
       </div>
       <div class="flex gap-2 mb-1">
-        <button id="right1" class="bg-gray-700 text-white rounded-full px-3 py-1">R</button>
-        <button id="left1" class="bg-gray-700 text-white rounded-full px-3 py-1">L</button>
+        <button id="right1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">R</button>
+        <button id="left1" class="bg-gray-700 text-white rounded-full px-[10px] py-[4px]">L</button>
       </div>
-      <div id="toggle1" class="w-[40px] h-[40px] rounded-full border-2 border-white mt-1"></div>
+      <div id="toggle1" class="w-[32px] h-[32px] rounded-full border-2 border-white mt-1"></div>
     </div>
-
   </div>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {

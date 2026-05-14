@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shang-Chi VS Wenwu</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    user-select:none;
+}
+
+body{
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    background:black;
+}
+
+/* GAME AREA */
+
+.game{
+    width:100vw;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(to top,#111,#000);
+}
+
+/* TITLE */
+
+.title{
+    position:absolute;
+    top:10px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:clamp(25px,4vw,50px);
+    font-weight:bold;
+    text-shadow:0 0 20px orange;
+    z-index:10;
+}
+
+/* HEALTH */
+
+.health-container{
+    position:absolute;
+    top:70px;
+
+    width:30vw;
+    max-width:300px;
+    min-width:120px;
+
+    height:25px;
+
+    border:3px solid white;
+    background:#333;
+
+    overflow:hidden;
+}
+
+#playerHealthContainer{
+    left:15px;
+}
+
+#enemyHealthContainer{
+    right:15px;
+}
+
+.health{
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(to right,lime,green);
+
+    transition:0.2s;
+}
+
+/* CHARACTER */
+
+.character{
+    position:absolute;
+    bottom:80px;
+
+    width:min(25vw,220px);
+    height:min(35vw,320px);
+
+    min-width:120px;
+    min-height:180px;
+
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+
+    transition:
+    left 0.08s,
+    bottom 0.08s,
+    transform 0.1s;
+}
+
+/* SHANGCHI */
+
+#player{
+    left:5vw;
+
+    background-image:
+    url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b8d2b12-21e8-4931-8a6d-fb9ecdd60383/deq7yi5-f5952965-49b0-4f99-ad25-21d4f45d749f.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi81YjhkMmIxMi0yMWU4LTQ5MzEtOGE2ZC1mYjllY2RkNjAzODMvZGVxN3lpNS1mNTk1Mjk2NS00OWIwLTRmOTktYWQyNS0yMWQ0ZjQ1ZDc0OWYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.jE1JX0uFBpjVRh5Oc-FMIxrmE04mYOMTxfxBeQkLt30");
+  
+}
+
+/* WENWU */
+
+#enemy{
+    right:5vw;
+
+    background-image:
+    url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5b8d2b12-21e8-4931-8a6d-fb9ecdd60383/deq7yu5-56bcaedd-6d45-4534-90c2-7f90c8b201ac.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi81YjhkMmIxMi0yMWU4LTQ5MzEtOGE2ZC1mYjllY2RkNjAzODMvZGVxN3l1NS01NmJjYWVkZC02ZDQ1LTQ1MzQtOTBjMi03ZjkwYzhiMjAxYWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.bfcH55dvjz-RF02hhVl7ot4DDxjjzFFelnrAPGtDJ2E");
+
+    transform:scaleX(-1);
+}
+
+/* GROUND */
+
+.ground{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:90px;
+
+    background:
+    linear-gradient(to right,#222,#111);
+
+    border-top:4px solid orange;
+}
+
+/* HIT EFFECT */
+
+.hit{
+    filter:
+    brightness(3)
+    drop-shadow(0 0 20px red);
+}
+
+/* GAME OVER */
+
+.gameOver{
+    position:absolute;
+    top:40%;
+    width:100%;
+    text-align:center;
+
+    color:red;
+
+    font-size:clamp(35px,7vw,90px);
+
+    font-weight:bold;
+
+    text-shadow:0 0 30px red;
+
+    display:none;
+
+    z-index:30;
+}
+
+/* CONTROLS */
+
+.controls{
+    position:absolute;
+    bottom:5px;
+    width:100%;
+    text-align:center;
+
+    color:white;
+
+    font-size:14px;
+
+    z-index:20;
+}
+
+/* MOBILE BUTTONS */
+
+.mobileControls{
+    position:absolute;
+    bottom:100px;
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+
+    padding:15px;
+
+    z-index:25;
+}
+
+.leftControls,
+.rightControls{
+    display:flex;
+    gap:10px;
+}
+
+/* BUTTON */
+
+.btn{
+    width:65px;
+    height:65px;
+
+    border:none;
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,0.15);
+
+    color:white;
+
+    font-size:24px;
+    font-weight:bold;
+
+    backdrop-filter:blur(5px);
+
+    box-shadow:0 0 10px rgba(255,255,255,0.3);
+}
+
+.btn:active{
+    transform:scale(0.92);
+}
+
+/* POWER TEXT */
+
+.powers{
+    position:absolute;
+    top:110px;
+    width:100%;
+    text-align:center;
+
+    color:gold;
+
+    font-size:14px;
+
+    z-index:20;
+}
+
+/* POWER EFFECTS */
+
+.power{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .btn{
+        width:55px;
+        height:55px;
+        font-size:20px;
+    }
+
+    .controls{
+        font-size:12px;
+    }
+
+    .powers{
+        font-size:11px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="game">
+
+    <div class="title">
+        SHANG-CHI VS WENWU
+    </div>
+
+    <!-- HEALTH -->
+
+    <div
+    class="health-container"
+    id="playerHealthContainer">
+
+        <div
+        class="health"
+        id="playerHealth"></div>
+    </div>
+
+    <div
+    class="health-container"
+    id="enemyHealthContainer">
+
+        <div
+        class="health"
+        id="enemyHealth"></div>
+    </div>
+
+    <!-- POWERS -->
+
+    <div class="powers">
+        1 Fire |
+        2 Lightning |
+        3 Dragon Punch |
+        4 Speed Dash |
+        5 Energy Blast
+    </div>
+
+    <!-- PLAYER -->
+
+    <div
+    id="player"
+    class="character"></div>
+
+    <!-- ENEMY -->
+
+    <div
+    id="enemy"
+    class="character"></div>
+
+    <!-- GROUND -->
+
+    <div class="ground"></div>
+
+    <!-- GAME OVER -->
+
+    <div
+    class="gameOver"
+    id="gameOverText"></div>
+
+    <!-- CONTROLS -->
+
+    <div class="controls">
+        PC:
+        ⬅ ➡ Move |
+        SPACE Jump |
+        F Attack |
+        1-5 Powers
+    </div>
+
+    <!-- MOBILE BUTTONS -->
+
+    <div class="mobileControls">
+
+        <div class="leftControls">
+
+            <button
+            class="btn"
+            id="leftBtn">⬅</button>
+
+            <button
+            class="btn"
+            id="rightBtn">➡</button>
+
+        </div>
+
+        <div class="rightControls">
+
+            <button
+            class="btn"
+            id="jumpBtn">⬆</button>
+
+            <button
+            class="btn"
+            id="attackBtn">⚔</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* ELEMENTS */
+
+const player =
+document.getElementById("player");
+
+const enemy =
+document.getElementById("enemy");
+
+const playerHealthBar =
+document.getElementById("playerHealth");
+
+const enemyHealthBar =
+document.getElementById("enemyHealth");
+
+const gameOverText =
+document.getElementById("gameOverText");
+
+/* BUTTONS */
+
+const leftBtn =
+document.getElementById("leftBtn");
+
+const rightBtn =
+document.getElementById("rightBtn");
+
+const jumpBtn =
+document.getElementById("jumpBtn");
+
+const attackBtn =
+document.getElementById("attackBtn");
+
+/* GAME DATA */
+
+let playerX = 80;
+let playerBottom = 80;
+
+let enemyX =
+window.innerWidth - 300;
+
+let playerHealth = 100;
+let enemyHealth = 100;
+
+let velocityY = 0;
+let jumping = false;
+
+let gameEnded = false;
+
+const gravity = 1;
+
+const keys = {};
+
+/* KEYBOARD */
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+    keys[e.key.toLowerCase()] = true;
+
+    if(
+        e.code === "Space"
+        &&
+        !jumping
+    ){
+
+        jump();
+    }
+
+    if(
+        e.key.toLowerCase() === "f"
+    ){
+
+        attackEnemy();
+    }
+
+    /* POWERS */
+
+    if(e.key === "1"){
+        firePower();
+    }
+
+    if(e.key === "2"){
+        lightningPower();
+    }
+
+    if(e.key === "3"){
+        dragonPunch();
+    }
+
+    if(e.key === "4"){
+        speedDash();
+    }
+
+    if(e.key === "5"){
+        energyBlast();
+    }
+});
+
+document.addEventListener(
+"keyup",
+(e)=>{
+
+    keys[e.key.toLowerCase()] = false;
+});
+
+/* MOBILE BUTTONS */
+
+function holdButton(btn,key){
+
+    btn.addEventListener(
+    "touchstart",
+    ()=>{
+
+        keys[key] = true;
+
+    });
+
+    btn.addEventListener(
+    "touchend",
+    ()=>{
+
+        keys[key] = false;
+
+    });
+
+    btn.addEventListener(
+    "mousedown",
+    ()=>{
+
+        keys[key] = true;
+
+    });
+
+    btn.addEventListener(
+    "mouseup",
+    ()=>{
+
+        keys[key] = false;
+
+    });
+}
+
+holdButton(leftBtn,"left");
+holdButton(rightBtn,"right");
+
+/* JUMP */
+
+jumpBtn.addEventListener(
+"touchstart",
+jump);
+
+jumpBtn.addEventListener(
+"mousedown",
+jump);
+
+/* ATTACK */
+
+attackBtn.addEventListener(
+"touchstart",
+attackEnemy);
+
+attackBtn.addEventListener(
+"mousedown",
+attackEnemy);
+
+/* JUMP FUNCTION */
+
+function jump(){
+
+    if(jumping || gameEnded) return;
+
+    jumping = true;
+
+    velocityY = -20;
+}
+
+/* PLAYER MOVEMENT */
+
+function movePlayer(){
+
+    if(gameEnded) return;
+
+    if(
+        keys["arrowleft"]
+        ||
+        keys["left"]
+    ){
+
+        playerX -= 7;
+
+        player.style.transform =
+        "scaleX(-1)";
+    }
+
+    if(
+        keys["arrowright"]
+        ||
+        keys["right"]
+    ){
+
+        playerX += 7;
+
+        player.style.transform =
+        "scaleX(1)";
+    }
+
+    const maxX =
+    window.innerWidth -
+    player.offsetWidth;
+
+    if(playerX < 0){
+
+        playerX = 0;
+    }
+
+    if(playerX > maxX){
+
+        playerX = maxX;
+    }
+
+    /* GRAVITY */
+
+    if(jumping){
+
+        playerBottom -= velocityY;
+
+        velocityY += gravity;
+
+        if(playerBottom <= 80){
+
+            playerBottom = 80;
+
+            jumping = false;
+        }
+    }
+
+    player.style.left =
+    playerX + "px";
+
+    player.style.bottom =
+    playerBottom + "px";
+}
+
+/* NORMAL ATTACK */
+
+function attackEnemy(){
+
+    if(gameEnded) return;
+
+    const distance =
+    Math.abs(enemyX - playerX);
+
+    if(distance < 220){
+
+        damageEnemy(10);
+
+        createHitEffect();
+    }
+}
+
+/* DAMAGE */
+
+function damageEnemy(amount){
+
+    enemyHealth -= amount;
+
+    if(enemyHealth < 0){
+
+        enemyHealth = 0;
+    }
+
+    enemyHealthBar.style.width =
+    enemyHealth + "%";
+
+    enemy.classList.add("hit");
+
+    setTimeout(()=>{
+
+        enemy.classList.remove("hit");
+
+    },200);
+
+    checkWinner();
+}
+
+/* HIT EFFECT */
+
+function createHitEffect(){
+
+    const effect =
+    document.createElement("div");
+
+    effect.className = "power";
+
+    effect.style.width = "100px";
+    effect.style.height = "100px";
+
+    effect.style.border =
+    "6px solid gold";
+
+    effect.style.left =
+    (playerX + 100) + "px";
+
+    effect.style.bottom =
+    (playerBottom + 80) + "px";
+
+    effect.style.boxShadow =
+    "0 0 30px orange";
+
+    document.body.appendChild(effect);
+
+    setTimeout(()=>{
+
+        effect.remove();
+
+    },250);
+}
+
+/* =========================
+   POWER 1 : FIRE
+========================= */
+
+function firePower(){
+
+    if(gameEnded) return;
+
+    const fire =
+    document.createElement("div");
+
+    fire.className = "power";
+
+    fire.style.width = "80px";
+    fire.style.height = "80px";
+
+    fire.style.background =
+    "orange";
+
+    fire.style.boxShadow =
+    "0 0 40px red";
+
+    fire.style.left =
+    (playerX + 100) + "px";
+
+    fire.style.bottom =
+    (playerBottom + 100) + "px";
+
+    document.body.appendChild(fire);
+
+    let fireX =
+    playerX + 100;
+
+    const move =
+    setInterval(()=>{
+
+        fireX += 20;
+
+        fire.style.left =
+        fireX + "px";
+
+        if(
+            Math.abs(fireX - enemyX)
+            < 100
+        ){
+
+            damageEnemy(20);
+
+            fire.remove();
+
+            clearInterval(move);
+        }
+
+    },20);
+
+    setTimeout(()=>{
+        fire.remove();
+        clearInterval(move);
+    },2500);
+}
+
+/* =========================
+   POWER 2 : LIGHTNING
+========================= */
+
+function lightningPower(){
+
+    if(gameEnded) return;
+
+    const bolt =
+    document.createElement("div");
+
+    bolt.style.position =
+    "absolute";
+
+    bolt.style.width = "20px";
+    bolt.style.height = "300px";
+
+    bolt.style.background =
+    "cyan";
+
+    bolt.style.boxShadow =
+    "0 0 40px white";
+
+    bolt.style.left =
+    enemyX + "px";
+
+    bolt.style.top = "50px";
+
+    document.body.appendChild(
+    bolt
+    );
+
+    damageEnemy(25);
+
+    setTimeout(()=>{
+
+        bolt.remove();
+
+    },250);
+}
+
+/* =========================
+   POWER 3 : DRAGON PUNCH
+========================= */
+
+function dragonPunch(){
+
+    if(gameEnded) return;
+
+    player.style.transform =
+    "scale(1.2)";
+
+    playerX += 180;
+
+    damageEnemy(30);
+
+    setTimeout(()=>{
+
+        player.style.transform =
+        "scaleX(1)";
+
+    },300);
+}
+
+/* =========================
+   POWER 4 : SPEED DASH
+========================= */
+
+function speedDash(){
+
+    if(gameEnded) return;
+
+    let count = 0;
+
+    const dash =
+    setInterval(()=>{
+
+        playerX += 30;
+
+        count++;
+
+        if(count > 10){
+
+            clearInterval(dash);
+        }
+
+    },20);
+}
+
+/* =========================
+   POWER 5 : ENERGY BLAST
+========================= */
+
+function energyBlast(){
+
+    if(gameEnded) return;
+
+    const blast =
+    document.createElement("div");
+
+    blast.className = "power";
+
+    blast.style.width = "180px";
+    blast.style.height = "180px";
+
+    blast.style.background =
+    "radial-gradient(yellow,orange,red)";
+
+    blast.style.boxShadow =
+    "0 0 80px orange";
+
+    blast.style.left =
+    (playerX + 50) + "px";
+
+    blast.style.bottom =
+    (playerBottom + 50) + "px";
+
+    document.body.appendChild(
+    blast
+    );
+
+    damageEnemy(40);
+
+    setTimeout(()=>{
+
+        blast.remove();
+
+    },500);
+}
+
+/* =========================
+   ENEMY AI
+========================= */
+
+function enemyAI(){
+
+    if(gameEnded) return;
+
+    if(enemyX > playerX + 150){
+
+        enemyX -= 2;
+    }
+
+    if(enemyX < playerX + 100){
+
+        enemyX += 2;
+    }
+
+    enemy.style.left =
+    enemyX + "px";
+
+    const distance =
+    Math.abs(enemyX - playerX);
+
+    /* WENWU RANDOM POWERS */
+
+    if(distance < 220){
+
+        if(Math.random() < 0.015){
+
+            playerHealth -= 6;
+
+            player.classList.add("hit");
+
+            setTimeout(()=>{
+
+                player.classList.remove(
+                "hit");
+
+            },200);
+
+            playerHealthBar.style.width =
+            playerHealth + "%";
+
+            checkWinner();
+        }
+
+        /* SPECIAL POWER */
+
+        if(Math.random() < 0.005){
+
+            wenwuPower();
+        }
+    }
+}
+
+/* WENWU POWER */
+
+function wenwuPower(){
+
+    const ring =
+    document.createElement("div");
+
+    ring.className = "power";
+
+    ring.style.width = "160px";
+    ring.style.height = "160px";
+
+    ring.style.border =
+    "8px solid blue";
+
+    ring.style.boxShadow =
+    "0 0 50px cyan";
+
+    ring.style.left =
+    enemyX + "px";
+
+    ring.style.bottom =
+    "150px";
+
+    document.body.appendChild(
+    ring
+    );
+
+    playerHealth -= 20;
+
+    if(playerHealth < 0){
+
+        playerHealth = 0;
+    }
+
+    playerHealthBar.style.width =
+    playerHealth + "%";
+
+    setTimeout(()=>{
+
+        ring.remove();
+
+    },500);
+
+    checkWinner();
+}
+
+/* WINNER */
+
+function checkWinner(){
+
+    if(enemyHealth <= 0){
+
+        gameEnded = true;
+
+        gameOverText.innerText =
+        "SHANG-CHI WINS";
+
+        gameOverText.style.display =
+        "block";
+    }
+
+    if(playerHealth <= 0){
+
+        gameEnded = true;
+
+        gameOverText.innerText =
+        "WENWU WINS";
+
+        gameOverText.style.display =
+        "block";
+    }
+}
+
+/* GAME LOOP */
+
+function gameLoop(){
+
+    movePlayer();
+
+    enemyAI();
+
+    requestAnimationFrame(
+    gameLoop
+    );
+}
+
+gameLoop();
+
+</script>
+
+</body>
+</html>
